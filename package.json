@@ -1,0 +1,18 @@
+{
+	"dependencies": {},
+	"scripts": {
+		"dev": "node -r dotenv/config dev.js",
+		"build": "node -r dotenv/config build.js"
+	},
+	"devDependencies": {
+		"@nodelib/fs.walk": "^1.2.4",
+		"contentful": "^7.14.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"handlebars": "^4.7.3",
+		"helper-markdown": "^1.0.0",
+		"lodash": "^4.17.15",
+		"mkdirp": "^1.0.3",
+		"prettier": "^2.0.2"
+	}
+}

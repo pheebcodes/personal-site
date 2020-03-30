@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>chance dickson.</title>
+
+	<!--
+		you won't find a script tag here. i like react but we don't need it on this site.
+	-->
+	<link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.0/normalize.css">
+	<link rel="stylesheet" href="https://use.typekit.net/akc8qfl.css">
+	<style>
+		:root {
+			--white: #ffffff;
+			--black: #231f20;
+			--container-width: 900px;
+			--left-width: calc(var(--container-width) / 4);
+			--right-width: calc(100% - var(--left-width));
+		}
+
+		*,
+		::after,
+		::before {
+			box-sizing: border-box;
+			margin: 0;
+			text-transform: lowercase;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		body {
+			margin: 0;
+			line-height: 1.15;
+			letter-spacing: 0.7px;
+		}
+
+		a {
+			color: var(--black);
+			font-weight: 600;
+		}
+
+		header {
+			/* + 2px to account for background in logo-left... TODO remove background */
+			--threshold: calc((100% - var(--container-width)) / 2 + var(--left-width) + 2px);
+			background: linear-gradient(90deg, var(--black) var(--threshold), var(--white) var(--threshold));
+		}
+
+		header .left,
+		header .right {
+			justify-content: center;
+		}
+
+		header .left {
+			padding-right: 0;
+		}
+
+		header .right {
+			padding-left: 0.346in;
+		}
+
+		header nav {
+			padding-top: 2rem;
+			padding-left: 0.25rem;
+		}
+
+		header nav a {
+			color: var(--black);
+			font-size: 1.25rem;
+			text-decoration: none;
+			padding-right: 1rem;
+			font-weight: 400;
+		}
+
+		footer .left {
+			justify-content: center;
+			flex-basis: 50%;
+			padding-right: 1rem;
+		}
+
+		footer .right {
+			justify-content: center;
+			flex-basis: 50%;
+			padding-left: 1rem;
+		}
+
+		footer article a {
+			text-decoration: none;
+			font-weight: 400;
+			padding: 8px;
+			display: inline-flex;
+			align-items: center;
+		}
+
+		footer article a span {
+			padding-left: 0.5rem;
+		}
+
+		main p {
+			line-height: 1.5;
+		}
+
+		main .container {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+
+		main article {
+			padding-bottom: 2rem;
+		}
+
+		main article h3 {
+			padding-bottom: 0.25rem;
+		}
+
+		main article p.date-location {
+			padding-bottom: 0.5rem;
+		}
+
+		main article p:not(.date-location) {
+			padding-top: 0.5rem;
+		}
+
+		main article img {
+			max-width: 100%;
+			padding-top: 1rem;
+		}
+
+		main article nav {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: normal;
+			justify-content: normal;
+			margin-left: -8px;
+			padding-top: 0.5rem;
+		}
+
+		main article nav a {
+			display: inline-flex;
+			align-items: center;
+			border-radius: 50%;
+			padding: 8px;
+			background-color: transparent;
+			color: var(--black);
+			text-decoration: none;
+		}
+
+		main article nav a:hover {
+			background-color: var(--black);
+			color: var(--white);
+		}
+
+		.container {
+			display: flex;
+			flex-direction: row;
+			flex: 1;
+			min-height: 100vh;
+			width: 900px;
+			margin: auto;
+			display: flex;
+			flex: 1;
+			min-height: 100vh;
+			flex-wrap: nowrap;
+		}
+
+		.left {
+			display: flex;
+			flex-direction: column;
+			flex-basis: 25%;
+			align-items: flex-end;
+			overflow: hidden;
+			padding-right: 0.296in;
+		}
+
+		.right {
+			display: flex;
+			flex-direction: column;
+			flex-basis: 75%;
+			padding-left: 0.346in;
+		}
+
+		.logo-left {
+			width: 1.76in;
+		}
+
+		.logo-right {
+			width: 2.89in;
+		}
+
+		.invisible {
+			visibility: hidden;
+		}
+
+		.feather {
+			width: 20px;
+			height: 20px;
+			stroke: currentColor;
+			stroke-width: 2;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			fill: none;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<section class="container">
+			<section class="left" aria-hidden="true">
+				<img class="logo-left" src="/{{assets.[logo-left.png]}}" />
+			</section>
+			<section class="right">
+				<nav class="invisible" aria-hidden="true">
+					<a href="#projects">projects.</a>
+					<a href="#history">history.</a>
+					<a href="#contact">contact.</a>
+				</nav>
+				<img alt="chance dickson logo" class="logo-right" src="/{{assets.[logo-right.png]}}" />
+				<nav>
+					<a href="#projects">projects.</a>
+					<a href="#history">history.</a>
+					<a href="#contact">contact.</a>
+				</nav>
+			</section>
+		</section>
+	</header>
+
+	<main>
+		<section id="projects" class="container">
+			<section class="left">
+				<h2>projects.</h2>
+			</section>
+
+			<section class="right">
+				{{#each projects}}
+				<article>
+					<h3>{{name}}</h3>
+					{{#markdown}}{{description}}{{/markdown}}
+					{{#if image}}
+					{{#with image}}
+					<img alt="{{title}}" src="{{url}}" />
+					{{/with}}
+					{{/if}}
+					<nav>
+						<a href="https://github.com/chancedickson/carbon" aria-label="view on github." title="view on github.">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+								stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+								aria-hidden="true">
+								<path
+									d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+								</path>
+							</svg>
+						</a>
+					</nav>
+				</article>
+				{{/each}}
+			</section>
+		</section>
+
+		<section id="history" class="container">
+			<section class="left">
+				<h2>history.</h2>
+			</section>
+
+			<section class="right">
+				{{#each history}}
+				<article>
+					<h3>{{name}}</h3>
+					<p class="date-location">
+						{{location}}
+
+						{{#if (and timePeriod location)}}
+						&mdash;
+						{{/if}}
+
+						{{#if timePeriod}}
+						<i>{{timePeriod}}</i>
+						{{/if}}
+					</p>
+					<p>
+						{{description}}
+					</p>
+				</article>
+				{{/each}}
+			</section>
+		</section>
+	</main>
+
+	<footer id="contact" class="container">
+		<section class="left">
+			<h2>contact.</h2>
+		</section>
+
+		<section class="right">
+			{{#each social}}
+			<article>
+				<a href="{{url}}" aria-label="{{label}}">
+					<svg class="feather">
+						<use xlink:href="/{{../assets.[feather-sprite.svg]}}#{{icon}}" />
+					</svg>
+					<span aria-hidden="true">{{text}}</span>
+				</a>
+			</article>
+			{{/each}}
+
+			<article>
+				<a href="/{{assets.[chance-dickson-resume.pdf]}}" aria-label="Download Resumé">
+					<svg class="feather">
+						<use xlink:href="/{{assets.[feather-sprite.svg]}}#file-text" />
+					</svg>
+					<span aria-hidden="true">Resumé</span>
+				</a>
+			</article>
+		</section>
+	</footer>
+</body>
+
+</html>
