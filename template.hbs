@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<title>chance dickson.</title>
 	<link rel="preconnect" href="https://use.typekit.net">
+	<link rel="preload" href="https://unpkg.com/feather-icons@4.26.0/dist/feather-sprite.svg" as="image">
 
 	<!--
 		you won't find a script tag here. i ❤️ react but it's not necessary for this site.
@@ -107,7 +108,7 @@
 			<article>
 				<a href="{{url}}" aria-label="{{label}}">
 					<svg class="feather">
-						<use xlink:href="/{{../assets.[feather-sprite.svg]}}#{{icon}}" />
+						<use xlink:href="https://unpkg.com/feather-icons@4.26.0/dist/feather-sprite.svg#{{icon}}" />
 					</svg>
 					<span aria-hidden="true">{{text}}</span>
 				</a>
@@ -117,7 +118,7 @@
 			<article>
 				<a href="/{{assets.[chance-dickson-resume.pdf]}}" aria-label="Download Resumé">
 					<svg class="feather">
-						<use xlink:href="/{{assets.[feather-sprite.svg]}}#file-text" />
+						<use xlink:href="https://unpkg.com/feather-icons@4.26.0/dist/feather-sprite.svg#file-text" />
 					</svg>
 					<span aria-hidden="true">Resumé</span>
 				</a>
