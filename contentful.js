@@ -1,7 +1,7 @@
-const Contentful = require("contentful");
-const { sortBy, orderBy } = require("lodash");
+import { createClient } from "contentful";
+import { sortBy, orderBy } from "lodash";
 
-const contentfulClient = Contentful.createClient({
+const contentfulClient = createClient({
 	space: process.env.CONTENTFUL_SPACE,
 	accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
 });
@@ -31,7 +31,7 @@ const timePeriodFor = (startDate, endDate) => {
 	return null;
 };
 
-module.exports = async function getDataFromContentful() {
+export default async function getDataFromContentful() {
 	const entries = await contentfulClient.getEntries();
 
 	const unsortedProjects = entries.items
@@ -75,4 +75,4 @@ module.exports = async function getDataFromContentful() {
 	const social = sortBy(unsortedSocial, [(entry) => -entry.weight]);
 
 	return { projects, history, social };
-};
+}

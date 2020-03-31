@@ -4,13 +4,10 @@
 <head>
 	<meta charset="utf-8">
 	<title>chance dickson.</title>
-	<link rel="preconnect" href="https://use.typekit.net">
-	<link rel="preload" href="https://unpkg.com/feather-icons@4.26.0/dist/feather-sprite.svg" as="image">
 
 	<!--
-		you won't find a script tag here. i ❤️ react but it's not necessary for this site.
+		you won't find a script tag here. i ❤️ react but it's... overkill for this site.
 	-->
-	{{!-- <link rel="stylesheet" href="https://unpkg.com/normalize.css@8.0.0/normalize.css"> --}}
 	<link rel="stylesheet" href="https://use.typekit.net/akc8qfl.css">
 	<link rel="stylesheet" href="/style.css">
 </head>
@@ -19,7 +16,7 @@
 	<header>
 		<section class="container">
 			<section class="left" aria-hidden="true">
-				<img class="logo-left" src="/{{assets.[logo-left.png]}}" />
+				<img class="logo-left" src="/assets/logo-left.png" />
 			</section>
 			<section class="right">
 				<nav class="invisible" aria-hidden="true">
@@ -27,7 +24,7 @@
 					<a href="#history">history.</a>
 					<a href="#contact">contact.</a>
 				</nav>
-				<img alt="chance dickson logo" class="logo-right" src="/{{assets.[logo-right.png]}}" />
+				<img alt="chance dickson logo" class="logo-right" src="/assets/logo-right.png" />
 				<nav>
 					<a href="#projects">projects.</a>
 					<a href="#history">history.</a>
@@ -108,7 +105,7 @@
 			<article>
 				<a href="{{url}}" aria-label="{{label}}">
 					<svg class="feather">
-						<use xlink:href="https://unpkg.com/feather-icons@4.26.0/dist/feather-sprite.svg#{{icon}}" />
+						<use xlink:href="/assets/feather-sprite.svg#{{icon}}" />
 					</svg>
 					<span aria-hidden="true">{{text}}</span>
 				</a>
@@ -116,9 +113,9 @@
 			{{/each}}
 
 			<article>
-				<a href="/{{assets.[chance-dickson-resume.pdf]}}" aria-label="Download Resumé">
+				<a href="/assets/chance-dickson-resume.pdf" aria-label="Download Resumé">
 					<svg class="feather">
-						<use xlink:href="https://unpkg.com/feather-icons@4.26.0/dist/feather-sprite.svg#file-text" />
+						<use xlink:href="/assets/feather-sprite.svg#file-text" />
 					</svg>
 					<span aria-hidden="true">Resumé</span>
 				</a>
