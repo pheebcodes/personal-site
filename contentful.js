@@ -46,6 +46,10 @@ export default async function getDataFromContentful() {
 						title: entry.fields.image.fields.title,
 				  }
 				: null,
+			links: entry.fields.links.map((link) => ({
+				url: link.fields.url,
+				icon: link.fields.icon,
+			})),
 		}));
 
 	const projects = sortBy(unsortedProjects, [(entry) => -entry.weight]);
