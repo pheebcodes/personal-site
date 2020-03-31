@@ -80,7 +80,8 @@ footer .right {
 	padding-left: 1rem;
 }
 
-footer article a {
+footer article a,
+footer article span.a-replacement {
 	text-decoration: none;
 	font-weight: 400;
 	padding: 8px;
@@ -88,7 +89,8 @@ footer article a {
 	align-items: center;
 }
 
-footer article a span {
+footer article a span,
+footer article span.a-replacement span {
 	padding-left: 0.5rem;
 }
 
