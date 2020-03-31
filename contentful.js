@@ -74,5 +74,12 @@ export default async function getDataFromContentful() {
 
 	const social = sortBy(unsortedSocial, [(entry) => -entry.weight]);
 
-	return { projects, history, social };
+	const logoLeft = (await contentfulClient.getAsset("7dubkMlIFzhwwQaT6CGvp2"))
+		.fields.file.url;
+	const logoRight = (await contentfulClient.getAsset("pedaMNuPNx6SSGXsyLINS"))
+		.fields.file.url;
+	const resume = (await contentfulClient.getAsset("3qlRM3aoqmn2eEc4M7wovb"))
+		.fields.file.url;
+
+	return { projects, history, social, logoLeft, logoRight, resume };
 }

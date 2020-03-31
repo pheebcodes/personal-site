@@ -14,10 +14,9 @@ import rename from "gulp-rename";
 import getData from "./contentful";
 
 export const assets = () =>
-	merge(
-		gulp.src("assets/**/*"),
-		gulp.src("node_modules/feather-icons/dist/feather-sprite.svg"),
-	).pipe(gulp.dest("out/assets"));
+	gulp
+		.src("node_modules/feather-icons/dist/feather-sprite.svg")
+		.pipe(gulp.dest("out/assets"));
 
 export const style = () =>
 	gulp
