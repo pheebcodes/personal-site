@@ -14,6 +14,7 @@ export const getData = async (endpoint, accessToken) => {
 			label: contactLink.label,
 			icon: contactLink.icon,
 			url: contactLink.link.url,
+			newTab: contactLink.link.target === "_blank",
 		}));
 
 	const description = (await api.getSingle("description")).data.text;

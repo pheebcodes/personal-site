@@ -19,7 +19,7 @@
 
 		<footer class="align-1">
 			{{#each contactLinks}}
-			<a href="{{url}}" aria-label="{{label}}" target="_blank">
+			<a href="{{url}}" aria-label="{{label}}" {{#if newTab}} target="_blank" rel="noopener" {{/if}}>
 				{{{feather icon}}}
 			</a>
 			{{/each}}
