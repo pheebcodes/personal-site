@@ -41,12 +41,12 @@ main {
 
 main h1 {
 	margin: 0;
+	margin-left: -2px;
 	line-height: 1;
 }
 
 footer {
 	display: flex;
-	margin-left: 3px;
 }
 
 footer a {
@@ -74,22 +74,4 @@ footer svg {
 		height: 26px;
 		width: 26px;
 	}
-}
-
-.feather-small {
-	width: 20px;
-	height: 20px;
-	stroke: currentColor;
-	stroke-width: 2;
-	stroke-linecap: round;
-	stroke-linejoin: round;
-	fill: none;
-}
-
-.align-1 {
-	margin-left: -1px;
-}
-
-.align-2 {
-	margin-left: -2px;
 }
