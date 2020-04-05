@@ -4,130 +4,28 @@
 <head>
 	<meta charset="utf-8">
 	<title>chance dickson.</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="personal site for a really cool frontend developer named chance dickson">
 
-	<link rel="preconnect" href="https://use.typekit.net" />
-
-	<!--
-		you won't find a script tag here. i ❤️ react but it's... overkill for this site.
-	-->
-	<link rel="stylesheet" href="https://use.typekit.net/akc8qfl.css">
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Mono" rel="stylesheet">
 	<link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-	<header>
-		<section class="container">
-			<section class="left" aria-hidden="true">
-				<img class="logo-left" src="{{logoLeft}}?fm=jpg&fl=progressive" />
-			</section>
-			<section class="right">
-				<nav class="invisible" aria-hidden="true">
-					<a href="#projects">projects.</a>
-					<a href="#history">history.</a>
-					<a href="#contact">contact.</a>
-				</nav>
-				<img alt="chance dickson logo" class="logo-right" src="{{logoRight}}?fm=jpg&fl=progressive" />
-				<nav>
-					<a href="#projects">projects.</a>
-					<a href="#history">history.</a>
-					<a href="#contact">contact.</a>
-				</nav>
-			</section>
-		</section>
-	</header>
-
 	<main>
-		<section id="projects" class="container">
-			<section class="left">
-				<h2>projects.</h2>
-			</section>
+		<h1 class="align-2">chance dickson</h1>
 
-			<section class="right">
-				{{#each projects}}
-				<article>
-					<h3>{{name}}</h3>
-					{{#markdown}}{{description}}{{/markdown}}
-					{{#if image}}
-					{{#with image}}
-					<img alt="{{title}}" src="{{url}}?fm=jpg&fl=progressive&w=900" />
-					{{/with}}
-					{{/if}}
-					{{#if links.length}}
-					<nav>
-						{{#each links}}
-						<a href="{{url}}" aria-label="view on github." title="view on github.">
-							<svg class="feather">
-								<use xlink:href="/assets/feather-sprite.svg#{{icon}}" />
-							</svg>
-						</a>
-						{{/each}}
-					</nav>
-					{{/if}}
-				</article>
-				{{/each}}
-			</section>
-		</section>
+		{{{render description}}}
 
-		<section id="history" class="container">
-			<section class="left">
-				<h2>history.</h2>
-			</section>
-
-			<section class="right">
-				{{#each history}}
-				<article>
-					<h3>{{name}}</h3>
-					<p class="date-location">
-						{{location}}
-
-						{{#if (and timePeriod location)}}
-						&mdash;
-						{{/if}}
-
-						{{#if timePeriod}}
-						<i>{{timePeriod}}</i>
-						{{/if}}
-					</p>
-					<p>
-						{{description}}
-					</p>
-				</article>
-				{{/each}}
-			</section>
-		</section>
+		<footer class="align-1">
+			{{#each contactLinks}}
+			<a href="{{url}}" aria-label="{{label}}" target="_blank">
+				{{{feather icon}}}
+			</a>
+			{{/each}}
+		</footer>
 	</main>
 
-	<footer id="contact" class="container">
-		<section class="left">
-			<h2>contact.</h2>
-		</section>
-
-		<section class="right">
-			{{#each social}}
-			<article>
-				<a href="{{url}}" aria-label="{{label}}">
-					<svg class="feather-small">
-						<use xlink:href="/assets/feather-sprite.svg#{{icon}}" />
-					</svg>
-					<span aria-hidden="true">{{text}}</span>
-				</a>
-			</article>
-			{{/each}}
-
-			<article>
-				{{!-- <a href="{{resume}}" aria-label="Download Chance Dickson's Resumé"> --}}
-				<span class="a-replacement" style="text-decoration: line-through;" aria-label="Resumé temporarily unavailable">
-					<svg class="feather-small">
-						<use xlink:href="/assets/feather-sprite.svg#file-text" />
-					</svg>
-					<span aria-hidden="true">Resumé (Temporarily Unavailable)</span>
-				</span>
-				{{!-- </a> --}}
-			</article>
-		</section>
-	</footer>
 </body>
 
 </html>
