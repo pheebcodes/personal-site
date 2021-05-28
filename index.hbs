@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>chance dickson.</title>
+	<title>{{main.attributes.title}}.</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="personal site for a really cool frontend developer named chance dickson">
 
@@ -13,14 +13,14 @@
 
 <body>
 	<main>
-		<h1 class="align-2">chance dickson</h1>
+		<h1 class="align-2">{{main.attributes.title}}</h1>
 
-		{{{render description}}}
+		{{{render main.body}}}
 
 		<footer class="align-1">
-			{{#each contactLinks}}
-			<a href="{{url}}" aria-label="{{label}}" {{#if newTab}} target="_blank" rel="noopener" {{/if}}>
-				{{{feather icon}}}
+			{{#each links}}
+			<a href="{{this.body}}" aria-label="{{this.attributes.label}}" {{#if this.attributes.newTab}} target="_blank" rel="noopener" {{/if}}>
+				{{{feather this.attributes.icon}}}
 			</a>
 			{{/each}}
 		</footer>

@@ -1,4 +1,5 @@
 import * as gulp from "gulp";
+import feather from "feather-icons";
 
 // postcss
 import postcss from "gulp-postcss";
@@ -9,10 +10,10 @@ import nano from "cssnano";
 import handlebars from "gulp-compile-handlebars";
 import rename from "gulp-rename";
 
-import feather from "feather-icons";
-
-import PrismicDOM from "prismic-dom";
-import { getData } from "./prismic";
+// fs db
+import * as fs from "fs/promises";
+import fm from "front-matter";
+import marked from "marked";
 
 export const style = () =>
 	gulp
@@ -25,15 +26,19 @@ export const watchStyle = () => gulp.watch("style.css", style);
 const handlebarOpts = {
 	helpers: {
 		feather: (icon) => feather.icons[icon].toSvg(),
-		render: (obj) => PrismicDOM.RichText.asHtml(obj),
+		render: (data) => marked(data),
 	},
 };
 
 export const template = async () => {
-	const data = await getData(
-		process.env.PRISMIC_API_ENDPOINT,
-		process.env.PRISMIC_ACCESS_TOKEN,
+	const main = fm(await fs.readFile("db/main.md", "utf-8"));
+	const linkNames = await fs.readdir("db/links");
+	const linksData = await Promise.all(
+		linkNames.map((linkName) => fs.readFile(`db/links/${linkName}`, "utf-8")),
 	);
+	const links = linksData.map((linkData) => fm(linkData));
+
+	const data = { main, links };
 
 	return gulp
 		.src("index.hbs")
