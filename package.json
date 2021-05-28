@@ -4,11 +4,10 @@
 		"build": "node scripts/build.js"
 	},
 	"devDependencies": {
-		"feather-icons": "^4.26.0",
+		"feather-icons": "^4.28.0",
 		"front-matter": "^4.0.2",
 		"handlebars": "^4.7.7",
 		"marked": "^2.0.6",
-		"prettier": "^2.0.2",
-		"zx": "^1.14.1"
+		"prettier": "^2.3.0"
 	}
 }
