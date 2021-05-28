@@ -1,4 +1,4 @@
-@import "normalize.css";
+@import "https://unpkg.com/normalize.css@8.0.1/normalize.css";
 
 :root {
 	/* colors */
