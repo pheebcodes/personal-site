@@ -1,4 +1,4 @@
-import * as fs from "fs/promises";
+import fs from "fs/promises";
 import feather from "feather-icons";
 import marked from "marked";
 import fm from "front-matter";
