@@ -9,5 +9,8 @@
 		"handlebars": "^4.7.7",
 		"marked": "^2.0.6",
 		"prettier": "^2.3.0"
+	},
+	"engines": {
+		"node": "14.17.0"
 	}
 }
