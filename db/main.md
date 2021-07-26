@@ -1,5 +1,5 @@
 ---
-title: chanci dickson
+title: chanci
 ---
 
 hi! i'm a senior software engineer on the enterprise team at webflow. previously i worked at glitch building the code editor and other developer tools, and before that i was
