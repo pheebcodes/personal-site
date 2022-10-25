@@ -1,6 +1,6 @@
 import fs from "fs/promises";
 import feather from "feather-icons";
-import marked from "marked";
+import { marked } from "marked";
 import fm from "front-matter";
 import Handlebars from "handlebars";
 
