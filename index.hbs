@@ -13,11 +13,11 @@
 
 <body>
 	<main>
-		<h1 class="align-2">{{main.attributes.title}}</h1>
+		<h1>{{main.attributes.title}}</h1>
 
 		{{{render main.body}}}
 
-		<footer class="align-1">
+		<footer>
 			{{#each links}}
 			<a href="{{this.body}}" aria-label="{{this.attributes.label}}" {{#if this.attributes.newTab}} target="_blank" rel="noopener" {{/if}}>
 				{{{feather this.attributes.icon}}}
