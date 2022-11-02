@@ -5,6 +5,7 @@ import fm from "front-matter";
 import Handlebars from "handlebars";
 import { minify } from "html-minifier";
 
+// Make output directory.
 try {
 	await fs.mkdir("out");
 } catch (e) {
@@ -12,18 +13,22 @@ try {
 		throw e;
 	}
 }
-await fs.writeFile("out/font.ttf", await fs.readFile("fonts/FiraMono-Regular.ttf"));
 
-const normalizePath = (await import.meta.resolve("normalize.css")).slice('file://'.length);
+// Copy font file.
+await fs.writeFile(
+	"out/font.ttf",
+	await fs.readFile("fonts/FiraMono-Regular.ttf"),
+);
+
+// Build stylesheet.
+const normalizePath = (await import.meta.resolve("normalize.css")).slice(
+	"file://".length,
+);
 const normalizeCss = await fs.readFile(normalizePath, "utf8");
 const styleCss = await fs.readFile("style.css", "utf8");
-const stylesheet = [normalizeCss, styleCss].join('\n\n');
+const stylesheet = [normalizeCss, styleCss].join("\n\n");
 
-Handlebars.registerHelper({
-	feather: (icon) => feather.icons[icon].toSvg(),
-	render: (data) => marked(data),
-});
-
+// Build data object to pass to template.
 const main = fm(await fs.readFile("db/main.md", "utf-8"));
 const linkNames = await fs.readdir("db/links");
 const linksData = await Promise.all(
@@ -33,8 +38,16 @@ const links = linksData.map((linkData) => fm(linkData));
 
 const data = { main, links, stylesheet };
 
+// Build handlebars instance.
+const hbs = Handlebars.create();
+hbs.registerHelper({
+	feather: (iconName) => feather.icons[iconName].toSvg(),
+	render: (markdown) => marked(markdown),
+});
+
+// Compile + minify template.
 const templateSrc = await fs.readFile("index.hbs", "utf-8");
-const template = Handlebars.compile(templateSrc);
+const template = hbs.compile(templateSrc);
 const output = template(data);
 const minifiedOutput = minify(output, {
 	collapseWhitespace: true,
@@ -44,4 +57,5 @@ const minifiedOutput = minify(output, {
 	removeRedundantAttributes: true,
 });
 
+// Write output.
 await fs.writeFile("out/index.html", minifiedOutput);
