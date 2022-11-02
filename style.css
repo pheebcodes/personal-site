@@ -1,5 +1,12 @@
 @import "https://unpkg.com/normalize.css@8.0.1/normalize.css";
 
+@font-face {
+	font-family: 'Fira Mono';
+	font-style: normal;
+	font-weight: 400;
+	src: url(/font.ttf) format('truetype');
+}
+
 :root {
 	/* colors */
 	--black: #231f20;

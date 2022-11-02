@@ -12,6 +12,8 @@ try {
 		throw e;
 	}
 }
+await fs.writeFile("out/font.ttf", await fs.readFile("fonts/FiraMono-Regular.ttf"));
+
 const stylesheet = await fs.readFile("style.css", "utf8");
 
 Handlebars.registerHelper({
