@@ -39,7 +39,6 @@ const minifiedOutput = minify(output, {
 	removeAttributeQuotes: true,
 	removeComments: true,
 	removeEmptyAttributes: true,
-	removeEmptyElements: true,
 	removeOptionalTags: true,
 	removeRedundantAttributes: true,
 });
