@@ -3,6 +3,7 @@ import feather from "feather-icons";
 import { marked } from "marked";
 import fm from "front-matter";
 import Handlebars from "handlebars";
+import { minify } from "html-minifier";
 
 try {
 	await fs.mkdir("out");
@@ -29,4 +30,10 @@ const data = { main, links, stylesheet };
 
 const templateSrc = await fs.readFile("index.hbs", "utf-8");
 const template = Handlebars.compile(templateSrc);
-await fs.writeFile("out/index.html", template(data));
+const output = template(data);
+const minifiedOutput = minify(output, {
+	collapseWhitespace: true,
+	minifyCSS: true
+});
+
+await fs.writeFile("out/index.html", minifiedOutput);
