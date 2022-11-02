@@ -14,7 +14,10 @@ try {
 }
 await fs.writeFile("out/font.ttf", await fs.readFile("fonts/FiraMono-Regular.ttf"));
 
-const stylesheet = await fs.readFile("style.css", "utf8");
+const normalizePath = (await import.meta.resolve("normalize.css")).slice('file://'.length);
+const normalizeCss = await fs.readFile(normalizePath, "utf8");
+const styleCss = await fs.readFile("style.css", "utf8");
+const stylesheet = [normalizeCss, styleCss].join('\n\n');
 
 Handlebars.registerHelper({
 	feather: (icon) => feather.icons[icon].toSvg(),
