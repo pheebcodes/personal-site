@@ -39,10 +39,8 @@ const output = template(data);
 const minifiedOutput = minify(output, {
 	collapseWhitespace: true,
 	minifyCSS: true,
-	removeAttributeQuotes: true,
 	removeComments: true,
 	removeEmptyAttributes: true,
-	removeOptionalTags: true,
 	removeRedundantAttributes: true,
 });
 
