@@ -33,7 +33,13 @@ const template = Handlebars.compile(templateSrc);
 const output = template(data);
 const minifiedOutput = minify(output, {
 	collapseWhitespace: true,
-	minifyCSS: true
+	minifyCSS: true,
+	removeAttributeQuotes: true,
+	removeComments: true,
+	removeEmptyAttributes: true,
+	removeEmptyElements: true,
+	removeOptionalTags: true,
+	removeRedundantAttributes: true,
 });
 
 await fs.writeFile("out/index.html", minifiedOutput);
