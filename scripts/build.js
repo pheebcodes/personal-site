@@ -11,7 +11,7 @@ try {
 		throw e;
 	}
 }
-await fs.writeFile("out/style.css", await fs.readFile("style.css"));
+const stylesheet = await fs.readFile("style.css", "utf8");
 
 Handlebars.registerHelper({
 	feather: (icon) => feather.icons[icon].toSvg(),
@@ -25,7 +25,7 @@ const linksData = await Promise.all(
 );
 const links = linksData.map((linkData) => fm(linkData));
 
-const data = { main, links };
+const data = { main, links, stylesheet };
 
 const templateSrc = await fs.readFile("index.hbs", "utf-8");
 const template = Handlebars.compile(templateSrc);
