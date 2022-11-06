@@ -30,11 +30,7 @@ const stylesheet = [normalizeCss, styleCss].join("\n\n");
 
 // Build data object to pass to template.
 const main = fm(await fs.readFile("db/main.md", "utf-8"));
-const linkNames = await fs.readdir("db/links");
-const linksData = await Promise.all(
-	linkNames.map((linkName) => fs.readFile(`db/links/${linkName}`, "utf-8")),
-);
-const links = linksData.map((linkData) => fm(linkData));
+const links = JSON.parse(await fs.readFile("db/links.json", "utf-8"));
 
 const data = { main, links, stylesheet };
 

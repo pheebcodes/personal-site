@@ -21,8 +21,8 @@
 
 		<footer>
 			{{#each links}}
-			<a href="{{this.body}}" aria-label="{{this.attributes.label}}" {{#if this.attributes.newTab}} target="_blank" rel="noopener" {{/if}}>
-				{{{feather this.attributes.icon}}}
+			<a href="{{this.link}}" aria-label="{{this.label}}" {{#if this.newTab}} target="_blank" rel="noopener" {{/if}}>
+				{{{feather this.icon}}}
 			</a>
 			{{/each}}
 		</footer>
