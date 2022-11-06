@@ -21,12 +21,7 @@ await fs.writeFile(
 );
 
 // Build stylesheet.
-const normalizePath = (await import.meta.resolve("normalize.css")).slice(
-	"file://".length,
-);
-const normalizeCss = await fs.readFile(normalizePath, "utf8");
-const styleCss = await fs.readFile("style.css", "utf8");
-const stylesheet = [normalizeCss, styleCss].join("\n\n");
+const stylesheet = await fs.readFile("style.css", "utf8");
 
 // Build data object to pass to template.
 const main = fm(await fs.readFile("db/main.md", "utf-8"));
