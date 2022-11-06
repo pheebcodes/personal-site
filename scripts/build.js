@@ -1,5 +1,4 @@
 import fs from "fs/promises";
-import feather from "feather-icons";
 import { marked } from "marked";
 import fm from "front-matter";
 import Handlebars from "handlebars";
@@ -20,28 +19,18 @@ await fs.writeFile(
 	await fs.readFile("fonts/FiraMono-Regular.ttf"),
 );
 
-// Build stylesheet.
-const normalizePath = (await import.meta.resolve("normalize.css")).slice(
-	"file://".length,
-);
-const normalizeCss = await fs.readFile(normalizePath, "utf8");
-const styleCss = await fs.readFile("style.css", "utf8");
-const stylesheet = [normalizeCss, styleCss].join("\n\n");
+// Load stylesheet.
+const stylesheet = await fs.readFile("style.css", "utf8");
 
 // Build data object to pass to template.
 const main = fm(await fs.readFile("db/main.md", "utf-8"));
-const linkNames = await fs.readdir("db/links");
-const linksData = await Promise.all(
-	linkNames.map((linkName) => fs.readFile(`db/links/${linkName}`, "utf-8")),
-);
-const links = linksData.map((linkData) => fm(linkData));
+const links = JSON.parse(await fs.readFile("db/links.json", "utf-8"));
 
 const data = { main, links, stylesheet };
 
 // Build handlebars instance.
 const hbs = Handlebars.create();
 hbs.registerHelper({
-	feather: (iconName) => feather.icons[iconName].toSvg(),
 	render: (markdown) => marked(markdown),
 });
 

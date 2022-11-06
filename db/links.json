@@ -1,0 +1,33 @@
+[
+    {
+        "text": "email",
+		"label": "email phoebe",
+		"link": "mailto:me@phoebe.codes",
+		"newTab": "false"
+    },
+	{
+		"text": "github",
+		"label": "go to phoebe's github profile",
+		"link": "https://www.github.com/pheebcodes"
+	},
+	{
+		"text": "cohost / blog",
+		"label": "go to phoebe's cohost profile",
+		"link": "https://www.cohost.org/phoebecodes"
+	},
+	{
+		"text": "twitter",
+		"label": "go to phoebe's twitter profile",
+		"link": "https://www.twitter.com/pheebcodes"
+	},
+	{
+		"text": "instagram",
+		"label": "go to phoebe's instagram profile",
+		"link": "https://www.instagram.com/pheebcodes"
+	},
+	{
+		"text": "twitch",
+		"label": "go to phoebe's twitch page",
+		"link": "https://www.twitch.tv/phoebecodes"
+	}
+]
