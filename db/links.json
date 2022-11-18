@@ -32,7 +32,8 @@
 		"icon": "mastodon",
 		"iconPrefix": "fab",
 		"label": "go to phoebe's mastodon profile",
-		"link": "https://hachyderm.io/@phoebecodes"
+		"link": "https://hachyderm.io/@phoebecodes",
+		"rel": "me"
 	},
 	{
 		"icon": "instagram",
