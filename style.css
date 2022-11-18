@@ -59,7 +59,8 @@ main p {
 footer {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 1rem;
+	margin-left: -0.5rem;
+	margin-right: -0.5rem;
 }
 
 footer a {
@@ -67,6 +68,8 @@ footer a {
 	color: var(--black);
 	line-height: 0;
 	text-decoration: none;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 }
 
 footer svg {
