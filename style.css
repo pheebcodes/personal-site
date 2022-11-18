@@ -58,6 +58,7 @@ main p {
 
 footer {
 	display: flex;
+	flex-wrap: wrap;
 }
 
 footer a {
