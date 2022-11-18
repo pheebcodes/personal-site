@@ -11,6 +11,11 @@
 		"link": "https://www.github.com/pheebcodes"
 	},
 	{
+		"icon": "linkedin",
+		"label": "go to phoebe's linkedin profile",
+		"link": "https://linkedin.com/in/phoebe-c-9a2b00234"
+	},
+	{
 		"icon": "book-open",
 		"label": "go to phoebe's cohost profile",
 		"link": "https://www.cohost.org/phoebecodes"
