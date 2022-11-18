@@ -4,7 +4,6 @@
 		"build": "node --experimental-import-meta-resolve scripts/build.js"
 	},
 	"devDependencies": {
-		"feather-icons": "^4.29.0",
 		"front-matter": "^4.0.2",
 		"handlebars": "^4.7.7",
 		"html-minifier": "^4.0.0",
@@ -18,5 +17,10 @@
 	"volta": {
 		"node": "18.12.0",
 		"npm": "8.19.2"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^6.2.1",
+		"@fortawesome/free-brands-svg-icons": "^6.2.1",
+		"@fortawesome/free-solid-svg-icons": "^6.2.1"
 	}
 }

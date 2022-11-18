@@ -22,7 +22,7 @@
 		<footer>
 			{{#each links}}
 			<a href="{{this.link}}" aria-label="{{this.label}}" {{#if this.newTab}} target="_blank" rel="noopener" {{/if}}>
-				{{{feather this.icon}}}
+				{{{icon this.icon this.iconPrefix}}}
 			</a>
 			{{/each}}
 		</footer>

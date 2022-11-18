@@ -1,9 +1,14 @@
 import fs from "fs/promises";
-import feather from "feather-icons";
 import { marked } from "marked";
 import fm from "front-matter";
 import Handlebars from "handlebars";
 import { minify } from "html-minifier";
+
+import * as FontAwesome from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+
+FontAwesome.library.add(fas, fab);
 
 // Make output directory.
 try {
@@ -32,7 +37,9 @@ const data = { main, links, stylesheet };
 // Build handlebars instance.
 const hbs = Handlebars.create();
 hbs.registerHelper({
-	feather: (iconName) => feather.icons[iconName].toSvg(),
+	icon: (iconName, prefix = "fas") => {
+		return FontAwesome.icon({ prefix, iconName })?.html;
+	},
 	render: (markdown) => marked(markdown),
 });
 

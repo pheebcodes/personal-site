@@ -1,37 +1,48 @@
 [
     {
-        "icon": "mail",
+        "icon": "envelope",
 		"label": "email phoebe",
 		"link": "mailto:me@phoebe.codes",
 		"newTab": "false"
     },
 	{
 		"icon": "github",
+		"iconPrefix": "fab",
 		"label": "go to phoebe's github profile",
 		"link": "https://www.github.com/pheebcodes"
 	},
 	{
 		"icon": "linkedin",
+		"iconPrefix": "fab",
 		"label": "go to phoebe's linkedin profile",
 		"link": "https://linkedin.com/in/phoebe-c-9a2b00234"
 	},
 	{
-		"icon": "book-open",
+		"icon": "bug",
 		"label": "go to phoebe's cohost profile",
 		"link": "https://www.cohost.org/phoebecodes"
 	},
 	{
 		"icon": "twitter",
+		"iconPrefix": "fab",
 		"label": "go to phoebe's twitter profile",
 		"link": "https://www.twitter.com/pheebcodes"
 	},
 	{
+		"icon": "mastodon",
+		"iconPrefix": "fab",
+		"label": "go to phoebe's mastodon profile",
+		"link": "https://hachyderm.io/@phoebecodes"
+	},
+	{
 		"icon": "instagram",
+		"iconPrefix": "fab",
 		"label": "go to phoebe's instagram profile",
 		"link": "https://www.instagram.com/pheebcodes"
 	},
 	{
 		"icon": "twitch",
+		"iconPrefix": "fab",
 		"label": "go to phoebe's twitch profile",
 		"link": "https://www.twitch.tv/phoebecodes"
 	}
