@@ -59,9 +59,7 @@ main p {
 footer {
 	display: flex;
 	flex-wrap: wrap;
-	row-gap: 0.5rem;
-	margin-left: -0.5rem;
-	margin-right: -0.5rem;
+	gap: 1rem;
 }
 
 footer a {
@@ -69,8 +67,6 @@ footer a {
 	color: var(--black);
 	line-height: 0;
 	text-decoration: none;
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
 }
 
 footer svg {
@@ -80,14 +76,7 @@ footer svg {
 
 @media (max-width: 450px) {
 	footer {
-		row-gap: 1rem;
-		margin-left: -1rem;
-		margin-right: -1rem;
-	}
-
-	footer a {
-		margin-left: 1rem;
-		margin-right: 1rem;
+		column-gap: 2rem;
 	}
 
 	footer svg {
