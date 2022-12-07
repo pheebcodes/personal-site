@@ -13,6 +13,9 @@ try {
 	}
 }
 
+// Copy license file.
+await fs.writeFile("out/LICENSE.txt", await fs.readFile("LICENSE.txt"));
+
 // Copy font file.
 await fs.writeFile(
 	"out/font.ttf",
