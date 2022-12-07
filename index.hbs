@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>{{main.attributes.title}}.</title>
+	<title>{{main.title}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="personal site for phoebe">
 	<link rel="preload" href="/font.ttf" as="font" type="font/ttf">
@@ -14,19 +14,20 @@
 </head>
 
 <body>
-	<main>
-		<h1>{{main.attributes.title}}</h1>
+		<header><h1>{{main.title}}</h1></header>
 
-		{{{render main.body}}}
+		<main>{{{main}}}</main>
 
 		<footer>
 			{{#each links}}
-			<a href="{{this.link}}" aria-label="{{this.label}}" {{#if this.newTab}} target="_blank" rel="noopener" {{/if}} {{#if this.rel}} rel={{this.rel}} {{/if}}>
-				{{{icon this.icon this.iconPrefix}}}
-			</a>
+				<a href="{{this.link}}" aria-label="{{this.label}}" tabindex="0" {{#if this.newTab}} target="_blank" rel="noopener" {{/if}} {{#if this.rel}} rel={{this.rel}} {{/if}}>
+					{{this.text}}
+				</a>
+				{{#unless @last}}
+					<span> / </span>
+				{{/unless}}
 			{{/each}}
 		</footer>
-	</main>
 
 </body>
 
