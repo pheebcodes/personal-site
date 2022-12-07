@@ -1,4 +1,5 @@
 import fs from "fs/promises";
+import path from "path";
 import { marked } from "marked";
 import fm from "front-matter";
 import Handlebars from "handlebars";
@@ -13,14 +14,13 @@ try {
 	}
 }
 
-// Copy license file.
-await fs.writeFile("out/LICENSE.txt", await fs.readFile("LICENSE.txt"));
+const copy = async (i, o = i) =>
+	await fs.writeFile(path.join("out", o), await fs.readFile(i));
 
-// Copy font file.
-await fs.writeFile(
-	"out/font.ttf",
-	await fs.readFile("fonts/FiraMono-Regular.ttf"),
-);
+// Copy _redirects, license, and font files.
+await copy("LICENSE.txt");
+await copy("_redirects");
+await copy("fonts/FiraMono-Regular.ttf", "font.ttf");
 
 // Build stylesheet.
 const stylesheet = await fs.readFile("style.css", "utf8");
