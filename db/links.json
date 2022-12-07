@@ -1,49 +1,43 @@
 [
-    {
-        "icon": "envelope",
+	{
+		"text": "email",
 		"label": "email phoebe",
 		"link": "mailto:me@phoebe.codes",
 		"newTab": "false"
-    },
+	},
 	{
-		"icon": "github",
-		"iconPrefix": "fab",
+		"text": "github",
 		"label": "go to phoebe's github profile",
 		"link": "https://www.github.com/pheebcodes"
 	},
 	{
-		"icon": "linkedin",
-		"iconPrefix": "fab",
+		"text": "linkedin",
 		"label": "go to phoebe's linkedin profile",
-		"link": "https://linkedin.com/in/phoebe-c-9a2b00234"
+		"link": "https://www.linkedin.com/in/phoebe-c-9a2b00234"
 	},
 	{
-		"icon": "bug",
+		"text": "cohost",
 		"label": "go to phoebe's cohost profile",
 		"link": "https://www.cohost.org/phoebecodes"
 	},
 	{
-		"icon": "twitter",
-		"iconPrefix": "fab",
+		"text": "twitter",
 		"label": "go to phoebe's twitter profile",
 		"link": "https://www.twitter.com/pheebcodes"
 	},
 	{
-		"icon": "mastodon",
-		"iconPrefix": "fab",
+		"text": "mastodon",
 		"label": "go to phoebe's mastodon profile",
 		"link": "https://hachyderm.io/@phoebecodes",
 		"rel": "me"
 	},
 	{
-		"icon": "instagram",
-		"iconPrefix": "fab",
+		"text": "instagram",
 		"label": "go to phoebe's instagram profile",
 		"link": "https://www.instagram.com/pheebcodes"
 	},
 	{
-		"icon": "twitch",
-		"iconPrefix": "fab",
+		"text": "twitch",
 		"label": "go to phoebe's twitch profile",
 		"link": "https://www.twitch.tv/phoebecodes"
 	}

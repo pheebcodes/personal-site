@@ -4,12 +4,6 @@ import fm from "front-matter";
 import Handlebars from "handlebars";
 import { minify } from "html-minifier";
 
-import * as FontAwesome from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { fab } from "@fortawesome/free-brands-svg-icons";
-
-FontAwesome.library.add(fas, fab);
-
 // Make output directory.
 try {
 	await fs.mkdir("out");
@@ -31,21 +25,22 @@ const stylesheet = await fs.readFile("style.css", "utf8");
 // Build data object to pass to template.
 const main = fm(await fs.readFile("db/main.md", "utf-8"));
 const links = JSON.parse(await fs.readFile("db/links.json", "utf-8"));
+const renderedBody = marked(main.body);
 
-const data = { main, links, stylesheet };
-
-// Build handlebars instance.
-const hbs = Handlebars.create();
-hbs.registerHelper({
-	icon: (iconName, prefix = "fas") => {
-		return FontAwesome.icon({ prefix, iconName })?.html;
+const data = {
+	main: {
+		...main.attributes,
+		toString() {
+			return renderedBody;
+		},
 	},
-	render: (markdown) => marked(markdown),
-});
+	links,
+	stylesheet,
+};
 
 // Compile + minify template.
 const templateSrc = await fs.readFile("index.hbs", "utf-8");
-const template = hbs.compile(templateSrc);
+const template = Handlebars.compile(templateSrc);
 const output = template(data);
 const minifiedOutput = minify(output, {
 	collapseWhitespace: true,
