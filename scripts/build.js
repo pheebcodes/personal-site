@@ -5,17 +5,20 @@ import fm from "front-matter";
 import Handlebars from "handlebars";
 import { minify } from "html-minifier";
 
+const BUILD_DIR = "out";
+
 // Make output directory.
 try {
-	await fs.mkdir("out");
+	await fs.mkdir(BUILD_DIR);
 } catch (e) {
 	if (e.code !== "EEXIST") {
 		throw e;
 	}
 }
 
-const copy = async (i, o = i) =>
-	await fs.writeFile(path.join("out", o), await fs.readFile(i));
+const read = async (p) => await fs.readFile(p, "utf8");
+const write = async (p, d) => await fs.writeFile(path.join(BUILD_DIR, p), d);
+const copy = async (i, o = i) => await write(o, await read(i));
 
 // Copy _redirects, license, and font files.
 await copy("LICENSE.txt");
@@ -23,11 +26,11 @@ await copy("_redirects");
 await copy("fonts/FiraMono-Regular.ttf", "font.ttf");
 
 // Build stylesheet.
-const stylesheet = await fs.readFile("style.css", "utf8");
+const stylesheet = await read("style.css");
 
 // Build data object to pass to template.
-const main = fm(await fs.readFile("db/main.md", "utf-8"));
-const links = JSON.parse(await fs.readFile("db/links.json", "utf-8"));
+const main = fm(await read("db/main.md"));
+const links = JSON.parse(await read("db/links.json"));
 const renderedBody = marked(main.body);
 
 const data = {
@@ -42,7 +45,7 @@ const data = {
 };
 
 // Compile + minify template.
-const templateSrc = await fs.readFile("index.hbs", "utf-8");
+const templateSrc = await read("index.hbs");
 const template = Handlebars.compile(templateSrc);
 const output = template(data);
 const minifiedOutput = minify(output, {
@@ -54,4 +57,4 @@ const minifiedOutput = minify(output, {
 });
 
 // Write output.
-await fs.writeFile("out/index.html", minifiedOutput);
+await write("index.html", minifiedOutput);
