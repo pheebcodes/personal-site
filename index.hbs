@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>{{main.title}}</title>
+	<title>{{content.title}}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="personal site for phoebe">
 	<link rel="preload" href="/font.ttf" as="font" type="font/ttf">
@@ -14,9 +14,9 @@
 </head>
 
 <body>
-		<header><h1>{{main.title}}</h1></header>
+		<header><h1>{{content.title}}</h1></header>
 
-		<main>{{{main}}}</main>
+		<main>{{{content.body}}}</main>
 
 		<footer>
 			{{#each links}}
