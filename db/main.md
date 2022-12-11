@@ -7,8 +7,3 @@ i worked at glitch building the code editor and other developer tools, and
 before that i was architecting a new website in react for an automotive parts
 retailer chain. a long time ago i was also building websites and calendaring
 systems for public libraries across north america.
-
-outside of work i stream on twitch 3 days a week. my current schedule is tuesday
-7&ndash;10PM, thursday 7&ndash;10PM, and saturday 2&ndash;5PM (all times EST).
-most of the time i play games, but sometimes i code and fiddle with hobby
-electronics. you can find my up-to-date schedule on my twitch profile.
