@@ -49,8 +49,8 @@ await copy("fonts/FiraMono-Regular.ttf", "font.ttf");
 const stylesheet = await read("style.css");
 
 // Read content.
-const content = await readMd("db/main.md");
-const links = await readJson("db/links.json");
+const content = await readMd("content/main.md");
+const links = await readJson("content/links.json");
 
 const data = {
 	content,
