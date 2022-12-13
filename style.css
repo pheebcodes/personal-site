@@ -56,14 +56,13 @@ footer {
 	gap: 0.5rem;
 }
 
-footer a {
-	display: block;
+a {
 	text-decoration: none;
 	text-decoration-thickness: 1.5px;
 }
 
-footer a:hover,
-footer a:focus {
+a:hover,
+a:focus {
 	text-decoration: underline;
 	outline: none;
 }
