@@ -9,4 +9,5 @@ retailer chain. a long time ago i was also building websites and calendaring
 systems for public libraries across north america.
 
 outside of work i play guitar and experiment with hobby electronics,
-specifically with guitar pedals, keyboards, and retro console related things.
+specifically with guitar pedals, keyboards (the computer kind), and retro
+console related things.
