@@ -3,6 +3,7 @@ import path from "path";
 import { marked } from "marked";
 import fm from "front-matter";
 import Handlebars from "handlebars";
+import HandlebarsLayouts from "handlebars-layouts";
 import { minify } from "html-minifier";
 
 const BUILD_DIR = "out";
@@ -21,7 +22,7 @@ const read = async (p) => await fs.readFile(p, "utf8");
 const write = async (p, d) => await fs.writeFile(path.join(BUILD_DIR, p), d);
 const copy = async (i, o = i) => await write(o, await read(i));
 const renderMd = (d) => marked(d, { smartypants: true });
-const renderHbs = (t, d) => Handlebars.compile(t)(d);
+const renderHbs = (t, d) => t(d);
 const minifyHtml = (d) =>
 	minify(d, {
 		collapseWhitespace: true,
@@ -40,6 +41,10 @@ const readMd = async (p) => {
 };
 const readJson = async (p) => JSON.parse(await read(p));
 
+// Setup Handlebars.
+HandlebarsLayouts.register(Handlebars);
+Handlebars.registerPartial("_layout", await read("views/_layout.hbs"));
+
 // Copy _redirects, license, and font files.
 await copy("LICENSE.txt");
 await copy("_redirects");
@@ -47,19 +52,24 @@ await copy("fonts/FiraMono-Regular.ttf", "font.ttf");
 
 // Read stylesheet.
 const stylesheet = await read("style.css");
+const makeData = (d) => ({ ...d, stylesheet });
 
-// Read content.
+// Handlebars rendering helpers.
+const makeCachedReadHbs = () => {
+	const cache = new Map();
+	return async (p) =>
+		cache.has(p)
+			? cache.get(p)
+			: cache.set(p, Handlebars.compile(await read(p))).get(p);
+};
+const readHbs = makeCachedReadHbs();
+const render = async (i, o, data) =>
+	await write(o, minifyHtml(renderHbs(await readHbs(i), makeData(data))));
+
+// Render index.
 const content = await readMd("content/main.md");
 const links = await readJson("content/links.json");
+await render("views/index.hbs", "index.html", { ...content, links });
 
-const data = {
-	content,
-	links,
-	stylesheet,
-};
-
-// Compile + minify template.
-const html = minifyHtml(renderHbs(await read("index.hbs"), data));
-
-// Write output.
-await write("index.html", html);
+// Render 404.
+await render("views/404.hbs", "404.html");

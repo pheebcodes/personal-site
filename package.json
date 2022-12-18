@@ -6,6 +6,7 @@
 	"devDependencies": {
 		"front-matter": "^4.0.2",
 		"handlebars": "^4.7.7",
+		"handlebars-layouts": "^3.1.4",
 		"html-minifier": "^4.0.0",
 		"marked": "^4.1.1",
 		"prettier": "^2.7.1"
