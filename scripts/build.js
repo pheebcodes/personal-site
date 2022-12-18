@@ -5,6 +5,7 @@ import fm from "front-matter";
 import Handlebars from "handlebars";
 import HandlebarsLayouts from "handlebars-layouts";
 import { minify } from "html-minifier";
+import CleanCSS from "clean-css";
 
 const BUILD_DIR = "out";
 
@@ -26,11 +27,20 @@ const renderHbs = (t, d) => t(d);
 const minifyHtml = (d) =>
 	minify(d, {
 		collapseWhitespace: true,
-		minifyCSS: true,
 		removeComments: true,
 		removeEmptyAttributes: true,
 		removeRedundantAttributes: true,
 	});
+const minifyCss = (d) => {
+	const out = new CleanCSS({}).minify(d);
+	for (const warn of out.warnings) {
+		console.error("[css warning]: %s", warn);
+	}
+	for (const error of out.errors) {
+		console.error("[css error]: %s", error);
+	}
+	return out.styles;
+};
 const readMd = async (p) => {
 	const d = fm(await read(p));
 	const b = renderMd(d.body);
@@ -52,7 +62,7 @@ await copy("fonts/FiraMono-Regular.ttf", "font.ttf");
 
 // Read stylesheet.
 const stylesheet = await read("style.css");
-const makeData = (d) => ({ ...d, stylesheet });
+await write("style.css", minifyCss(stylesheet));
 
 // Handlebars rendering helpers.
 const makeCachedReadHbs = () => {
@@ -64,7 +74,7 @@ const makeCachedReadHbs = () => {
 };
 const readHbs = makeCachedReadHbs();
 const render = async (i, o, data) =>
-	await write(o, minifyHtml(renderHbs(await readHbs(i), makeData(data))));
+	await write(o, minifyHtml(renderHbs(await readHbs(i), data)));
 
 // Render index.
 const content = await readMd("content/main.md");
