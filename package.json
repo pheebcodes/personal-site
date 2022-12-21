@@ -1,15 +1,17 @@
 {
 	"type": "module",
 	"scripts": {
-		"build": "node scripts/build.js"
+		"build": "node scripts/build.js",
+		"watch": "nodemon scripts/build.js --watch content --watch scripts --watch static --watch --views --ignore out -e js,json,md,hbs,css",
+		"dev": "netlify dev"
 	},
 	"devDependencies": {
-		"clean-css": "^5.3.1",
+		"date-fns": "^2.29.3",
 		"front-matter": "^4.0.2",
 		"handlebars": "^4.7.7",
 		"handlebars-layouts": "^3.1.4",
-		"html-minifier": "^4.0.0",
 		"marked": "^4.1.1",
+		"nodemon": "^2.0.20",
 		"prettier": "^2.7.1"
 	},
 	"engines": {

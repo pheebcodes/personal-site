@@ -3,7 +3,7 @@
 		"text": "email",
 		"label": "email phoebe",
 		"link": "mailto:me@phoebe.codes",
-		"newTab": "false"
+		"newTab": false
 	},
 	{
 		"text": "github",

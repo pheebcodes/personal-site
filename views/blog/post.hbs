@@ -1,0 +1,18 @@
+{{#extend "_blog-layout"}}
+	{{#content "body"}}
+		<main class="blog-post">
+			<section class="title">
+				<h1>{{title}}</h1>
+				<time>{{format-blog-post-date date}}</time>
+
+				<p>
+					tags: 
+					{{#each tags}}
+						<a href="{{this.link}}">{{this.name}}</a>{{#unless @last}}, {{/unless}}
+					{{/each}}
+				</p>
+			</section>
+			{{{body}}}
+		</main>
+	{{/content}}
+{{/extend}}

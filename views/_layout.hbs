@@ -11,7 +11,38 @@
 </head>
 
 <body>
-	{{#block "body"}}{{/block}}
+	<header>
+		<h1>phoebe</h1>
+		{{#if showBlog}}
+			<span>//</span>
+			<nav>
+				<a href="/" {{#if (eq currentPage "home")}} class="current-page" {{/if}}>home</a>
+				<span>/</span>
+				<a href="/blog" {{#if (eq currentPage "blog")}} class="current-page" {{/if}}>blog</a>
+			</nav>
+		{{/if}}
+		{{#if (content "right-nav")}}
+			<nav class="right-nav">
+				{{{block "right-nav"}}}
+			</nav>
+		{{/if}}
+	</header>
+
+	{{{block "body"}}}
+
+	<footer>
+		<nav>
+			{{#each links}}
+				<a href="{{this.link}}" aria-label="{{this.label}}" tabindex="0" target="{{this.target}}" rel="{{this.rel}}">{{this.text}}</a>
+				{{#unless @last}}
+					<span>/</span>
+				{{/unless}}
+			{{/each}}
+		</nav>
+		<nav class="right-nav">
+			<a href="/LICENSE.txt">license</a>
+		</nav>
+	</footer>
 </body>
 
 </html>

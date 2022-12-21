@@ -1,18 +1,5 @@
-{{#extend "_layout"}}
+{{#extend "_layout" currentPage="home"}}
 	{{#content "body"}}
-		<header><h1>{{title}}</h1></header>
-
-		<main>{{{body}}}</main>
-
-		<footer>
-			{{#each links}}
-				<a href="{{this.link}}" aria-label="{{this.label}}" tabindex="0" {{#if this.newTab}} target="_blank" rel="noopener" {{/if}} {{#if this.rel}} rel={{this.rel}} {{/if}}>
-					{{this.text}}
-				</a>
-				{{#unless @last}}
-					<span> / </span>
-				{{/unless}}
-			{{/each}}
-		</footer>
+		<main class="index">{{{body}}}</main>
 	{{/content}}
 {{/extend}}
