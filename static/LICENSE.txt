@@ -1,10 +1,21 @@
 ---------------------------------------------------------
+phoebe.codes content
+https://github.com/pheebcodes/personal-site
+
+- content/**/*
+---------------------------------------------------------
+
+Copyright 2020-2022 phoebe.codes
+
+
+
+
+---------------------------------------------------------
 phoebe.codes build scripts, stylesheets, templates
 https://github.com/pheebcodes/personal-site
 
-- db/**/*
 - scripts/**/*
-- index.hbs
+- views/**/*
 - style.css
 ---------------------------------------------------------
 

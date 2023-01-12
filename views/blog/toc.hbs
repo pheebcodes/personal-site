@@ -1,0 +1,32 @@
+{{#extend "_blog-layout"}}
+	{{#content "body"}}
+		<main class="blog-toc">
+			<nav class="links">
+				<h2>tags:</h2>
+				{{#each tags}}
+					<span>
+						<a href={{this.link}}>{{this.name}}</a>{{#unless @last}}, {{/unless}}
+					</span>
+				{{/each}}
+			</nav>
+			<ol class="toc">
+				{{#each page.items}}
+					<li>
+						<a href={{this.link}}>{{this.title}}</a>
+						<span>{{format-blog-post-date this.date}}</span>
+					</li>
+				{{/each}}
+			</ol>
+			{{#if (or page.prev page.next)}}
+				<section class="pagination">
+					<span>page: {{page.cur}}</span>
+					<nav>
+						{{#if page.prev}}<a href="{{page.prev}}">prev</a>{{/if}}
+						{{#if (and page.prev page.next)}}<span>/</span>{{/if}}
+						{{#if page.next}}<a href="{{page.next}}">next</a>{{/if}}
+					</nav>
+				</section>
+			{{/if}}
+		</main>
+	{{/content}}
+{{/extend}}

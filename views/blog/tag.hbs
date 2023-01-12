@@ -1,0 +1,15 @@
+{{#extend "_blog-layout"}}
+	{{#content "body"}}
+		<main class="blog-toc">
+			<h1>posts tagged "{{tag.name}}"</h1>
+			<ol class="toc">
+				{{#each page.items}}
+					<li>
+						<a href={{this.link}}>{{this.title}}</a>
+						<span>{{format-blog-post-date this.date}}</span>
+					</li>
+				{{/each}}
+			</ol>
+		</main>
+	{{/content}}
+{{/extend}}
