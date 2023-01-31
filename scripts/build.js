@@ -33,7 +33,7 @@ const mkdirp = async (p) => {
 		await mkdir(cur);
 	}
 };
-const read = async (p) => await fs.readFile(p, "utf8");
+const read = async (p, e = "utf8") => await fs.readFile(p, e);
 const readDir = async (p) => await fs.readdir(p);
 const write = async (p, d) => {
 	if (path.dirname(p) !== ".") {
@@ -41,7 +41,7 @@ const write = async (p, d) => {
 	}
 	await fs.writeFile(path.join(BUILD_DIR, p), d);
 };
-const copy = async (i, o = i) => await write(o, await read(i));
+const copy = async (i, o = i) => await write(o, await read(i, null));
 const renderMd = (d) => marked(d, { smartypants: true });
 const renderHbs = (t, d = {}) => t({ ...DEFAULT_TEMPLATE_PROPERTIES, ...d });
 const readMd = async (p) => {
