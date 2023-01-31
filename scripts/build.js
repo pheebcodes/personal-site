@@ -89,7 +89,11 @@ await mkdirp(BUILD_DIR);
 // Copy _redirects, license, and font files.
 await copy("static/LICENSE.txt", "LICENSE.txt");
 await copy("static/_redirects", "_redirects");
-await copy("static/fonts/FiraMono-Regular.ttf", "fonts/FiraMono-Regular.ttf");
+for (const font of await readDir("static/fonts")) {
+	if (font.startsWith(".") === false) {
+		await copy(path.join("static/fonts", font), path.join("fonts", font));
+	}
+}
 await copy("static/style.css", "style.css");
 
 // Handlebars rendering helpers.

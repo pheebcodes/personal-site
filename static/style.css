@@ -1,9 +1,10 @@
 @font-face {
-	font-family: "Fira Mono";
+	font-family: "Berkeley Mono";
 	font-style: normal;
 	font-weight: 400;
 	font-display: block;
-	src: url(/fonts/FiraMono-Regular.ttf) format("truetype");
+	src: url(/fonts/BerkeleyMono-Regular.woff2) format("woff2"),
+		url(/fonts/BerkeleyMono-Regular.woff) format("woff");
 }
 
 :root {
@@ -27,7 +28,7 @@
 }
 
 html {
-	font-family: "Fira Mono", monospace;
+	font-family: "Berkeley Mono", monospace;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	letter-spacing: 0.3px;
