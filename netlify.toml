@@ -1,2 +1,6 @@
 [dev]
 	command = "npm run watch"
+
+[[edge_functions]]
+  path = "/*"
+  function = "block-hacker-news"
