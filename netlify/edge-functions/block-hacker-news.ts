@@ -1,7 +1,7 @@
 function shouldBlock(url: string): boolean {
 	try {
 		return new URL(url).hostname.endsWith("ycombinator.com");
-	} catch (e) {
+	} catch (_e) {
 		return url.includes("ycombinator.com");
 	}
 }
