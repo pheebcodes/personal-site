@@ -26,8 +26,8 @@
 		"link": "https://www.twitter.com/pheebcodes"
 	},
 	{
-		"text": "mastodon",
-		"label": "go to phoebe's mastodon profile",
+		"text": "fediverse",
+		"label": "go to phoebe's fediverse profile",
 		"link": "https://hachyderm.io/@phoebecodes",
 		"rel": "me"
 	},
