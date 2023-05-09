@@ -16,29 +16,9 @@
 		"link": "https://www.linkedin.com/in/phoebe-c-9a2b00234"
 	},
 	{
-		"text": "cohost",
-		"label": "go to phoebe's cohost profile",
-		"link": "https://www.cohost.org/phoebecodes"
-	},
-	{
-		"text": "twitter",
-		"label": "go to phoebe's twitter profile",
-		"link": "https://www.twitter.com/pheebcodes"
-	},
-	{
 		"text": "fediverse",
 		"label": "go to phoebe's fediverse profile",
 		"link": "https://hachyderm.io/@phoebecodes",
 		"rel": "me"
-	},
-	{
-		"text": "instagram",
-		"label": "go to phoebe's instagram profile",
-		"link": "https://www.instagram.com/pheebcodes"
-	},
-	{
-		"text": "twitch",
-		"label": "go to phoebe's twitch profile",
-		"link": "https://www.twitch.tv/phoebecodes"
 	}
 ]
