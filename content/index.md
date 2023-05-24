@@ -10,4 +10,4 @@ and calendaring systems for public libraries across north america.
 
 outside of work i design tabletop rpgs, play guitar, and experiment with hobby electronics,
 specifically guitar pedals, keyboards (the computer kind), and retro
-console related things.
+console related things. i'll blog about them eventually.
