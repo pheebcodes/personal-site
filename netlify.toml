@@ -2,5 +2,10 @@
 	command = "npm run watch"
 
 [[edge_functions]]
-  path = "/*"
-  function = "block-hacker-news"
+	path = "/*"
+	function = "block-hacker-news"
+
+[[headers]]
+	for = "/public.pgp"
+	[headers.values]
+		Content-Type = "application/pgp-keys"
