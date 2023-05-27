@@ -23,7 +23,7 @@ function FooterLinks() {
 				<FooterLink to="mailto:me@phoebe.codes" label="email phoebe" me>
 					email
 				</FooterLink>{" "}
-				<FooterLink to="/public.pgp" label="phoebe's public key" newTab me>
+				<FooterLink to="/public.pgp" label="phoebe's public key" download me>
 					(key)
 				</FooterLink>
 			</span>
