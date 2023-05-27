@@ -5,6 +5,9 @@
 [dev]
 	command = "npm run watch"
 
+[context.production]
+	environment = { NODE_VERSION = "20.2.0" }
+
 [[edge_functions]]
 	path = "/*"
 	function = "block-hacker-news"
