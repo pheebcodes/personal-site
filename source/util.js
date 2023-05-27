@@ -5,29 +5,18 @@ import fm from "front-matter";
 import vhtml from "vhtml";
 import { BUILD_DIR } from "./config.js";
 
-export const rmrf = async (p) => await fs.rm(p, { force: true, recursive: true });
-export const mkdir = async (p) => await fs.mkdir(p).catch((e) => (e.code === "EEXIST" ? undefined : Promise.reject(e)));
-export const mkdirp = async (p) => {
-	const stack = [];
-	let cur = p;
-	while (await mkdir(cur).catch((e) => e.code === "ENOENT")) {
-		stack.push(path.basename(cur));
-		cur = path.dirname(cur);
-	}
-	while (stack.length > 0) {
-		cur = path.join(cur, stack.pop());
-		await mkdir(cur);
-	}
-};
+export const remove = async (p) => await fs.rm(p, { force: true, recursive: true });
+export const makeDir = async (p) =>
+	await fs.mkdir(p, { recursive: true }).catch((e) => (e.code === "EEXIST" ? undefined : Promise.reject(e)));
 export const read = async (p, e = "utf8") => await fs.readFile(p, e);
 export const readDir = async (p) => await fs.readdir(p);
 export const write = async (p, d) => {
 	if (path.dirname(p) !== ".") {
-		await mkdirp(path.join(BUILD_DIR, path.dirname(p)));
+		await makeDir(path.join(BUILD_DIR, path.dirname(p)));
 	}
 	await fs.writeFile(path.join(BUILD_DIR, p), d);
 };
-export const copy = async (i, o = i) => await write(o, await read(i, null));
+export const copy = async (i, o = i) => await fs.cp(i, o, { recursive: true });
 export const renderMd = (d) => marked(d, { mangle: false, headerIds: false });
 export const renderHbs = (t, d = {}) => t({ ...DEFAULT_TEMPLATE_PROPERTIES, ...d });
 export const readMd = async (p) => {
