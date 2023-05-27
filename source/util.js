@@ -1,36 +1,52 @@
-import fs from "fs/promises";
-import path from "path";
-import { marked } from "marked";
-import fm from "front-matter";
-import vhtml from "vhtml";
+import FS from "fs/promises";
+import Path from "path";
+import { marked as Marked } from "marked";
+import FM from "front-matter";
+import VHTML from "vhtml";
 import { BUILD_DIR } from "./config.js";
 
-export const remove = async (p) => await fs.rm(p, { force: true, recursive: true });
+export async function remove(path) {
+	await FS.rm(path, { force: true, recursive: true });
+}
 
-export const makeDir = async (p) =>
-	await fs.mkdir(p, { recursive: true }).catch((e) => (e.code === "EEXIST" ? undefined : Promise.reject(e)));
-
-export const read = async (p, e = "utf8") => await fs.readFile(p, e);
-
-export const readDir = async (p) => await fs.readdir(p);
-
-export const write = async (p, d) => {
-	if (path.dirname(p) !== ".") {
-		await makeDir(path.join(BUILD_DIR, path.dirname(p)));
+export async function makeDir(path) {
+	try {
+		await FS.mkdir(path, { recursive: true });
+	} catch (e) {
+		if (e.code === "EEXIST") {
+			return undefined;
+		}
+		return Promise.reject(e);
 	}
-	await fs.writeFile(path.join(BUILD_DIR, p), d);
-};
+}
 
-export const copy = async (i, o = i) => await fs.cp(i, o, { recursive: true });
+export async function read(path, encoding = "utf8") {
+	return await FS.readFile(path, encoding);
+}
 
-export const readMd = async (p) => {
-	const d = fm(await read(p));
-	const b = marked(d.body, { mangle: false, headerIds: false });
+export async function readDir(path) {
+	return await FS.readdir(path, { recursive: true });
+}
+
+export async function write(path, data) {
+	if (Path.dirname(path) !== ".") {
+		await makeDir(Path.join(BUILD_DIR, Path.dirname(path)));
+	}
+	await FS.writeFile(Path.join(BUILD_DIR, path), data);
+}
+
+export async function copy(path, destination) {
+	await FS.cp(path, destination, { recursive: true });
+}
+
+export async function readMd(path) {
+	const data = FM(await read(path));
+	const body = Marked(data.body, { mangle: false, headerIds: false });
 	return {
-		...d.attributes,
-		body: b,
+		...data.attributes,
+		body,
 	};
-};
+}
 
 export function* paginate(xs, perPage, sort) {
 	xs = xs.slice();
@@ -50,10 +66,18 @@ export function* paginate(xs, perPage, sort) {
 	}
 }
 
-export const render = async (o, C, as = {}, ...cs) => await write(o, "<!DOCTYPE html>" + vhtml(C, as, ...cs));
+export async function render(destination, Component, attributes, ...children) {
+	await write(destination, "<!DOCTYPE html>" + VHTML(Component, attributes, ...children));
+}
 
-export const mapP = (xs, fn) => Promise.all(xs.map(fn));
+export function mapP(list, func) {
+	return Promise.all(list.map(func));
+}
 
-export const join = (...ps) => path.join(...ps);
+export function join(...paths) {
+	return Path.join(...paths);
+}
 
-export const basename = (p) => path.basename(p, path.extname(p));
+export function basename(path) {
+	return Path.basename(path, Path.extname(path));
+}
