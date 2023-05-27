@@ -1,6 +1,36 @@
+[build]
+	publish = "out/"
+	command = "npm run build"
+
 [dev]
 	command = "npm run watch"
 
 [[edge_functions]]
 	path = "/*"
 	function = "block-hacker-news"
+
+[[headers]]
+	for = "/public.pgp"
+
+	[headers.values]
+		Content-Type = "application/pgp-keys"
+
+[[redirects]]
+	from = "/LICENSE"
+	to = "/LICENSE.txt"
+
+[[redirects]]
+	from = "/license"
+	to = "/LICENSE.txt"
+
+[[redirects]]
+	from = "/blog"
+	to = "/blog/toc/1"
+
+[[redirects]]
+	from = "/blog/toc"
+	to = "/blog/toc/1"
+
+[[redirects]]
+	from = "/blog/tags/:tag"
+	to = "/blog/tags/:tag/1"

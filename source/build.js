@@ -16,10 +16,8 @@ async function main() {
 	await rmrf(BUILD_DIR);
 	await mkdirp(BUILD_DIR);
 
-	// Copy _redirects, _headers, license, and font files.
+	// Copy static files.
 	await copy("static/LICENSE.txt", "LICENSE.txt");
-	await copy("static/_redirects", "_redirects");
-	await copy("static/_headers", "_headers");
 	for (const font of await readDir("static/fonts")) {
 		if (font.startsWith(".") === false) {
 			await copy(join("static/fonts", font), join("fonts", font));
