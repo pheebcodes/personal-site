@@ -4,7 +4,7 @@ import { BlogToc } from "./page/blog-toc.jsx";
 import { BlogPost } from "./page/blog-post.jsx";
 import { BlogTag } from "./page/blog-tag.jsx";
 import { BUILD_DIR, POSTS_PER_PAGE, POST_DATE_FORMAT } from "./config.js";
-import { rmrf, mkdirp, copy, readDir, readMd, render, join, paginate, basename, mapP } from "./util.js";
+import { remove, copy, readDir, readMd, render, join, paginate, basename, mapP } from "./util.js";
 
 main().catch((err) => {
 	console.error(err);
@@ -13,18 +13,8 @@ main().catch((err) => {
 
 async function main() {
 	// Create out dir.
-	await rmrf(BUILD_DIR);
-	await mkdirp(BUILD_DIR);
-
-	// Copy static files.
-	await copy("static/LICENSE.txt", "LICENSE.txt");
-	for (const font of await readDir("static/fonts")) {
-		if (font.startsWith(".") === false) {
-			await copy(join("static/fonts", font), join("fonts", font));
-		}
-	}
-	await copy("static/style.css", "style.css");
-	await copy("static/public.pgp", "public.pgp");
+	await remove(BUILD_DIR);
+	await copy("static", BUILD_DIR);
 
 	// Render index.html.
 	const content = await readMd("content/index.md");
