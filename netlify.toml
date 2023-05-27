@@ -24,19 +24,11 @@
 	to = "/license.txt"
 
 [[redirects]]
-	from = "/LICENSE.txt"
-	to = "/license.txt"
-
-[[redirects]]
 	from = "/commit"
 	to = "/commit.txt"
 
 [[redirects]]
 	from = "/COMMIT"
-	to = "/commit.txt"
-
-[[redirects]]
-	from = "/COMMIT.txt"
 	to = "/commit.txt"
 
 [[redirects]]
