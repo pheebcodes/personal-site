@@ -28,7 +28,7 @@ export const write = async (p, d) => {
 	await fs.writeFile(path.join(BUILD_DIR, p), d);
 };
 export const copy = async (i, o = i) => await write(o, await read(i, null));
-export const renderMd = (d) => marked(d, { smartypants: true });
+export const renderMd = (d) => marked(d, { mangle: false, headerIds: false });
 export const renderHbs = (t, d = {}) => t({ ...DEFAULT_TEMPLATE_PROPERTIES, ...d });
 export const readMd = async (p) => {
 	const d = fm(await read(p));
