@@ -4,7 +4,7 @@ import { BlogToc } from "./page/blog-toc.jsx";
 import { BlogPost } from "./page/blog-post.jsx";
 import { BlogTag } from "./page/blog-tag.jsx";
 import { BUILD_DIR, POSTS_PER_PAGE, POST_DATE_FORMAT } from "./config.js";
-import { remove, copy, readDir, readMd, render, join, paginate, basename, mapP } from "./util.js";
+import { remove, copy, readDir, readMd, render, join, paginate, basename, mapP, write } from "./util.js";
 
 main().catch((err) => {
 	console.error(err);
@@ -15,6 +15,8 @@ async function main() {
 	// Create out dir.
 	await remove(BUILD_DIR);
 	await copy("static", BUILD_DIR);
+
+	await write("commit.txt", process.env.COMMIT_REF);
 
 	// Render index.html.
 	const content = await readMd("content/index.md");
