@@ -29,10 +29,10 @@ export async function readDir(path) {
 }
 
 export async function write(path, data) {
-	if (Path.dirname(path) !== ".") {
-		await makeDir(Path.join(BUILD_DIR, Path.dirname(path)));
+	if (dirname(path) !== ".") {
+		await makeDir(join(BUILD_DIR, dirname(path)));
 	}
-	await FS.writeFile(Path.join(BUILD_DIR, path), data);
+	await FS.writeFile(join(BUILD_DIR, path), data);
 }
 
 export async function copy(path, destination) {
@@ -76,6 +76,10 @@ export function mapP(list, func) {
 
 export function join(...paths) {
 	return Path.join(...paths);
+}
+
+export function dirname(path) {
+	return Path.dirname(path);
 }
 
 export function basename(path) {
