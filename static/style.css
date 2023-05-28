@@ -6,6 +6,31 @@
 	src: url(/fonts/BerkeleyMono-Regular.woff2) format("woff2"), url(/fonts/BerkeleyMono-Regular.woff) format("woff");
 }
 
+@font-face {
+	font-family: "Berkeley Mono";
+	font-style: italic;
+	font-weight: 400;
+	font-display: block;
+	src: url(/fonts/BerkeleyMono-Italic.woff2) format("woff2"), url(/fonts/BerkeleyMono-Italic.woff) format("woff");
+}
+
+@font-face {
+	font-family: "Berkeley Mono";
+	font-style: normal;
+	font-weight: 700;
+	font-display: block;
+	src: url(/fonts/BerkeleyMono-Bold.woff2) format("woff2"), url(/fonts/BerkeleyMono-Bold.woff) format("woff");
+}
+
+@font-face {
+	font-family: "Berkeley Mono";
+	font-style: italic;
+	font-weight: 700;
+	font-display: block;
+	src: url(/fonts/BerkeleyMono-BoldItalic.woff2) format("woff2"),
+		url(/fonts/BerkeleyMono-BoldItalic.woff) format("woff");
+}
+
 :root {
 	/* colors */
 	--base00: #ffffff;
@@ -155,7 +180,7 @@ span.no-link {
 }
 
 nav .current {
-	text-decoration: underline;
+	font-weight: 700;
 }
 
 nav:hover .current:not(:hover) {
