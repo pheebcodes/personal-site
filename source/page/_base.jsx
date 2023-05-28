@@ -1,4 +1,4 @@
-import { h } from "../html.js";
+import { h, cn } from "../html.js";
 import { Head } from "../components/head.jsx";
 import { Header, HeaderLink } from "../components/header.jsx";
 import { Footer, FooterLink } from "../components/footer.jsx";
@@ -54,7 +54,7 @@ export function BasePage({ title, pageName, main = "main", children }) {
 			<Head title={title} />
 			<body>
 				<Header links={process.env.SHOW_BLOG ? <HeaderLinks pageName={pageName} /> : null} />
-				{h(main, { className: pageName }, ...children)}
+				{h(main, { className: cn(pageName, "col container margin-gap grow") }, ...children)}
 				<Footer links={<FooterLinks />} />
 			</body>
 		</html>

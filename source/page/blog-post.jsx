@@ -19,7 +19,7 @@ export function BlogPost({ title, date, body, tags }) {
 					</nav>
 				</section>
 			</header>
-			<section dangerouslySetInnerHTML={{ __html: body }} />
+			<section className="col margin-gap" dangerouslySetInnerHTML={{ __html: body }} />
 		</BasePage>
 	);
 }
