@@ -57,10 +57,10 @@ bit deeper.
 
 we start out with an exported function called `handler`. it takes a `Request`
 and returns either a `Response` or `undefined`. in edge functions, we return a
-`Response` when we want to terminate the request and return `undefined` when we
-want to bypass the current edge function and go to the next edge function, or
-serve the static content at that path if there are no more edge functions in the
-chain.
+`Response` when we want to terminate the request. we could also return
+`undefined` when we want to bypass the current edge function and either go to
+the next edge function or serve the static content at that path if there are no
+more edge functions for the path of our request.
 
 ```typescript
 export default function handler(request: Request): Response | undefined { }
