@@ -5,7 +5,7 @@ import { Pagination } from "../components/pagination.jsx";
 
 export function BlogToc({ tags, posts, prev, cur, next }) {
 	return (
-		<BasePage title="phoebe - blog" pageName="blog-toc">
+		<BasePage title="blog" pageName="blog-toc">
 			<header className="row space-gap">
 				<h2>tags: </h2>
 				<nav className="row divide wrap">

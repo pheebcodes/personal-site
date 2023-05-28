@@ -4,7 +4,7 @@ import { Date } from "../components/date.jsx";
 
 export function BlogPost({ title, date, body, tags }) {
 	return (
-		<BasePage title={`phoebe - ${title}`} pageName="blog-post">
+		<BasePage title={title} pageName="blog-post">
 			<header className="column">
 				<h1>{title}</h1>
 				<Date>{date}</Date>

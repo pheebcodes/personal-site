@@ -51,7 +51,7 @@ function FooterLinks() {
 export function BasePage({ title, pageName, main = "main", children }) {
 	return (
 		<html lang="en">
-			<Head title={title} />
+			<Head title={title ? `phoebe - ${title}` : "phoebe"} />
 			<body>
 				<Header links={<HeaderLinks pageName={pageName} />} />
 				{h(main, { className: cn(pageName, "col container margin-gap grow") }, ...children)}

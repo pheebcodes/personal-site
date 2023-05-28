@@ -9,7 +9,7 @@ function MainElement({ children, ...attrs }) {
 
 export function Home({ body }) {
 	return (
-		<BasePage title="phoebe" pageName="home" main={MainElement}>
+		<BasePage pageName="home" main={MainElement}>
 			{body}
 		</BasePage>
 	);
