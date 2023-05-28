@@ -1,10 +1,21 @@
+import { formatISO } from "date-fns";
 import { h } from "../html.js";
 import { BasePage } from "./_base.jsx";
 import { Date } from "../components/date.jsx";
 
+function Meta({ title, date }) {
+	return (
+		<>
+			<meta property="og:type" content="article" />
+			<meta property="og:title" content={`${title} - phoebe codes`} />
+			<meta property="og:article:published_time" content={formatISO(date, { representation: "date" })} />
+		</>
+	);
+}
+
 export function BlogPost({ title, date, body, tags }) {
 	return (
-		<BasePage title={title} pageName="blog-post">
+		<BasePage title={title} pageName="blog-post" head={<Meta title={title} date={date} />}>
 			<header className="column">
 				<h1>{title}</h1>
 				<Date>{date}</Date>
