@@ -53,7 +53,7 @@ export function BasePage({ title, pageName, main = "main", children }) {
 		<html lang="en">
 			<Head title={title} />
 			<body>
-				<Header links={process.env.SHOW_BLOG ? <HeaderLinks pageName={pageName} /> : null} />
+				<Header links={<HeaderLinks pageName={pageName} />} />
 				{h(main, { className: cn(pageName, "col container margin-gap grow") }, ...children)}
 				<Footer links={<FooterLinks />} />
 			</body>
