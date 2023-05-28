@@ -2,7 +2,7 @@
 	"scripts": {
 		"build": "npx esbuild source/build.js --bundle --platform=node --packages=external --jsx-factory=h --jsx-fragment=null | node",
 		"watch": "nodemon --exec \"npm run build\" --watch content --watch source --watch static --ignore out -e js,jsx,json,md,css",
-		"dev": "SHOW_BLOG=true netlify dev"
+		"dev": "netlify dev"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.22",
