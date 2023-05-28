@@ -9,7 +9,7 @@ i recently reworked this site from the ground up and in the process decided to
 add blogging to it. this will surely prove to be a mistake, either by my posts
 ending up in places that i don't want them to be, or by just never writing
 anything to post on it. in my classic "putting the cart before the
-horse"-fashion, i solved the former problem by blocked hacker news from linking
+horse"-fashion, i solved the former problem by blocking hacker news from linking
 to phoebe.codes before i even had any content to link to. maybe if my brain
 could turn adderall into blog posts instead of code, we could've solved the
 latter problem first, but my therapist tells me to focus on my strengths, so
