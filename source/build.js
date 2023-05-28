@@ -60,7 +60,7 @@ async function main() {
 	for (const tag of tags) {
 		const tagPosts = posts.filter((post) => post.tags.has(tag));
 		for (const { prev, cur, next, items } of paginate(tagPosts, POSTS_PER_PAGE, postSort)) {
-			await render(join("blog", "tag", tag, `${cur}.html`), BlogTag, { posts: items, prev, cur, next, tag });
+			await render(join("blog", "tags", tag, `${cur}.html`), BlogTag, { posts: items, prev, cur, next, tag });
 		}
 	}
 }

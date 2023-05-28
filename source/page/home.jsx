@@ -1,8 +1,10 @@
-import { h } from "../html.js";
+import { h, cn } from "../html.js";
 import { BasePage } from "./_base.jsx";
 
 function MainElement({ children, ...attrs }) {
-	return h("main", { ...attrs, dangerouslySetInnerHTML: { __html: children } });
+	return (
+		<main {...attrs} className={cn(attrs.className, "justify-center")} dangerouslySetInnerHTML={{ __html: children }} />
+	);
 }
 
 export function Home({ body }) {

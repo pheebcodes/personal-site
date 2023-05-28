@@ -9,7 +9,7 @@ function HeaderLinks({ pageName }) {
 			<HeaderLink href="/" current={pageName === "home"}>
 				home
 			</HeaderLink>
-			<HeaderLink href="/blog" current={pageName === "blog"}>
+			<HeaderLink href="/blog" current={pageName.startsWith("blog-")}>
 				blog
 			</HeaderLink>
 		</>

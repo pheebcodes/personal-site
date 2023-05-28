@@ -25,7 +25,7 @@ export function FooterLink({ to, label, me, newTab = false, download, children }
 export function Footer({ links }) {
 	return (
 		<footer>
-			<nav class="links">{links}</nav>
+			<nav className="row divide wrap">{links}</nav>
 		</footer>
 	);
 }

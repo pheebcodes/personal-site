@@ -2,7 +2,7 @@ import { h, cn } from "../html.js";
 
 export function HeaderLink({ href, children, current }) {
 	return (
-		<a href={href} className={cn({ "current-page": current })}>
+		<a href={href} className={cn({ current })}>
 			{children}
 		</a>
 	);
@@ -10,9 +10,9 @@ export function HeaderLink({ href, children, current }) {
 
 export function Header({ links }) {
 	return (
-		<header className="top">
+		<header className="row double-divide">
 			<h1>phoebe</h1>
-			{links ? <nav>{links}</nav> : null}
+			{links ? <nav className="row divide">{links}</nav> : null}
 		</header>
 	);
 }

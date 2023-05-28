@@ -1,36 +1,30 @@
 import { h } from "../html.js";
 import { BasePage } from "./_base.jsx";
+import { Date } from "../components/date.jsx";
+import { Pagination } from "../components/pagination.jsx";
 
 export function BlogToc({ tags, posts, prev, cur, next }) {
-	const prevNavigation = prev !== null ? <a href="/blog/toc/{prev}">prev</a> : <span class="no-link">prev</span>;
-	const nextNavigation = next !== null ? <a href="/blog/toc/{next}">next</a> : <span class="no-link">next</span>;
-
 	return (
 		<BasePage title="phoebe" pageName="blog-toc">
-			<header>
+			<header className="row space-gap">
 				<h2>tags: </h2>
-				<nav>
+				<nav className="row divide wrap">
 					{Array.from(tags).map((tag) => (
-						<a href="/blog/tag/{tag}">{tag}</a>
+						<a href={`/blog/tags/${tag}`}>{tag}</a>
 					))}
 				</nav>
 			</header>
 
 			<ol class="toc">
 				{posts.map((post) => (
-					<li>
-						<a href="/blog/posts/{post.slug}">{post.title}</a>
-						<span>{post.date}</span>
+					<li className="col">
+						<a href={`/blog/posts/${post.slug}`}>{post.title}</a>
+						<Date>{post.date}</Date>
 					</li>
 				))}
 			</ol>
 
-			<footer class="pagination">
-				<span>page: {cur}</span>
-				<nav>
-					{prevNavigation} {nextNavigation}
-				</nav>
-			</footer>
+			<Pagination currentPage={cur} previousLink={prev && `/blog/toc/${prev}`} nextLink={next && `/blog/toc/${next}`} />
 		</BasePage>
 	);
 }
