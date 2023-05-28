@@ -20,7 +20,9 @@
 		"date-fns": "^2.30.0",
 		"esbuild": "^0.17.19",
 		"front-matter": "^4.0.2",
+		"highlight.js": "^11.8.0",
 		"marked": "^5.0.3",
+		"marked-highlight": "^2.0.1",
 		"vhtml": "^2.2.0"
 	}
 }

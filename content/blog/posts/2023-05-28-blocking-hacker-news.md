@@ -17,8 +17,8 @@ therapist tells me to focus on my strengths, so here we are.
 this site is a statically generated site that's hosted on
 [netlify](https://www.netlify.com). the process i used to block hacker news does
 require the site to be hosted on netlify, but it doesn't require using any
-particular static-site generator for your site (the static site generator i'm
-using is bespoke because a little suffering is ok, as a treat). netlify has a
+particular static-site generator for your site (the static-site generator i'm
+using is bespoke, because a little suffering is ok, as a treat). netlify has a
 lot of neat features, like deploy previews and forms and identity, but today
 we'll be using edge functions to fend off [redacted].
 
@@ -54,11 +54,12 @@ function shouldBlock(url: string): boolean {
 that's pretty much it, but i know you're here to learn, so we're going to go a
 bit deeper.
 
-we start out with an exported function called "handler". it takes a `Request`
+we start out with an exported function called `handler`. it takes a `Request`
 and returns either a `Response` or `undefined`. in edge functions, we return a
-`Response` when we want to terminate the request, or return `undefined` when we
-want to bypass the current edge function and go to the next edge function or
-serve the static content at that path.
+`Response` when we want to terminate the request and return `undefined` when we
+want to bypass the current edge function and go to the next edge function, or
+serve the static content at that path if there are no more edge functions in the
+chain.
 
 ```typescript
 export default function handler(request: Request): Response | undefined { }
@@ -77,13 +78,13 @@ export default function handler(request: Request): Response | undefined {
 now, we'll create a new function named `shouldBlock` that takes a string (a
 non-null `Referer` header) and returns whether the edge function should block
 the request or not. we can parse the string using the `URL` class, then check if
-the `URL` instance's hostname ends with "ycombinator.com".
+the `URL` instance's hostname ends with `"ycombinator.com"`.
 
 the `URL` class constructor could throw an error if it is passed a string that
 isn't a valid url containing a protocol and a hostname. in the case that the url
-cannot be parsed, we'll just check if the string contains "ycombinator.com". we
-could probably just check if the string contains "ycombinator.com" instead of
-trying to parse it using the `URL` class, but i have to make up for years of
+cannot be parsed, we'll just check if the string contains `"ycombinator.com"`.
+we could probably just check if the string contains `"ycombinator.com"` instead
+of trying to parse it using the `URL` class, but i have to make up for years of
 pretending that classes don't exist, so we'll give `URL` a fair shot before
 falling back to the "good enough" method.
 
@@ -129,9 +130,10 @@ function shouldBlock(url: string): boolean {
 
 so that's our code! but what do we do with it? assuming you're already deploying
 your site using netlify, we can drop the function into our git repository.
-create a new directory in your repository, "netlify/edge-functions", then save
-your code there as "block-hacker-news.ts". the full path of the file relative to
-the repository root should be "netlify/edge-functions/block-hacker-news.ts".
+create a new directory in your repository, `"netlify/edge-functions"`, then save
+your code there as `"block-hacker-news.ts"`. the full path of the file relative
+to the repository root should be
+`"netlify/edge-functions/block-hacker-news.ts"`.
 
 once you have that saved, we'll configure that edge function. create a
 `netlify.toml` file at the root of your repository if it doesn't already exist.

@@ -1,9 +1,20 @@
 import FS from "fs/promises";
 import Path from "path";
 import { marked as Marked } from "marked";
+import { markedHighlight as MarkedHighlight } from "marked-highlight";
+import Highlight from "highlight.js";
 import FM from "front-matter";
 import VHTML from "vhtml";
 import { BUILD_DIR } from "./config.js";
+
+Marked.use(
+	MarkedHighlight({
+		highlight(code, lang) {
+			const language = Highlight.getLanguage(lang) ? lang : "plaintext";
+			return Highlight.highlight(code, { language }).value;
+		},
+	}),
+);
 
 export async function remove(path) {
 	await FS.rm(path, { force: true, recursive: true });

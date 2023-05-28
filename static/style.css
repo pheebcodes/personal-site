@@ -8,9 +8,22 @@
 
 :root {
 	/* colors */
-	--black: #231f20;
-	--purple: #7670e0;
-	--white: #ffffff;
+	--base00: #ffffff;
+	--base01: #e1e1e2;
+	--base02: #c4c3c5;
+	--base03: #a7a5a8;
+	--base04: #89878b;
+	--base05: #6c696e;
+	--base06: #4f4b51;
+	--base07: #322d34;
+	--base08: #d8137f;
+	--base09: #d65407;
+	--base0A: #dc8a0e;
+	--base0B: #17ad98;
+	--base0C: #149bda;
+	--base0D: #775dff;
+	--base0E: #aa17e6;
+	--base0F: #e013d0;
 
 	/* sizes */
 	--container-width: 900px;
@@ -23,35 +36,39 @@
 	box-sizing: border-box;
 	font-size: 1rem;
 	font-weight: 400;
-	color: var(--black);
+	color: var(--base05);
 	text-transform: lowercase;
 }
 
-pre,
-code {
+pre code {
+	display: block;
+	overflow-x: auto;
+	padding-left: 2rem;
+}
+
+code,
+code * {
 	text-transform: none;
 	font-family: "Berkeley Mono", monospace;
 }
 
-*:not(pre) > code {
-	color: var(--purple);
+:not(pre) > code {
+	color: var(--base0D);
 }
 
-html {
+body {
 	font-family: "Berkeley Mono", monospace;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	letter-spacing: 0.3px;
 	line-height: 1.5;
-}
-
-body {
 	min-height: 100vh;
 	min-height: 100dvh;
 	display: flex;
 	flex-direction: column;
 	padding: 3rem;
 	gap: 6rem;
+	background-color: var(--base00);
 }
 
 main {
@@ -71,7 +88,7 @@ ol {
 
 a {
 	text-decoration: none;
-	color: var(--purple);
+	color: var(--base0C);
 	text-decoration-thickness: 1.5px;
 }
 
@@ -83,7 +100,7 @@ a:focus {
 
 span.no-link {
 	text-decoration: line-through;
-	color: var(--purple);
+	color: var(--base0C);
 }
 
 .row {
@@ -122,7 +139,7 @@ span.no-link {
 }
 
 .divide > *:not(:last-child)::after {
-	color: var(--black);
+	color: var(--base05);
 	content: "/";
 	margin-left: var(--space-width);
 	margin-right: var(--space-width);
@@ -130,7 +147,7 @@ span.no-link {
 }
 
 .double-divide > *:not(:last-child)::after {
-	color: var(--black);
+	color: var(--base05);
 	content: "//";
 	margin-left: var(--space-width);
 	margin-right: var(--space-width);
@@ -143,4 +160,100 @@ nav .current {
 
 nav:hover .current:not(:hover) {
 	text-decoration: none;
+}
+
+/**
+ * Code block highlighting
+ */
+
+.hljs-comment {
+	color: var(--base03);
+}
+
+.hljs-tag {
+	color: var(--base04);
+}
+
+.hljs-subst,
+.hljs-punctuation,
+.hljs-operator {
+	color: var(--base05);
+}
+
+.hljs-bullet,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-deletion {
+	color: var(--base08);
+}
+
+.hljs-symbol,
+.hljs-number,
+.hljs-link,
+.hljs-attr,
+.hljs-variable.constant_,
+.hljs-literal {
+	color: var(--base09);
+}
+
+.hljs-title,
+.hljs-class .hljs-title,
+.hljs-title.class_,
+.hljs-strong {
+	color: var(--base0A);
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+
+.hljs-code,
+.hljs-addition,
+.hljs-title.class_.inherited__,
+.hljs-string {
+	color: var(--base0B);
+}
+
+.hljs-built_in,
+.hljs-doctag,
+.hljs-quote,
+.hljs-keyword.hljs-atrule,
+.hljs-regexp {
+	color: var(--base0C);
+}
+
+.hljs-function .hljs-title,
+.hljs-attribute,
+.ruby .hljs-property,
+.hljs-title.function_,
+.hljs-section {
+	color: var(--base0D);
+}
+
+.hljs-type,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-template-tag,
+.diff .hljs-meta,
+.hljs-keyword,
+.hljs-emphasis {
+	color: var(--base0E);
+}
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword,
+.hljs-meta .hljs-string {
+	color: var(--base0F);
+}
+
+.hljs-meta .hljs-keyword,
+.hljs-meta-keyword {
+	font-weight: bold;
 }
