@@ -12,6 +12,10 @@
 	path = "/*"
 	function = "block-hacker-news"
 
+[[edge_functions]]
+	path = "/.well-known/webfinger"
+	function = "webfinger-redirect"
+
 [[headers]]
 	for = "/public.pgp"
 
@@ -43,5 +47,5 @@
 	to = "/blog/toc/1"
 
 [[redirects]]
-	from = "/blog/tags/:tag"
-	to = "/blog/tags/:tag/1"
+	from = "/blog/tag/:tag"
+	to = "/blog/tag/:tag/1"
