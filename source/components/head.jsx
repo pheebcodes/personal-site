@@ -1,6 +1,6 @@
 import { h } from "../html.js";
 
-export function Head({ title }) {
+export function Head({ title, children }) {
 	return (
 		<head>
 			<meta charset="utf-8" />
@@ -13,6 +13,7 @@ export function Head({ title }) {
 			<link rel="preload" href="/fonts/BerkeleyMono-BoldItalic.woff2" as="font" type="font/woff2" crossorigin />
 			<link rel="stylesheet" href="/style.css" />
 			<link rel="icon" href="data:,"></link>
+			{children}
 		</head>
 	);
 }
