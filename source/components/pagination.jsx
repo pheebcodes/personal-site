@@ -1,4 +1,13 @@
 import { h } from "../html.js";
+import * as Divided from "./divided.jsx";
+
+function NoLink({ children, ...attrs }) {
+	return (
+		<Divided.LinkWrapper {...attrs} className="no-link">
+			{children}
+		</Divided.LinkWrapper>
+	);
+}
 
 export function Pagination({ previousLink, currentPage, nextLink }) {
 	return (
@@ -7,10 +16,10 @@ export function Pagination({ previousLink, currentPage, nextLink }) {
 				<span>page:</span>
 				<span>{currentPage}</span>
 			</section>
-			<nav className="row divide">
-				{previousLink ? <a href={previousLink}>prev</a> : <span className="no-link">prev</span>}
-				{nextLink ? <a href={nextLink}>next</a> : <span className="no-link">next</span>}
-			</nav>
+			<Divided.Container>
+				{previousLink ? <Divided.Link href={previousLink}>prev</Divided.Link> : <NoLink>prev</NoLink>}
+				{previousLink ? <Divided.Link href={nextLink}>next</Divided.Link> : <NoLink>next</NoLink>}
+			</Divided.Container>
 		</footer>
 	);
 }

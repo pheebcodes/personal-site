@@ -1,18 +1,19 @@
 import { h, cn } from "../html.js";
+import * as Divided from "./divided";
 
-export function HeaderLink({ href, children, current }) {
+export function Link({ className, current, children, ...attr }) {
 	return (
-		<a href={href} className={cn({ current })}>
+		<Divided.Link className={cn(className, { current })} {...attr}>
 			{children}
-		</a>
+		</Divided.Link>
 	);
 }
 
-export function Header({ links }) {
+export function Container({ children }) {
 	return (
-		<header className="row double-divide">
+		<Divided.Container element="header" divider="double">
 			<h1>phoebe</h1>
-			{links ? <nav className="row divide">{links}</nav> : null}
-		</header>
+			<Divided.Container className="wrap">{children}</Divided.Container>
+		</Divided.Container>
 	);
 }

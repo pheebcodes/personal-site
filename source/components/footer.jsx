@@ -1,6 +1,7 @@
 import { h } from "../html.js";
+import * as Divided from "./divided.jsx";
 
-export function FooterLink({ to, label, me, newTab = false, download, children }) {
+export function LinkInner({ to, label, me, newTab = false, download, children, attrs }) {
 	const relList = [];
 	if (me) {
 		relList.push("me");
@@ -9,7 +10,8 @@ export function FooterLink({ to, label, me, newTab = false, download, children }
 		relList.push("noopener", "noreferrer");
 	}
 	return (
-		<a
+		<Divided.LinkInner
+			{...attrs}
 			href={to}
 			aria-label={label}
 			tabindex="0"
@@ -18,14 +20,24 @@ export function FooterLink({ to, label, me, newTab = false, download, children }
 			download={download === true ? "" : download}
 		>
 			{children}
-		</a>
+		</Divided.LinkInner>
 	);
 }
 
-export function Footer({ links }) {
+export const LinkWrapper = Divided.LinkWrapper;
+
+export function Link({ children, ...attrs }) {
+	return (
+		<LinkWrapper>
+			<LinkInner {...attrs}>{children}</LinkInner>
+		</LinkWrapper>
+	);
+}
+
+export function Container({ children }) {
 	return (
 		<footer>
-			<nav className="row divide wrap">{links}</nav>
+			<Divided.Container className="wrap">{children}</Divided.Container>
 		</footer>
 	);
 }

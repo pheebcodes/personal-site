@@ -1,17 +1,18 @@
 import { h, cn } from "../html.js";
 import { Head } from "../components/head.jsx";
-import { Header, HeaderLink } from "../components/header.jsx";
-import { Footer, FooterLink } from "../components/footer.jsx";
+import * as Header from "../components/header.jsx";
+import * as Footer from "../components/footer.jsx";
+import * as Divided from "../components/divided.jsx";
 
 function HeaderLinks({ pageName }) {
 	return (
 		<>
-			<HeaderLink href="/" current={pageName === "home"}>
+			<Header.Link href="/" current={pageName === "home"}>
 				home
-			</HeaderLink>
-			<HeaderLink href="/blog" current={pageName.startsWith("blog-")}>
+			</Header.Link>
+			<Header.Link href="/blog" current={pageName.startsWith("blog-")}>
 				blog
-			</HeaderLink>
+			</Header.Link>
 		</>
 	);
 }
@@ -19,31 +20,31 @@ function HeaderLinks({ pageName }) {
 function FooterLinks() {
 	return (
 		<>
-			<span>
-				<FooterLink to="mailto:me@phoebe.codes" label="email phoebe" me>
+			<Footer.LinkWrapper>
+				<Footer.LinkInner to="mailto:me@phoebe.codes" label="email phoebe" me>
 					email
-				</FooterLink>{" "}
-				<FooterLink to="/public.pgp" label="phoebe's public key" download me>
+				</Footer.LinkInner>{" "}
+				<Footer.LinkInner to="/public.pgp" label="phoebe's public key" download me>
 					(key)
-				</FooterLink>
-			</span>
-			<FooterLink to="https://www.github.com/pheebcodes" label="phoebe's github profile" newTab me>
+				</Footer.LinkInner>
+			</Footer.LinkWrapper>
+			<Footer.Link to="https://www.github.com/pheebcodes" label="phoebe's github profile" newTab me>
 				github
-			</FooterLink>
-			<FooterLink to="https://www.linkedin.com/in/phoebe-c-9a2b00234" label="phoebe's linkedin profile" newTab me>
+			</Footer.Link>
+			<Footer.Link to="https://www.linkedin.com/in/phoebe-c-9a2b00234" label="phoebe's linkedin profile" newTab me>
 				linkedin
-			</FooterLink>
-			<FooterLink
+			</Footer.Link>
+			<Footer.Link
 				to="https://www.hachyderm.io/@phoebecodes"
 				label="phoebe's fediverse profile on hachyderm.io"
 				newTab
 				me
 			>
 				fediverse
-			</FooterLink>
-			<FooterLink to="https://bsky.app/profile/phoebe.codes" label="phoebe's bluesky profile" newTab me>
+			</Footer.Link>
+			<Footer.Link to="https://bsky.app/profile/phoebe.codes" label="phoebe's bluesky profile" newTab me>
 				bluesky
-			</FooterLink>
+			</Footer.Link>
 		</>
 	);
 }
@@ -53,9 +54,15 @@ export function BasePage({ title, head, pageName, main = "main", children }) {
 		<html lang="en">
 			<Head title={title ? `phoebe - ${title}` : "phoebe"}>{head}</Head>
 			<body>
-				<Header links={<HeaderLinks pageName={pageName} />} />
+				<Header.Container>
+					<HeaderLinks pageName={pageName} />
+				</Header.Container>
+
 				{h(main, { className: cn(pageName, "col container margin-gap grow") }, ...children)}
-				<Footer links={<FooterLinks />} />
+
+				<Footer.Container>
+					<FooterLinks pageName={pageName} />
+				</Footer.Container>
 			</body>
 		</html>
 	);

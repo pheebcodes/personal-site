@@ -2,6 +2,7 @@ import { formatISO } from "date-fns";
 import { h } from "../html.js";
 import { BasePage } from "./_base.jsx";
 import { Date } from "../components/date.jsx";
+import * as Divided from "../components/divided.jsx";
 
 function Meta({ title, date }) {
 	return (
@@ -21,13 +22,12 @@ export function BlogPost({ title, date, body, tags }) {
 				<Date>{date}</Date>
 				<section className="row space-gap">
 					<span>tags:</span>
-					<nav className="row divide wrap">
+
+					<Divided.Container className="wrap">
 						{Array.from(tags).map((tag) => (
-							<a class="tag" href={`/blog/tags/${tag}`}>
-								{tag}
-							</a>
+							<Divided.Link href={`/blog/tags/${tag}`}>{tag}</Divided.Link>
 						))}
-					</nav>
+					</Divided.Container>
 				</section>
 			</header>
 			<section className="col margin-gap" dangerouslySetInnerHTML={{ __html: body }} />

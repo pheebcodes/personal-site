@@ -2,17 +2,19 @@ import { h } from "../html.js";
 import { BasePage } from "./_base.jsx";
 import { Date } from "../components/date.jsx";
 import { Pagination } from "../components/pagination.jsx";
+import * as Divided from "../components/divided.jsx";
 
 export function BlogToc({ tags, posts, prev, cur, next }) {
 	return (
 		<BasePage title="blog" pageName="blog-toc">
 			<header className="row space-gap">
 				<h2>tags: </h2>
-				<nav className="row divide wrap">
+
+				<Divided.Container className="wrap">
 					{Array.from(tags).map((tag) => (
-						<a href={`/blog/tags/${tag}`}>{tag}</a>
+						<Divided.Link href={`/blog/tags/${tag}`}>{tag}</Divided.Link>
 					))}
-				</nav>
+				</Divided.Container>
 			</header>
 
 			<ol class="toc">
