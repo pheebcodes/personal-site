@@ -5,7 +5,7 @@ import { Pagination } from "../components/pagination.jsx";
 
 export function BlogTag({ tag, posts, cur, prev, next }) {
 	return (
-		<BasePage title="phoebe" pageName="blog-toc">
+		<BasePage title={`phoebe - blog posts tagged "${tag}"`} pageName="blog-toc">
 			<h1>posts tagged "{tag}"</h1>
 			<ol class="toc">
 				{posts.map((post) => (
