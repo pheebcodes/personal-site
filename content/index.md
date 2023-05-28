@@ -1,7 +1,3 @@
----
-title: phoebe
----
-
 hi! i'm phoebe, a senior software engineer on the enterprise team at webflow.
 previously i worked at glitch building the code editor and other developer
 tools, and before that i was architecting a new website in react for an
