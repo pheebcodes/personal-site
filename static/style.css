@@ -150,6 +150,10 @@ span.no-link {
 	flex-grow: 1;
 }
 
+.no-shrink {
+	flex-shrink: 0;
+}
+
 .container {
 	width: var(--container-width);
 	max-width: 100%;

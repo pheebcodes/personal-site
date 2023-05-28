@@ -2,7 +2,6 @@ import { h, cn } from "../html.js";
 import { Head } from "../components/head.jsx";
 import * as Header from "../components/header.jsx";
 import * as Footer from "../components/footer.jsx";
-import * as Divided from "../components/divided.jsx";
 
 function HeaderLinks({ pageName }) {
 	return (
