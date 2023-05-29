@@ -20,7 +20,7 @@ export function Container({ component: Component = "nav", divider = "single", cl
 				"double-divide": divider === "double",
 			})}
 		>
-			{children};
+			{children}
 		</Component>
 	);
 }
