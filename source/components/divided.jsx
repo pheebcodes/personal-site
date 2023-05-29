@@ -12,15 +12,15 @@ export function Link({ children, ...attrs }) {
 }
 
 export function Container({ component: Component = "nav", divider = "single", className, children, ...attrs }) {
-	return h(
-		Component,
-		{
-			...attrs,
-			className: cn(className, "row", {
+	return (
+		<Component
+			{...attrs}
+			className={cn(className, "row", {
 				divide: divider === "single",
 				"double-divide": divider === "double",
-			}),
-		},
-		children,
+			})}
+		>
+			{children};
+		</Component>
 	);
 }
