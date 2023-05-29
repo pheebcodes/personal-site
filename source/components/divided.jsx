@@ -11,9 +11,9 @@ export function Link({ children, ...attrs }) {
 	);
 }
 
-export function Container({ element = "nav", divider = "single", className, children, ...attrs }) {
+export function Container({ component: Component = "nav", divider = "single", className, children, ...attrs }) {
 	return h(
-		element,
+		Component,
 		{
 			...attrs,
 			className: cn(className, "row", {
