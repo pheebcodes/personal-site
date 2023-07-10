@@ -1,0 +1,47 @@
+[build]
+	publish = "out/"
+	command = "npm run build"
+
+[dev]
+	command = "npm run watch"
+
+[context.production]
+	environment = { NODE_VERSION = "20.2.0" }
+
+[[edge_functions]]
+	path = "/.well-known/webfinger"
+	function = "webfinger-redirect"
+
+[[headers]]
+	for = "/public.pgp"
+
+	[headers.values]
+		Content-Type = "application/pgp-keys"
+
+[[redirects]]
+	from = "/license"
+	to = "/license.txt"
+
+[[redirects]]
+	from = "/LICENSE"
+	to = "/license.txt"
+
+[[redirects]]
+	from = "/commit"
+	to = "/commit.txt"
+
+[[redirects]]
+	from = "/COMMIT"
+	to = "/commit.txt"
+
+[[redirects]]
+	from = "/blog"
+	to = "/blog/toc/1"
+
+[[redirects]]
+	from = "/blog/toc"
+	to = "/blog/toc/1"
+
+[[redirects]]
+	from = "/blog/tags/:tag"
+	to = "/blog/tags/:tag/1"

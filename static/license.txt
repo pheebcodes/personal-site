@@ -1,0 +1,25 @@
+---------------------------------------------------------
+phoebe.codes content
+https://github.com/pheebcodes/personal-site
+
+- content/**/*
+---------------------------------------------------------
+
+Copyright 2020-2023 phoebe.codes
+
+
+
+
+---------------------------------------------------------
+phoebe.codes build scripts, edge functions, stylesheets
+https://github.com/pheebcodes/personal-site
+
+- netlify/**/*
+- source/**/*
+- static/style.css
+---------------------------------------------------------
+
+Copyright 2020-2023 phoebe.codes
+
+This work is licensed under a Creative Commons Attribution Share-Alike 4.0 License.
+https://creativecommons.org/licenses/by-sa/4.0/
