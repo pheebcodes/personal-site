@@ -67,10 +67,14 @@
 	text-transform: lowercase;
 }
 
-pre code {
-	display: block;
+pre {
+	margin: -1rem 0;
+	padding: 1rem 2rem;
 	overflow-x: auto;
-	padding-left: 2rem;
+}
+
+pre code {
+	display: inherit;
 }
 
 code,
