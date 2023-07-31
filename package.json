@@ -2,8 +2,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "tsx source/build.js",
-		"watch": "nodemon --exec \"npm run build\" --watch content --watch source --watch static --ignore out -e js,jsx,json,md,css",
-		"dev": "netlify dev"
+		"watch": "nodemon --exec \"npm run build\" --watch content --watch source --watch static --ignore out -e js,jsx,json,md,css"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.22",
