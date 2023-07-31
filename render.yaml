@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: personal-site
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: out
+    pullRequestPreviewsEnabled: true
+    headers:
+      - path: /public.pgp
+        name: content-type
+        value: application/pgp-keys
+    routes:
+      - type: redirect
+        source: /blog
+        destination: /blog/toc/1
+      - type: redirect
+        source: /blog/toc
+        destination: /blog/toc/1
+      - type: redirect
+        source: /blog/tags/:tag
+        destination: /blog/tags/:tag/1
+      - type: rewrite
+        source: /commit
+        destination: /commit.txt
+      - type: rewrite
+        source: /license
+        destination: /license.txt
