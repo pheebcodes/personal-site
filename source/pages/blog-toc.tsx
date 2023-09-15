@@ -49,6 +49,7 @@ export function BlogToc({ categories, posts, prev, cur, next }: BlogTocProps) {
 export async function* pages(content: Content) {
 	const blog = await content.store(Blog);
 	const categories = Array.from(blog.categories()).filter((category) => {
+		// check if there's at least one post for the category
 		const it = blog.postsForCategory(category)[Symbol.iterator]();
 		return !!it.next().value;
 	});
