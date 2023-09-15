@@ -47,5 +47,5 @@ from = "/blog/toc"
 to = "/blog/toc/1"
 
 [[redirects]]
-from = "/blog/tags/:tag"
-to = "/blog/tags/:tag/1"
+from = "/blog/categories/:category"
+to = "/blog/categories/:category/1"
