@@ -48,7 +48,10 @@ export function BlogToc({ categories, posts, prev, cur, next }: BlogTocProps) {
 
 export async function* pages(content: Content) {
 	const blog = await content.store(Blog);
-	const categories = Array.from(blog.categories());
+	const categories = Array.from(blog.categories()).filter((category) => {
+		const it = blog.postsForCategory(category)[Symbol.iterator]();
+		return !!it.next().value;
+	});
 	for (const { items, page, first, last } of Blog.paginate(blog.posts())) {
 		yield {
 			path: `blog/toc/${page}.html`,
