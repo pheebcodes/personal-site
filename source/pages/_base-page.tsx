@@ -1,9 +1,13 @@
-import { h, Fragment, cn } from "../html.js";
-import { Head } from "../components/head.jsx";
-import * as Header from "../components/header.jsx";
-import * as Footer from "../components/footer.jsx";
+import { h, Fragment, ComponentChildren, JSX } from "preact";
+import { cn } from "../jsx-utils.ts";
+import { Head } from "../components/head.tsx";
+import * as Header from "../components/header.tsx";
+import * as Footer from "../components/footer.tsx";
 
-function HeaderLinks({ pageName }) {
+interface HeaderLinksProps {
+	pageName: string;
+}
+function HeaderLinks({ pageName }: HeaderLinksProps) {
 	return (
 		<>
 			<Header.Link href="/" current={pageName === "home"}>
@@ -48,7 +52,14 @@ function FooterLinks() {
 	);
 }
 
-export function BasePage({ title, head, pageName, main: Main = "main", children }) {
+interface BasePageProps {
+	title?: string;
+	head?: ComponentChildren;
+	pageName: string;
+	main?: JSX.ElementType;
+	children?: ComponentChildren;
+}
+export function BasePage({ title, head, pageName, main: Main = "main", children }: BasePageProps) {
 	return (
 		<html lang="en">
 			<Head title={title ? `phoebe - ${title}` : "phoebe"}>{head}</Head>
@@ -60,7 +71,7 @@ export function BasePage({ title, head, pageName, main: Main = "main", children 
 				<Main className={cn(pageName, "col container margin-gap grow")}>{children}</Main>
 
 				<Footer.Container>
-					<FooterLinks pageName={pageName} />
+					<FooterLinks />
 				</Footer.Container>
 			</body>
 		</html>

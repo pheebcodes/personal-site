@@ -1,8 +1,6 @@
 ---
 title: blocking hacker news with netlify edge functions
-tags:
-  - meta
-  - netlify
+category: tech
 ---
 
 > in the days? weeks? since i published this, the orange site has started adding
@@ -69,7 +67,7 @@ the next edge function or serve the static content at that path if there are no
 more edge functions for the path of our request.
 
 ```typescript
-export default function handler(request: Request): Response | undefined { }
+export default function handler(request: Request): Response | undefined {}
 ```
 
 next, we get the `Referer`[sic] header for the request. this value will be

@@ -1,7 +1,11 @@
 {
+	"extends": "@tsconfig/node20",
 	"compilerOptions": {
-		"allowJs": true,
+		"allowImportingTsExtensions": true,
+		"jsx": "react",
 		"jsxFactory": "h",
-		"jsxFragmentFactory": "Fragment"
+		"jsxFragmentFactory": "Fragment",
+		"noEmit": true,
+		"strict": true
 	},
 }
