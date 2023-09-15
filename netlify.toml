@@ -10,6 +10,7 @@ NODE_VERSION = "20.6.1"
 
 [context.production.environment]
 NODE_VERSION = "20.6.1"
+NODE_ENV = "production"
 
 [[edge_functions]]
 path = "/.well-known/webfinger"
