@@ -4,7 +4,7 @@ import { BasePage } from "./_base-page.tsx";
 import { Date } from "../components/date.tsx";
 import * as Divided from "../components/divided.tsx";
 import { Content } from "../content.ts";
-import { Blog } from "./_blog-store.ts";
+import { Blog, Category } from "./_blog-store.ts";
 
 interface MetaProps {
 	title: string;
@@ -22,7 +22,7 @@ function Meta({ title, date }: MetaProps) {
 
 interface BlogPostProps {
 	title: string;
-	category: string;
+	category: Category;
 	date: Date;
 	body: string;
 }
@@ -33,11 +33,9 @@ export function BlogPost({ title, category, date, body }: BlogPostProps) {
 				<h1>{title}</h1>
 				<Date date={date} />
 				<section className="row space-gap">
-					<span>category:</span>
-
-					<Divided.Container className="wrap">
-						<Divided.Link href={`/blog/categories/${category}`}>{category}</Divided.Link>
-					</Divided.Container>
+					<span>
+						category: <a href={`/blog/categories/${category.id}`}>{category.label}</a>
+					</span>
 				</section>
 			</header>
 			<section className="col margin-gap markdown" dangerouslySetInnerHTML={{ __html: body }} />
