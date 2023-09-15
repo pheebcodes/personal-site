@@ -5,7 +5,6 @@
 		"watch": "nodemon --exec \"npm run build\" --watch content --watch source --watch static --ignore out"
 	},
 	"devDependencies": {
-		"@tsconfig/node20": "^20.1.2",
 		"@types/marked": "^5.0.1",
 		"@types/node": "^20.6.0",
 		"nodemon": "^3.0.1",
@@ -13,6 +12,7 @@
 		"typescript": "^5.2.2"
 	},
 	"dependencies": {
+		"@tsconfig/node20": "^20.1.2",
 		"date-fns": "^2.30.0",
 		"globby": "^13.2.2",
 		"gray-matter": "^4.0.3",
