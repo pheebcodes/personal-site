@@ -1,7 +1,15 @@
-import { h } from "../html.js";
-import * as Divided from "./divided.jsx";
+import { h, ComponentChildren } from "preact";
+import * as Divided from "./divided.tsx";
 
-export function LinkInner({ to, label, me, newTab = false, download, children, attrs }) {
+interface LinkInnerProps {
+	to: string;
+	label: string;
+	me?: boolean;
+	newTab?: boolean;
+	download?: boolean;
+	children: ComponentChildren;
+}
+export function LinkInner({ to, label, me = false, newTab = false, download = false, children }: LinkInnerProps) {
 	const relList = [];
 	if (me) {
 		relList.push("me");
@@ -11,10 +19,9 @@ export function LinkInner({ to, label, me, newTab = false, download, children, a
 	}
 	return (
 		<Divided.LinkInner
-			{...attrs}
 			href={to}
 			aria-label={label}
-			tabindex="0"
+			tabIndex={0}
 			target={newTab ? "_blank" : undefined}
 			rel={relList.join(" ") || undefined}
 			download={download === true ? "" : download}
@@ -26,7 +33,8 @@ export function LinkInner({ to, label, me, newTab = false, download, children, a
 
 export const LinkWrapper = Divided.LinkWrapper;
 
-export function Link({ children, ...attrs }) {
+type LinkProps = LinkInnerProps;
+export function Link({ children, ...attrs }: LinkProps) {
 	return (
 		<LinkWrapper>
 			<LinkInner {...attrs}>{children}</LinkInner>
@@ -34,7 +42,10 @@ export function Link({ children, ...attrs }) {
 	);
 }
 
-export function Container({ children }) {
+interface ContainerProps {
+	children: ComponentChildren;
+}
+export function Container({ children }: ContainerProps) {
 	return (
 		<footer>
 			<Divided.Container className="wrap">{children}</Divided.Container>
