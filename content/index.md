@@ -8,4 +8,5 @@ outside of work i design tabletop rpgs, play guitar, and experiment with hobby
 electronics, specifically guitar pedals, keyboards (the computer kind), and
 retro console related things. i'll blog about them eventually.
 
-trans rights are human rights. black lives matter. fascism is a loser ideology.
+trans rights are human rights, black lives matter, and fascism is a loser
+ideology.
