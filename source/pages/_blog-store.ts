@@ -2,14 +2,40 @@ import z from "zod";
 import { Content, Markdown } from "../content.ts";
 import * as DateFns from "date-fns";
 
+export class Categories {
+	#data: Map<string, string>;
+
+	constructor(data: Record<string, string>) {
+		this.#data = new Map(Object.entries(data));
+	}
+
+	byId(id: string): Category | undefined {
+		const label = this.#data.get(id);
+		if (label) {
+			return new Category(id, label);
+		}
+	}
+
+	*categories(): Iterable<Category> {
+		for (const [id, label] of this.#data.entries()) {
+			yield new Category(id, label);
+		}
+	}
+
+	static fromJSON(data: unknown): Categories {
+		return new Categories(Categories.#validator.parse(data));
+	}
+
+	static #validator = z.record(z.string());
+}
+
 export class Category {
 	#id: string;
 	#label: string;
 
-	constructor(md: Markdown) {
-		const data = Category.#validator.parse(md.attributes);
-		this.#id = data.id;
-		this.#label = data.label;
+	constructor(id: string, label: string) {
+		this.#id = id;
+		this.#label = label;
 	}
 
 	get id(): string {
@@ -19,11 +45,6 @@ export class Category {
 	get label(): string {
 		return this.#label;
 	}
-
-	static #validator = z.object({
-		id: z.string(),
-		label: z.string(),
-	});
 }
 
 export class Post {
@@ -33,14 +54,14 @@ export class Post {
 	#date: Date;
 	#body: string;
 
-	constructor(md: Markdown, categoryById: Map<string, Category>) {
+	constructor(md: Markdown, categories: Categories) {
 		const data = Post.#validator.parse(md.attributes);
 		this.#title = data.title;
 		this.#body = md.body;
 		this.#slug = md.file.slug;
 		this.#date = DateFns.parse(this.#slug.slice(0, "YYYY-MM-DD".length), Post.#dateFormat, new Date());
 
-		const category = categoryById.get(data.category);
+		const category = categories.byId(data.category);
 		if (!category) {
 			throw new Error(`No category for post ${this.slug}`);
 		}
@@ -87,18 +108,16 @@ interface Page<T> {
 }
 
 export class Blog {
-	#categories: Category[];
+	#categories: Categories;
 	#posts: Post[];
 
-	constructor(categories: Category[], posts: Post[]) {
+	constructor(categories: Categories, posts: Post[]) {
 		this.#categories = categories;
 		this.#posts = posts;
 	}
 
 	*categories(): Iterable<Category> {
-		for (const category of this.#categories) {
-			yield category;
-		}
+		yield* this.#categories.categories();
 	}
 
 	*posts(): Iterable<Post> {
@@ -137,17 +156,13 @@ export class Blog {
 	static #postsPerPage = 10;
 
 	static async buildContentStore(content: Content): Promise<Blog> {
-		const categories: Category[] = [];
-		for await (const file of content.match("blog/categories/*.md")) {
-			categories.push(new Category(file.md()));
-		}
-
-		const categoryById = new Map(categories.map((category) => [category.id, category]));
+		const categoryFile = await content.read("blog/categories.json");
+		const categories = categoryFile.json(Categories);
 
 		const posts: Post[] = [];
 		for await (const file of content.match("blog/posts/*.md")) {
 			const md = file.md();
-			posts.push(new Post(md, categoryById));
+			posts.push(new Post(md, categories));
 		}
 
 		return new Blog(categories, posts.toSorted(Post.sortDesc));

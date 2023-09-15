@@ -43,6 +43,28 @@ export class Markdown {
 	}
 }
 
+export class Json<T> {
+	#file: File;
+	#data: T;
+
+	constructor(file: File, parser: (data: unknown) => T) {
+		this.#file = file;
+		this.#data = parser(JSON.parse(file.content));
+	}
+
+	get data(): T {
+		return this.#data;
+	}
+
+	get file(): File {
+		return this.#file;
+	}
+}
+
+interface JsonParser<T> {
+	fromJSON(data: unknown): T;
+}
+
 export class File {
 	#path: string;
 	#content: string;
@@ -54,6 +76,10 @@ export class File {
 
 	md(): Markdown {
 		return new Markdown(this);
+	}
+
+	json<T>(jsonParser: JsonParser<T>): T {
+		return jsonParser.fromJSON(JSON.parse(this.content));
 	}
 
 	get path(): string {
