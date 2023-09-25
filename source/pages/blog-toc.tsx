@@ -50,10 +50,10 @@ export async function* pages(content: Content) {
 	const blog = await content.store(Blog);
 	const categories = Array.from(blog.categories()).filter((category) => {
 		// check if there's at least one post for the category
-		const it = blog.postsForCategory(category)[Symbol.iterator]();
+		const it = blog.postsByCategory(category)[Symbol.iterator]();
 		return !!it.next().value;
 	});
-	for (const { items, page, first, last } of Blog.paginate(blog.posts())) {
+	for (const { items, page, first, last } of blog.paginatedPosts()) {
 		yield {
 			path: `blog/toc/${page}.html`,
 			element: (

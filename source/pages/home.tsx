@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { Content } from "../content.ts";
-import { cn } from "../jsx-utils.ts";
+import { cn } from "../utils/cn.ts";
 import { BasePage } from "./_base-page.tsx";
 
 interface MainElementProps {
@@ -22,7 +22,11 @@ export function Home({ body }: HomeProps) {
 
 export async function* pages(content: Content) {
 	const indexFile = await content.read("index.md");
-	const index = indexFile.md();
+	const index = indexFile.md({
+		fromGrayMatter(data) {
+			return data;
+		},
+	});
 
 	yield {
 		path: "index.html",

@@ -1,5 +1,5 @@
 import { h, Fragment, ComponentChildren, JSX } from "preact";
-import { cn } from "../jsx-utils.ts";
+import { cn } from "../utils/cn.ts";
 import { Head } from "../components/head.tsx";
 import * as Header from "../components/header.tsx";
 import * as Footer from "../components/footer.tsx";
