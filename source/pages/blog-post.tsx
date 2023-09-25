@@ -2,7 +2,6 @@ import { formatISO } from "date-fns";
 import { h, Fragment } from "preact";
 import { BasePage } from "./_base-page.tsx";
 import { Date } from "../components/date.tsx";
-import * as Divided from "../components/divided.tsx";
 import { Content } from "../content.ts";
 import { Blog, Category } from "./_blog-store.ts";
 

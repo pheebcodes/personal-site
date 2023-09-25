@@ -36,7 +36,7 @@ function toPath(tag: string, page: number) {
 export async function* pages(content: Content) {
 	const blog = await content.store(Blog);
 	for (const category of blog.categories()) {
-		for (const { items, page, first, last } of Blog.paginate(blog.postsForCategory(category.id))) {
+		for (const { items, page, first, last } of blog.postsByCategory(category)) {
 			yield {
 				path: toPath(category.id, page),
 				element: (

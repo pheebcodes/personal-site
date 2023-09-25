@@ -1,10 +1,10 @@
 import Path from "path";
-import { marked as Marked } from "marked";
+import { Marked } from "marked";
 import { markedHighlight as MarkedHighlight } from "marked-highlight";
 import Highlight from "highlight.js";
 import GrayMatter from "gray-matter";
 
-Marked.use(
+const marked = new Marked(
 	MarkedHighlight({
 		highlight(code, lang) {
 			const language = Highlight.getLanguage(lang) ? lang : "plaintext";
@@ -18,51 +18,17 @@ interface IFS {
 	read(path: string): Promise<string>;
 }
 
-export class Markdown {
-	#attributes: Record<string, unknown>;
-	#body: string;
-	#file: File;
-
-	constructor(file: File) {
-		const data = GrayMatter(file.content);
-		this.#attributes = data.data;
-		this.#body = Marked(data.content);
-		this.#file = file;
-	}
-
-	get attributes(): Record<string, unknown> {
-		return this.#attributes;
-	}
-
-	get body(): string {
-		return this.#body;
-	}
-
-	get file(): File {
-		return this.#file;
-	}
-}
-
-export class Json<T> {
-	#file: File;
-	#data: T;
-
-	constructor(file: File, parser: (data: unknown) => T) {
-		this.#file = file;
-		this.#data = parser(JSON.parse(file.content));
-	}
-
-	get data(): T {
-		return this.#data;
-	}
-
-	get file(): File {
-		return this.#file;
-	}
+interface Markdown<T> {
+	attributes: T;
+	body: string;
 }
 
 interface JsonParser<T> {
 	fromJSON(data: unknown): T;
+}
+
+interface MarkdownParser<T> {
+	fromGrayMatter(data: unknown): T;
 }
 
 export class File {
@@ -74,8 +40,14 @@ export class File {
 		this.#content = content;
 	}
 
-	md(): Markdown {
-		return new Markdown(this);
+	md<T>(markdownParser: MarkdownParser<T>): Markdown<T> {
+		const gray = GrayMatter(this.content);
+		const attributes = markdownParser.fromGrayMatter(gray.data);
+		const body = marked.parse(gray.content, { async: false });
+		if (body instanceof Promise) {
+			throw new Error("this shouldnt happen because marked.parse was passed async=false");
+		}
+		return { attributes, body };
 	}
 
 	json<T>(jsonParser: JsonParser<T>): T {

@@ -1,5 +1,5 @@
 import { h, ComponentChildren, JSX } from "preact";
-import { cn } from "../jsx-utils.ts";
+import { cn } from "../utils/cn.ts";
 
 export const LinkInner = "a" as const;
 export const LinkWrapper = "span" as const;

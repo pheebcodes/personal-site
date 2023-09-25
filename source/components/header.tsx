@@ -1,5 +1,5 @@
 import { h, ComponentChildren } from "preact";
-import { cn } from "../jsx-utils.ts";
+import { cn } from "../utils/cn.ts";
 import * as Divided from "./divided.tsx";
 
 interface LinkProps {
