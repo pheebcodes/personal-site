@@ -110,7 +110,7 @@ export class Posts {
 		return this.#validator.parse(data);
 	}
 
-	static #dateFormat = "yyyy-MM-dd";
+	static #dateFormat = "yyyy-MM-dd-HH-mm-ss";
 	static #sort(a: Readonly<Post>, b: Readonly<Post>): number {
 		return DateFns.compareDesc(a.date, b.date);
 	}
