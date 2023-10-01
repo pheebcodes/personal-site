@@ -22,7 +22,7 @@ export function Home({ body }: HomeProps) {
 
 export async function* pages(content: Content) {
 	const indexFile = await content.read("index.md");
-	const index = indexFile.md({
+	const index = await indexFile.md({
 		fromGrayMatter(data) {
 			return data;
 		},
