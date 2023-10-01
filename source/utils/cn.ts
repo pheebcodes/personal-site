@@ -1,6 +1,6 @@
 type ClassNameValue = string | string[] | Record<string, unknown> | undefined | null;
 
-function* cnInner(values: ClassNameValue[]): Generator<string, void, void> {
+function* cnInner(values: ClassNameValue[]): Iterable<string> {
 	for (const value of values) {
 		if (!value) {
 			continue;

@@ -1,10 +1,9 @@
 import FS from "fs/promises";
-import { globbyStream as GlobbyStream } from "globby";
+import { globbyStream as glob } from "globby";
 import Path from "path";
-import { renderToString } from "preact-render-to-string";
-
-import { Content } from "./content.ts";
 import { VNode } from "preact";
+import { renderToString } from "preact-render-to-string";
+import { Content } from "./content.ts";
 
 class Builder {
 	#contentRoot = "content";
@@ -20,8 +19,8 @@ class Builder {
 
 		const resolve = this.#resolveContent.bind(this);
 		const content = new Content({
-			async *glob(matcher: string): AsyncGenerator<string, void, void> {
-				for await (const path of GlobbyStream(matcher, { cwd: resolve() })) {
+			async *glob(matcher: string): AsyncIterable<string> {
+				for await (const path of glob(matcher, { cwd: resolve() })) {
 					yield Buffer.isBuffer(path) ? path.toString("utf8") : path;
 				}
 			},
@@ -30,7 +29,7 @@ class Builder {
 			},
 		});
 
-		for await (const pageFullPath of GlobbyStream(["source/pages/*", "!source/pages/_*"])) {
+		for await (const pageFullPath of glob(["source/pages/*", "!source/pages/_*"])) {
 			const pageImportPath = Path.relative("source", pageFullPath.toString("utf8"));
 			const pageModule = await import(`./${pageImportPath}`);
 			for await (const page of pageModule.pages(content)) {
@@ -40,15 +39,9 @@ class Builder {
 	}
 
 	async #render(path: string, element: VNode) {
-		const write = () => FS.writeFile(this.#resolveOutput(path), "<!DOCTYPE html>" + renderToString(element));
-		try {
-			await write();
-		} catch (e) {
-			if (e instanceof Error && "code" in e && e.code === "ENOENT") {
-				await FS.mkdir(Path.dirname(this.#resolveOutput(path)), { recursive: true });
-				await write();
-			}
-		}
+		const output = this.#resolveOutput(path);
+		await FS.mkdir(Path.dirname(output), { recursive: true });
+		await FS.writeFile(output, "<!DOCTYPE html>" + renderToString(element));
 	}
 
 	#resolveContent(...paths: string[]): string {

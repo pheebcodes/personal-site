@@ -40,13 +40,10 @@ export class File {
 		this.#content = content;
 	}
 
-	md<T>(markdownParser: MarkdownParser<T>): Markdown<T> {
+	async md<T>(markdownParser: MarkdownParser<T>): Promise<Markdown<T>> {
 		const gray = GrayMatter(this.content);
 		const attributes = markdownParser.fromGrayMatter(gray.data);
-		const body = marked.parse(gray.content, { async: false });
-		if (body instanceof Promise) {
-			throw new Error("this shouldnt happen because marked.parse was passed async=false");
-		}
+		const body = await marked.parse(gray.content, { async: true });
 		return { attributes, body };
 	}
 

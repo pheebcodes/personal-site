@@ -87,7 +87,7 @@ export class Posts {
 
 		const posts: Post[] = [];
 		for await (const file of content.match("blog/posts/*.md")) {
-			const md = file.md(Posts);
+			const md = await file.md(Posts);
 			const body = md.body;
 			const { title, category: categoryId } = md.attributes;
 			const { slug } = file;
