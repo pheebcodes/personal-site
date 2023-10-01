@@ -49,3 +49,7 @@ to = "/blog/toc/1"
 [[redirects]]
 from = "/blog/categories/:category"
 to = "/blog/categories/:category/1"
+
+[[redirects]]
+from = "/blog/posts/2023-05-28-blocking-hacker-news"
+to = "/blog/posts/2023-05-28-12-00-00-blocking-hacker-news"
