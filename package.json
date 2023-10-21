@@ -2,11 +2,13 @@
 	"type": "module",
 	"scripts": {
 		"build": "tsx source/build.ts",
+		"dev": "netlify dev",
 		"watch": "nodemon --exec \"npm run build\" --watch content --watch source --watch static --ignore out"
 	},
 	"devDependencies": {
 		"@types/marked": "^5.0.1",
 		"@types/node": "^20.6.0",
+		"netlify-cli": "^16.9.1",
 		"nodemon": "^3.0.1",
 		"prettier": "^3.0.3",
 		"typescript": "^5.2.2"

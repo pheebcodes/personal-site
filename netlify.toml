@@ -5,6 +5,9 @@ command = "npm run build"
 [dev]
 command = "npm run watch"
 
+[context.dev.environment]
+NODE_VERSION = "20.6.1"
+
 [context.deploy-preview.environment]
 NODE_VERSION = "20.6.1"
 
@@ -53,3 +56,8 @@ to = "/blog/categories/:category/1"
 [[redirects]]
 from = "/blog/posts/2023-05-28-blocking-hacker-news"
 to = "/blog/posts/2023-05-28-12-00-00-blocking-hacker-news"
+
+[[redirects]]
+from = "/media/*"
+to = "https://f005.backblazeb2.com/file/phoebecodes-personal-site-assets/:splat"
+status = 200
