@@ -54,8 +54,12 @@ from = "/blog/categories/:category"
 to = "/blog/categories/:category/1"
 
 [[redirects]]
-from = "/blog/posts/2023-05-28-blocking-hacker-news"
-to = "/blog/posts/2023-05-28-12-00-00-blocking-hacker-news"
+from = "/blog/posts/2023-05-28-12-00-00-blocking-hacker-news"
+to = "/blog/posts/2023-05-28-blocking-hacker-news"
+
+[[redirects]]
+from = "/blog/posts/2023-10-21-12-00-00-changing-shape"
+to = "/blog/posts/2023-10-21-changing-shape"
 
 [[redirects]]
 from = "/media/*"
