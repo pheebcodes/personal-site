@@ -1,7 +1,7 @@
 import { formatISO } from "date-fns";
 import { h, Fragment } from "preact";
 import { BasePage } from "./_base-page.tsx";
-import { Date } from "../components/date.tsx";
+import { Time } from "../components/time.tsx";
 import { Content } from "../content.ts";
 import { Blog, Category } from "./_blog-store.ts";
 
@@ -30,7 +30,7 @@ export function BlogPost({ title, category, date, body }: BlogPostProps) {
 		<BasePage title={title} pageName="blog-post" head={<Meta title={title} date={date} />}>
 			<header className="column">
 				<h1>{title}</h1>
-				<Date date={date} />
+				<Time date={date} />
 				<section className="row space-gap">
 					<span>
 						category: <a href={`/blog/categories/${category.id}`}>{category.label}</a>

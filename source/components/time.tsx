@@ -1,10 +1,10 @@
 import { format } from "date-fns";
 import { h } from "preact";
 
-interface DateProps {
+interface TimeProps {
 	date: Date;
 }
-export function Date({ date }: DateProps) {
+export function Time({ date }: TimeProps) {
 	return (
 		<time dateTime={format(date, "Y-MM-dd")}>
 			{format(date, "d")} {format(date, "MMMM")}, {format(date, "y")}

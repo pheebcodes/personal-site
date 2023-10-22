@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { BasePage } from "./_base-page.tsx";
-import { Date as DateC } from "../components/date.tsx";
+import { Time } from "../components/time.tsx";
 import { Pagination } from "../components/pagination.tsx";
 
 interface LineItemProps {
@@ -14,7 +14,7 @@ function LineItem({ filename, title, date }: LineItemProps) {
 			<span>
 				<a href={`/media/${filename}`}>{title}</a>
 			</span>
-			<DateC date={date} />
+			<Time date={date} />
 		</li>
 	);
 }

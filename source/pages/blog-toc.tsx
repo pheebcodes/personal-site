@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { BasePage } from "./_base-page.tsx";
-import { Date } from "../components/date.tsx";
+import { Time } from "../components/time.tsx";
 import { Pagination } from "../components/pagination.tsx";
 import * as Divided from "../components/divided.tsx";
 import { Content } from "../content.ts";
@@ -32,7 +32,7 @@ export function BlogToc({ categories, posts, prev, cur, next }: BlogTocProps) {
 						<span>
 							[{post.category.label}] <a href={`/blog/posts/${post.slug}`}>{post.title}</a>
 						</span>
-						<Date date={post.date} />
+						<Time date={post.date} />
 					</li>
 				))}
 			</ol>

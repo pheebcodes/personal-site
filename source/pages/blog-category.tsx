@@ -1,6 +1,6 @@
 import { h } from "preact";
 import { BasePage } from "./_base-page.tsx";
-import { Date } from "../components/date.tsx";
+import { Time } from "../components/time.tsx";
 import { Pagination } from "../components/pagination.tsx";
 import { Content } from "../content.ts";
 import { Blog, Category, Post } from "./_blog-store.ts";
@@ -20,7 +20,7 @@ export function BlogCategory({ category, posts, page, previousLink, nextLink }: 
 				{posts.map((post) => (
 					<li className="col">
 						<a href={`/blog/posts/${post.slug}`}>{post.title}</a>
-						<Date date={post.date} />
+						<Time date={post.date} />
 					</li>
 				))}
 			</ol>
