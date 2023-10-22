@@ -1,4 +1,5 @@
 import { h } from "preact";
+import { parseISO } from "date-fns";
 import { BasePage } from "./_base-page.tsx";
 import { Time } from "../components/time.tsx";
 import { Pagination } from "../components/pagination.tsx";
@@ -19,12 +20,13 @@ function LineItem({ filename, title, date }: LineItemProps) {
 	);
 }
 
+const octFirst = parseISO("2023-10-01");
 export function Gallery() {
 	return (
 		<BasePage title="gallery" pageName="gallery-toc">
 			<ol class="toc">
-				<LineItem filename="original-reencoded.mp4" title="cooper original footage" date={new Date(1696132800000)} />
-				<LineItem filename="tiktok-edit.mp4" title="cooper tiktok" date={new Date(1696132800000)} />
+				<LineItem filename="original-reencoded.mp4" title="cooper original footage" date={octFirst} />
+				<LineItem filename="tiktok-edit.mp4" title="cooper tiktok" date={octFirst} />
 			</ol>
 
 			<Pagination currentPage={1} previousLink={null} nextLink={null} />
