@@ -4,10 +4,10 @@ import { Time } from "../components/time.tsx";
 import { Pagination } from "../components/pagination.tsx";
 import * as Divided from "../components/divided.tsx";
 import { Content } from "../content.ts";
-import { Blog, Category, Post } from "./_blog-store.ts";
+import { Posts, Post } from "./_posts-store.ts";
 
 interface BlogTocProps {
-	categories: Category[];
+	categories: string[];
 	posts: Post[];
 	prev: number | null;
 	cur: number;
@@ -21,7 +21,7 @@ export function BlogToc({ categories, posts, prev, cur, next }: BlogTocProps) {
 
 				<Divided.Container className="wrap">
 					{categories.map((category) => (
-						<Divided.Link href={`/blog/categories/${category.id}`}>{category.label}</Divided.Link>
+						<Divided.Link href={`/blog/categories/${category}`}>{category}</Divided.Link>
 					))}
 				</Divided.Container>
 			</header>
@@ -30,7 +30,7 @@ export function BlogToc({ categories, posts, prev, cur, next }: BlogTocProps) {
 				{posts.map((post) => (
 					<li className="col">
 						<span>
-							[{post.category.label}] <a href={`/blog/posts/${post.slug}`}>{post.title}</a>
+							[{post.category}] <a href={`/blog/posts/${post.slug}`}>{post.title}</a>
 						</span>
 						<Time date={post.date} />
 					</li>
@@ -47,13 +47,9 @@ export function BlogToc({ categories, posts, prev, cur, next }: BlogTocProps) {
 }
 
 export async function* pages(content: Content) {
-	const blog = await content.store(Blog);
-	const categories = Array.from(blog.categories()).filter((category) => {
-		// check if there's at least one post for the category
-		const it = blog.postsByCategory(category)[Symbol.iterator]();
-		return !!it.next().value;
-	});
-	for (const { items, page, first, last } of blog.paginatedPosts()) {
+	const posts = await content.store(Posts);
+	const categories = Array.from(posts.categories());
+	for (const { items, page, first, last } of posts.pages()) {
 		yield {
 			path: `blog/toc/${page}.html`,
 			element: (

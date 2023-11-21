@@ -3,10 +3,10 @@ import { BasePage } from "./_base-page.tsx";
 import { Time } from "../components/time.tsx";
 import { Pagination } from "../components/pagination.tsx";
 import { Content } from "../content.ts";
-import { Blog, Category, Post } from "./_blog-store.ts";
+import { Posts, Post } from "./_posts-store.ts";
 
 interface BlogCategoryProps {
-	category: Category;
+	category: string;
 	page: number;
 	previousLink: string | null;
 	nextLink: string | null;
@@ -14,8 +14,8 @@ interface BlogCategoryProps {
 }
 export function BlogCategory({ category, posts, page, previousLink, nextLink }: BlogCategoryProps) {
 	return (
-		<BasePage title={`${category.label} blog`} pageName="blog-toc">
-			<h1>{category.label} blog</h1>
+		<BasePage title={`"${category}" blog`} pageName="blog-toc">
+			<h1>"{category}"" blog</h1>
 			<ol class="toc">
 				{posts.map((post) => (
 					<li className="col">
@@ -34,18 +34,18 @@ function toPath(tag: string, page: number) {
 }
 
 export async function* pages(content: Content) {
-	const blog = await content.store(Blog);
-	for (const category of blog.categories()) {
-		for (const { items, page, first, last } of blog.postsByCategory(category)) {
+	const posts = await content.store(Posts);
+	for (const category of posts.categories()) {
+		for (const { items, page, first, last } of posts.pages({ category })) {
 			yield {
-				path: toPath(category.id, page),
+				path: toPath(category, page),
 				element: (
 					<BlogCategory
 						category={category}
 						posts={items}
 						page={page}
-						previousLink={!first ? toPath(category.id, page - 1) : null}
-						nextLink={!last ? toPath(category.id, page + 1) : null}
+						previousLink={!first ? toPath(category, page - 1) : null}
+						nextLink={!last ? toPath(category, page + 1) : null}
 					/>
 				),
 			};

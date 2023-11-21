@@ -3,7 +3,7 @@ import { h, Fragment } from "preact";
 import { BasePage } from "./_base-page.tsx";
 import { Time } from "../components/time.tsx";
 import { Content } from "../content.ts";
-import { Blog, Category } from "./_blog-store.ts";
+import { Posts } from "./_posts-store.ts";
 
 interface MetaProps {
 	title: string;
@@ -21,7 +21,7 @@ function Meta({ title, date }: MetaProps) {
 
 interface BlogPostProps {
 	title: string;
-	category: Category;
+	category: string;
 	date: Date;
 	body: string;
 }
@@ -33,7 +33,7 @@ export function BlogPost({ title, category, date, body }: BlogPostProps) {
 				<Time date={date} />
 				<section className="row space-gap">
 					<span>
-						category: <a href={`/blog/categories/${category.id}`}>{category.label}</a>
+						category: <a href={`/blog/categories/${category}`}>{category}</a>
 					</span>
 				</section>
 			</header>
@@ -43,9 +43,9 @@ export function BlogPost({ title, category, date, body }: BlogPostProps) {
 }
 
 export async function* pages(content: Content) {
-	const blog = await content.store(Blog);
+	const posts = await content.store(Posts);
 
-	for (const post of blog.posts()) {
+	for (const post of posts) {
 		yield {
 			path: `blog/posts/${post.slug}.html`,
 			element: <BlogPost title={post.title} category={post.category} date={post.date} body={post.body} />,
