@@ -15,7 +15,7 @@ interface BlogCategoryProps {
 export function BlogCategory({ category, posts, page, previousLink, nextLink }: BlogCategoryProps) {
 	return (
 		<BasePage title={`"${category}" blog`} pageName="blog-toc">
-			<h1>"{category}"" blog</h1>
+			<h1>"{category}" blog</h1>
 			<ol class="toc">
 				{posts.map((post) => (
 					<li className="col">
