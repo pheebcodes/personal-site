@@ -53,7 +53,7 @@ what the unit needs. by relying interfaces, your unit doesn't care about any
 extra properties in either the object that it was passed in the constructor, and
 also doesn't care about the specific type of its dependency.
 
-```javascript
+```typescript
 interface Filesystem {
 	read(filename: string): string;
 	write(filename: string, contents: string): void;
