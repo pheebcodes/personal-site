@@ -62,10 +62,6 @@ from = "/blog/posts/2023-05-28-12-00-00-blocking-hacker-news"
 to = "/blog/posts/2023-05-28-blocking-hacker-news"
 
 [[redirects]]
-from = "/blog/posts/2023-10-21-12-00-00-changing-shape"
-to = "/blog/posts/2023-10-21-changing-shape"
-
-[[redirects]]
 from = "/media/*"
 to = "https://f005.backblazeb2.com/file/phoebecodes-personal-site-assets/:splat"
 status = 200
