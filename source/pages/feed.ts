@@ -49,8 +49,6 @@ export async function* pages(content: Content) {
 		});
 	}
 
-	feed.addCategory("Tech");
-	feed.addCategory("Game Dev");
 	feed.addContributor(feedData.author);
 
 	if (feedData.feedLinks.atom) {
