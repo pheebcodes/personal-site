@@ -25,6 +25,42 @@ for = "/public.pgp"
 [headers.values]
 Content-Type = "application/pgp-keys"
 
+[[headers]]
+for = "/feed"
+
+[headers.values]
+Content-Type = "application/rss+xml"
+
+[[headers]]
+for = "/feed.xml"
+
+[headers.values]
+Content-Type = "application/rss+xml"
+
+[[headers]]
+for = "/feed.rss"
+
+[headers.values]
+Content-Type = "application/rss+xml"
+
+[[headers]]
+for = "/feed.atom"
+
+[headers.values]
+Content-Type = "application/atom+xml"
+
+[[headers]]
+for = "/atom.xml"
+
+[headers.values]
+Content-Type = "application/atom+xml"
+
+[[headers]]
+for = "/feed.json"
+
+[headers.values]
+Content-Type = "application/json"
+
 [[redirects]]
 from = "/license"
 to = "/license.txt"
