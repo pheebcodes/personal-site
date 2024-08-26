@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { BasePage } from "./_base-page.tsx";
+import * as Divided from "../components/divided.tsx";
 import { Time } from "../components/time.tsx";
 import { Pagination } from "../components/pagination.tsx";
 import { Content } from "../content.ts";
@@ -14,6 +15,16 @@ interface BlogTocProps {
 export function BlogToc({ posts, prev, cur, next }: BlogTocProps) {
 	return (
 		<BasePage title="blog" pageName="blog-toc">
+			<header className="row space-gap">
+				<h2>feeds: </h2>
+
+				<Divided.Container className="wrap">
+					<Divided.Link href="/feed.rss">rss</Divided.Link>
+					<Divided.Link href="/feed.atom">atom</Divided.Link>
+					<Divided.Link href="/feed.json">json</Divided.Link>
+				</Divided.Container>
+			</header>
+
 			<ol class="toc">
 				{posts.map((post) => (
 					<li className="col">
