@@ -165,14 +165,12 @@ printed in your terminal. you should double check that requests without a
 Referer are still able to access your site as normal. you can do that by running
 `curl [your site url] -L`.
 
-and like, that's it, man. you can now rest easy at night knowing your site or
-blog is protected by the ghost of john mcafee. if you _aren't_ on netlify and
-this method is completely useless to you, godspeed.
+and like, that's it. you can now rest easy at night knowing your site or blog is
+protected by the ghost of john mcafee. if you _aren't_ on netlify and this
+method is completely useless to you, godspeed.
 
 on a more serious note, i hope you enjoyed the first post here. i am planning on
 posting more serious stuff (in content, not tone), like about the macropad
 firmware i'm currently prototyping in rust using [embassy](https://embassy.dev).
 in the long-term future i would like to produce some macropads using the
-firmware as well (trying... to not... put the cart before the horse again), but
-regardless expect a mix of web coding, embedded coding, and electrical
-engineering content on here.
+firmware as well (trying... to not... put the cart before the horse again).
