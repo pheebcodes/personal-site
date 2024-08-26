@@ -16,6 +16,7 @@
 	"dependencies": {
 		"@tsconfig/node20": "^20.1.2",
 		"date-fns": "^2.30.0",
+		"feed": "^4.2.2",
 		"globby": "^13.2.2",
 		"gray-matter": "^4.0.3",
 		"highlight.js": "^11.8.0",

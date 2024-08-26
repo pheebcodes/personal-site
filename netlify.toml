@@ -65,3 +65,13 @@ to = "/blog/posts/2023-05-28-blocking-hacker-news"
 from = "/media/*"
 to = "https://f005.backblazeb2.com/file/phoebecodes-personal-site-assets/:splat"
 status = 200
+
+[[redirects]]
+from = "/feed"
+to = "/feed.rss"
+status = 200
+
+[[redirects]]
+from = "/feed.xml"
+to = "/feed.rss"
+status = 200

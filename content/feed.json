@@ -1,0 +1,18 @@
+{
+	"id": "https://www.phoebe.codes/",
+	"title": "phoebe.codes blog",
+	"copyright": "© 2024 Phoebe Clarke",
+	"description": "phoebe's blog",
+	"link": "https://www.phoebe.codes/",
+	"language": "en",
+	"feedLinks": {
+		"atom": "https://www.phoebe.codes/feed.atom",
+		"json": "https://www.phoebe.codes/feed.json",
+		"rss": "https://www.phoebe.codes/feed.rss"
+	},
+	"author": {
+		"name": "Phoebe Clarke",
+		"email": "me@phoebe.codes",
+		"link": "https://www.phoebe.codes/"
+	}
+}

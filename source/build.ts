@@ -33,15 +33,23 @@ class Builder {
 			const pageImportPath = Path.relative("source", pageFullPath.toString("utf8"));
 			const pageModule = await import(`./${pageImportPath}`);
 			for await (const page of pageModule.pages(content)) {
-				await this.#render(page.path, page.element);
+				if (page.element) {
+					await this.#render(page.path, page.element);
+				} else if (page.content) {
+					await this.#write(page.path, page.content);
+				}
 			}
 		}
 	}
 
 	async #render(path: string, element: VNode) {
+		await this.#write(path, "<!DOCTYPE html>" + renderToString(element));
+	}
+
+	async #write(path: string, content: string) {
 		const output = this.#resolveOutput(path);
 		await FS.mkdir(Path.dirname(output), { recursive: true });
-		await FS.writeFile(output, "<!DOCTYPE html>" + renderToString(element));
+		await FS.writeFile(output, content);
 	}
 
 	#resolveContent(...paths: string[]): string {
