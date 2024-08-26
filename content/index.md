@@ -8,7 +8,7 @@ controllers, and anything else i can put on a
 as a day job, i'm a senior software engineer on the enterprise team at webflow.
 previously i worked at glitch building the code editor and other developer
 tools, and before that i was architecting a new website in react for an
-automotive parts retailer chain. a long time ago i was also building websites
+automotive parts retailer chain. a long time ago i was building websites
 and calendaring systems for public libraries across north america.
 
 trans rights are human rights, black lives matter, and fascism is a loser
