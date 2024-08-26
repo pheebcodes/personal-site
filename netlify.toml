@@ -75,3 +75,8 @@ status = 200
 from = "/feed.xml"
 to = "/feed.rss"
 status = 200
+
+[[redirects]]
+from = "/atom.xml"
+to = "/feed.atom"
+status = 200
