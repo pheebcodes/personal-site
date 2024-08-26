@@ -21,21 +21,15 @@ function Meta({ title, date }: MetaProps) {
 
 interface BlogPostProps {
 	title: string;
-	category: string;
 	date: Date;
 	body: string;
 }
-export function BlogPost({ title, category, date, body }: BlogPostProps) {
+export function BlogPost({ title, date, body }: BlogPostProps) {
 	return (
 		<BasePage title={title} pageName="blog-post" head={<Meta title={title} date={date} />}>
 			<header className="column">
 				<h1>{title}</h1>
 				<Time date={date} />
-				<section className="row space-gap">
-					<span>
-						category: <a href={`/blog/categories/${category}`}>{category}</a>
-					</span>
-				</section>
 			</header>
 			<section className="col margin-gap markdown" dangerouslySetInnerHTML={{ __html: body }} />
 		</BasePage>
@@ -48,7 +42,7 @@ export async function* pages(content: Content) {
 	for (const post of posts) {
 		yield {
 			path: `blog/posts/${post.slug}.html`,
-			element: <BlogPost title={post.title} category={post.category} date={post.date} body={post.body} />,
+			element: <BlogPost title={post.title} date={post.date} body={post.body} />,
 		};
 	}
 }

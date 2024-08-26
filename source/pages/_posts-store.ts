@@ -5,48 +5,28 @@ import { Page, paginate } from "../utils/paginate.tsx";
 
 interface PostGrayMatter {
 	title: string;
-	category: string;
-}
-
-interface PostMatcherOpts {
-	category: string;
 }
 
 export interface Post {
 	title: string;
 	slug: string;
-	category: string;
 	date: Date;
 	body: string;
 }
 
 export class Posts {
 	#posts: Post[];
-	#categories: Set<string>;
 
 	constructor(posts: Post[]) {
 		this.#posts = posts.toSorted(Posts.#sort);
-		this.#categories = new Set(this.#posts.map((post) => post.category));
 	}
 
-	*categories(): IterableIterator<string> {
-		yield* this.#categories.values();
+	*posts(): IterableIterator<Post> {
+		yield* this.#posts;
 	}
 
-	*posts(matcher?: PostMatcherOpts): IterableIterator<Post> {
-		if (!matcher) {
-			yield* this.#posts;
-			return;
-		}
-		for (const post of this.#posts) {
-			if (post.category === matcher.category) {
-				yield post;
-			}
-		}
-	}
-
-	*pages(matcher?: PostMatcherOpts): IterableIterator<Page<Post>> {
-		yield* paginate(this.posts(matcher), Posts.#perPage);
+	*pages(): IterableIterator<Page<Post>> {
+		yield* paginate(this.posts(), Posts.#perPage);
 	}
 
 	*[Symbol.iterator](): IterableIterator<Readonly<Post>> {
@@ -60,7 +40,7 @@ export class Posts {
 		for await (const file of content.match("blog/posts/*.md")) {
 			const md = await file.md(Posts);
 			const body = md.body;
-			const { title, category } = md.attributes;
+			const { title } = md.attributes;
 			const { slug } = file;
 			const dateText = slug.slice(0, Posts.#dateFormat.length);
 
@@ -68,7 +48,6 @@ export class Posts {
 				title,
 				body,
 				slug,
-				category,
 				date: DateFns.parse(dateText, Posts.#dateFormat, 0),
 			});
 		}
@@ -86,6 +65,5 @@ export class Posts {
 	}
 	static #validator = z.object({
 		title: z.string(),
-		category: z.string(),
 	});
 }

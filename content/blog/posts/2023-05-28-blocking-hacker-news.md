@@ -1,6 +1,5 @@
 ---
 title: blocking hacker news with netlify edge functions
-category: tech
 ---
 
 > in the days? weeks? since i published this, the orange site has started adding

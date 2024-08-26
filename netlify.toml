@@ -86,10 +86,6 @@ from = "/blog/toc"
 to = "/blog/toc/1"
 
 [[redirects]]
-from = "/blog/categories/:category"
-to = "/blog/categories/:category/1"
-
-[[redirects]]
 from = "/gallery"
 to = "/gallery/1"
 
