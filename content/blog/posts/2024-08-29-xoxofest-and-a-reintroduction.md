@@ -4,7 +4,7 @@ title: xoxofest, and a reintroduction
 
 i had the opportunity to go to my first (and last [only?]) xoxofest this year.
 it was magical. the talks were incredible, i got to see some old pals from
-glitch (and one from glitch _and_ webflow!), the new people i met there were
+glitch, a new pal from webflow, and even a 2-pal-2-furious from both glitch _and_ webflow! the new people i met at xoxo were
 great, portland food was delicious, the transit was surprisingly pretty great
 for the west coast... i could go on. tbh though, i felt a bit like an imposter.
 i was surrounded by cool people working on interesting projects, and i'm... a
@@ -28,7 +28,7 @@ fulfilling, vulnerable, and creative work that i do? why do i feel obligated
 to cultivate an identity around, write about, build community around, and devote my free time
 to a job that just pays my bills, and keep the things that bring me joy
 to myself? why do i feel like i can't _seriously_ do these things, and downgrade
-them to a hobby that's sidelined in favor of career progression? there are a lot of potential reasons: imposter syndrome, capitalism devaluing the arts, even a fear of the vulnerability required to share my works with others. i can't really fix capitalism, but i can let the other concerns go.
+them to a hobby that's sidelined in favor of career progression? there are a lot of potential reasons: imposter syndrome, capitalism devaluing the arts, even a fear of the vulnerability required to share my works with others (that's literally half of design school... where did that bravery go). i can't really fix capitalism, but i can let the other concerns go.
 
 after i got home and somewhat settled back in (tangent: i started adderall for
 my adhd again last monday after discontinuing it in early 2020 because my
@@ -39,7 +39,7 @@ i've been sleeping like shit for 4 years without it), i updated my website and
 swapped the first and second paragraphs of my home page. what was "i'm a
 software engineer and _for fun_ i make games and _play around with_ hobby
 electronics" is now "i'm a game designer and electronics maker, and as a day
-job, i'm a software engineer." these aren't my hobbies; they're my art. they're what being me joy. i'm still a software engineer i guess (...for now), but i don't find joy in cranking out new features in the VC startup machine, so i don't have to identify with it. it's a very small change, but those kinds of shifts are what make things happen for me, so i do it anyways.
+job, i'm a software engineer." these aren't my hobbies; they're my art. they're what being me joy. i'm still a software engineer i guess (...for now), but i don't find joy in cranking out new features in the VC startup machine, so i don't have to identify with it. it just pays the bills. it's a very small reframing, but those kinds of shifts are what make things happen for me, so i do it anyways.
 
 i also deleted a boring-ass blog post about some typescript bullshit that i
 slogged through writing a few months ago but wrote nonetheless because i needed
