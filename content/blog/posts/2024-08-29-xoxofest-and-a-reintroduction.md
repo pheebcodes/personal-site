@@ -8,7 +8,7 @@ glitch, a new pal from webflow, and even a 2-pal-2-furious from both glitch _and
 great, portland food was delicious, the transit was surprisingly pretty great
 for the west coast... i could go on. tbh though, i felt a bit like an imposter.
 i was surrounded by cool people working on interesting projects, and i'm... a
-software engineer.
+software engineer?
 
 something that i noticed over the weekend that really stuck with me was how
 other people were introducing themselves. a large number of people i met
