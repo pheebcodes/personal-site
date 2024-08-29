@@ -24,7 +24,7 @@ no, i studied design and game dev; i've made video games; i've written ttrpgs;
 i've built i don't know how many electronics projects; i still do those things
 (though maybe not many ttrpgs anymore); and honestly... i think i'm pretty good at those
 things, too. why do i feel like i can't _seriously_ do these things, and downgrade
-them to a hobby that's sidelined in favor of career progression? there are a lot of potential reasons: imposter syndrome, capitalism devaluing the arts, even a fear of the vulnerability required to share my works with others (even though i already know i was able to overcome that in design school). i can't really fix capitalism, but i can let the other concerns go.
+them to a hobby that's sidelined in favor of career progression? there are a lot of potential reasons: imposter syndrome, capitalism devaluing the arts, a fear of the vulnerability required to share my works with others (even though i already know i was able to overcome that in design school). i can't really fix capitalism, but i can let the other concerns go.
 
 after i got home and somewhat settled back in (tangent: i started adderall for
 my adhd again last monday after discontinuing it in early 2020 because my
