@@ -40,15 +40,14 @@ job, i'm a software engineer." these aren't my hobbies; they're my art. they're 
 i also deleted a boring-ass blog post about some typescript bullshit that i
 slogged through writing a few months ago but wrote nonetheless because i needed
 to get _some_ creative energy out and i felt obligated to make it about my day
-job because \~productivity\~... whatever. i'm gonna start sharing some
-electronics projects i've built over the last few years, starting with a simple
-post about a (potentially over-engineered) light that i built for my wife for
-her yarn cabinet that _automatically turns on when she opens the door_. very
-wild stuff here. i'm also working on a game currently, and in a few weeks i hope
+job because \~productivity\~... whatever. i'm gonna start by sharing some
+electronics projects i've built over the last few years, the first being a very easy, low risk
+post about a light that i built for my wife for
+her yarn cabinet that _automatically turns on when she opens the door_. cool shit. i'm also working on a game currently, and in a few weeks i hope
 to share some more info on that soon. maybe some sketches, definitely some
 design and direction ideas, hopefully some code eventually. hell, i might even
 take a page from [jenn @ livelaugh.blog](https://livelaugh.blog/) and
-occasionally blog about candlemaking, since i had to pick that up recently
+occasionally blog about something i'd actually consider one of my hobbies, candlemaking, which i had to pick that up recently
 because i was spending a bit too much money on candles and had wayyy too many
 empty cute containers around the apartment.
 
