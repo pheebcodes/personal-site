@@ -31,7 +31,7 @@ my adhd again last monday after discontinuing it in early 2020 because my
 psychiatrist didn't do virtual appointments and tennessee required you to use
 paper prescriptions for controlled medications so i, adhd girlie, had to keep up
 with _paper prescriptions???_ what a joke. anyways i'm tired as hell because
-i've been sleeping like shit for 4 years without it), i updated my website and
+my brain is finally relaxing and i've been sleeping like shit for 4 years without it), i updated my website and
 swapped the first and second paragraphs of my home page. what was "i'm a
 software engineer and _for fun_ i make games and _play around with_ hobby
 electronics" is now "i'm a game designer and electronics maker, and as a day
