@@ -17,7 +17,7 @@ introduced themselves using "i'm an X, but in my day job i'm a Y", or maybe just
 which was really powerful to me. i've never really felt worthy of claiming a
 label other than the one associated with my job title. after graduating design
 school, i went straight into software engineering because that's what had
-already been paying the bills, so, i can't _really_ claim the label "designer",
+already been paying the bills, so, i can't _really_ claim the labels "designer" or "artist",
 right?
 
 no, i studied design and game dev; i've made video games; i've written ttrpgs;
