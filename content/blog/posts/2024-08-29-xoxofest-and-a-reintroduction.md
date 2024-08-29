@@ -37,20 +37,19 @@ engineer and _for fun_ i make games and _play around with_ hobby electronics" is
 now "i'm a game designer and electronics maker, and as a day job, i'm a software
 engineer." these aren't my hobbies; they're my art.
 
-i also deleted a boring-ass blog post that i wrote a few months ago about some
-typescript bullshit that i slogged through writing but wrote it nonetheless
-because i needed to get _some_ creative energy out and i felt obligated to make
-it about my day job because \~productivity\~... whatever. i'm gonna start
-sharing some hobby electronics projects i've built over the last few years,
-starting with a simple post about a (potentially over-engineered) light that i
-built for my wife for her yarn cabinet that _automatically turns on when she
-opens the door_. very wild stuff here. i'm also working on a game currently, and
-in a few weeks i hope to share some more info on that soon. maybe some sketches,
-definitely some design and direction ideas, hopefully some code eventually.
-hell, i might even take a page from [jenn @
-livelaugh.blog](https://livelaugh.blog/) and occasionally blog about
-candlemaking, since i had to pick that up recently because i was spending a bit
-too much money on candles and had wayyy too many empty cute containers around
-the apartment.
+i also deleted a boring-ass blog post about some typescript bullshit that i
+slogged through writing a few months ago but wrote nonetheless because i needed
+to get _some_ creative energy out and i felt obligated to make it about my day
+job because \~productivity\~... whatever. i'm gonna start sharing some hobby
+electronics projects i've built over the last few years, starting with a simple
+post about a (potentially over-engineered) light that i built for my wife for
+her yarn cabinet that _automatically turns on when she opens the door_. very
+wild stuff here. i'm also working on a game currently, and in a few weeks i hope
+to share some more info on that soon. maybe some sketches, definitely some
+design and direction ideas, hopefully some code eventually. hell, i might even
+take a page from [jenn @ livelaugh.blog](https://livelaugh.blog/) and
+occasionally blog about candlemaking, since i had to pick that up recently
+because i was spending a bit too much money on candles and had wayyy too many
+empty cute containers around the apartment.
 
 i'm excited. :)
