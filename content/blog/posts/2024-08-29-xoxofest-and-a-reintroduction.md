@@ -35,7 +35,7 @@ my brain is finally relaxing and i've been sleeping like shit for 4 years withou
 swapped the first and second paragraphs of my home page. what was "i'm a
 software engineer and _for fun_ i make games and _play around with_ hobby
 electronics" is now "i'm a game designer and electronics maker, and as a day
-job, i'm a software engineer." these aren't my hobbies; they're my art. they're what being me joy. i'm still a software engineer i guess (...for now), but i don't find joy in cranking out new features in the VC startup machine and never really have (okay maybe i did a bit at glitch because i love the product), so i don't identify with it. it just pays the bills. it's a very small reframing, but those kinds of shifts are what make things happen for me, so i do it anyways.
+job, i'm a software engineer." these aren't my hobbies; they're my art. they're what being me joy. i'm still a software engineer i guess (...for now), but i don't find joy in cranking out new features in the venture capitalist startup machine and never really have (okay maybe i did a bit at glitch because i love the product), so i don't identify with it. it just pays the bills. it's a very small reframing, but those kinds of shifts are what make things happen for me, so i do it anyways.
 
 i also deleted a boring-ass blog post about some typescript bullshit that i
 slogged through writing a few months ago but wrote nonetheless because i needed
