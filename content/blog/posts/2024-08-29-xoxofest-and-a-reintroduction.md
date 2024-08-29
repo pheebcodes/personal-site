@@ -22,13 +22,13 @@ right?
 
 no, i studied design and game dev; i've made video games; i've written ttrpgs;
 i've built i don't know how many electronics projects; i still do those things
-(though maybe not many ttrpgs anymore); and honestly... i'm pretty good at those
+(though maybe not many ttrpgs anymore); and honestly... i think i'm pretty good at those
 things, too. what more do i need to do to identify with some of the most
-fulfilling, vulnerable, and creative things that i do? why do i feel obligated
-to identify with, build community around, write about, and devote my free time
-to a profession that just pays my bills, and keep the things that bring me joy
+fulfilling, vulnerable, and creative work that i do? why do i feel obligated
+to cultivate an identity around, write about, build community around, and devote my free time
+to a job that just pays my bills, and keep the things that bring me joy
 to myself? why do i feel like i can't _seriously_ do these things, and downgrade
-them to just a hobby?
+them to a hobby that's sidelined in favor of career progression? there are a lot of potential reasons: imposter syndrome, capitalism devaluing the arts, even a fear of the vulnerability required to share my works with others. i can't really fix capitalism, but i can let the other concerns go.
 
 after i got home and somewhat settled back in (tangent: i started adderall for
 my adhd again last monday after discontinuing it in early 2020 because my
@@ -39,7 +39,7 @@ i've been sleeping like shit for 4 years without it), i updated my website and
 swapped the first and second paragraphs of my home page. what was "i'm a
 software engineer and _for fun_ i make games and _play around with_ hobby
 electronics" is now "i'm a game designer and electronics maker, and as a day
-job, i'm a software engineer." these aren't my hobbies; they're my art.
+job, i'm a software engineer." these aren't my hobbies; they're my art. they're what being me joy. i'm still a software engineer i guess (...for now), but i don't find joy in cranking out new features in the VC startup machine, so i don't have to identify with it. it's a very small change, but those kinds of shifts are what make things happen for me, so i do it anyways.
 
 i also deleted a boring-ass blog post about some typescript bullshit that i
 slogged through writing a few months ago but wrote nonetheless because i needed
