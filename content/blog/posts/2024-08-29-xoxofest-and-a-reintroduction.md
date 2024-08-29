@@ -23,11 +23,7 @@ right?
 no, i studied design and game dev; i've made video games; i've written ttrpgs;
 i've built i don't know how many electronics projects; i still do those things
 (though maybe not many ttrpgs anymore); and honestly... i think i'm pretty good at those
-things, too. what more do i need to do to identify with some of the most
-fulfilling, vulnerable, and creative work that i do? why do i feel obligated
-to cultivate an identity around, write about, build community around, and devote my free time
-to a job that just pays my bills, and keep the things that bring me joy
-to myself? why do i feel like i can't _seriously_ do these things, and downgrade
+things, too. why do i feel like i can't _seriously_ do these things, and downgrade
 them to a hobby that's sidelined in favor of career progression? there are a lot of potential reasons: imposter syndrome, capitalism devaluing the arts, even a fear of the vulnerability required to share my works with others (that's literally half of design school... where did that bravery go). i can't really fix capitalism, but i can let the other concerns go.
 
 after i got home and somewhat settled back in (tangent: i started adderall for
