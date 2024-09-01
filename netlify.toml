@@ -112,3 +112,12 @@ status = 200
 from = "/atom.xml"
 to = "/feed.atom"
 status = 200
+
+[[redirects]]
+from = "https://www.bitch.lgbt/*"
+to = "https://www.phoebe.codes/:splat"
+
+
+[[redirects]]
+from = "https://bitch.lgbt/*"
+to = "https://www.phoebe.codes/:splat"
