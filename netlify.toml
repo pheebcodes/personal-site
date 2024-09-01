@@ -62,6 +62,18 @@ for = "/feed.json"
 Content-Type = "application/json"
 
 [[redirects]]
+from = "https://www.bitch.lgbt/*"
+to = "https://www.phoebe.codes/:splat"
+status = 302
+force = true
+
+[[redirects]]
+from = "https://bitch.lgbt/*"
+to = "https://www.phoebe.codes/:splat"
+status = 302
+force = true
+
+[[redirects]]
 from = "/license"
 to = "/license.txt"
 
@@ -112,12 +124,3 @@ status = 200
 from = "/atom.xml"
 to = "/feed.atom"
 status = 200
-
-[[redirects]]
-from = "https://www.bitch.lgbt/*"
-to = "https://www.phoebe.codes/:splat"
-
-
-[[redirects]]
-from = "https://bitch.lgbt/*"
-to = "https://www.phoebe.codes/:splat"
