@@ -37,13 +37,8 @@ function FooterLinks() {
 			<Footer.Link to="https://www.linkedin.com/in/phoebe-c-9a2b00234" label="phoebe's linkedin profile" newTab me>
 				linkedin
 			</Footer.Link>
-			<Footer.Link
-				to="https://www.hachyderm.io/@phoebecodes"
-				label="phoebe's fediverse profile on hachyderm.io"
-				newTab
-				me
-			>
-				fediverse
+			<Footer.Link to="https://xoxo.zone/@phoebe" label="phoebe's mastodon profile on xoxo.zone" newTab me>
+				mastodon
 			</Footer.Link>
 			<Footer.Link to="https://bsky.app/profile/phoebe.codes" label="phoebe's bluesky profile" newTab me>
 				bluesky
