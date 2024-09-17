@@ -5,7 +5,10 @@ export interface Page<T> {
 	last: boolean;
 }
 
-export function* paginate<T>(items: Iterable<T>, perPage: number): IterableIterator<Page<T>> {
+export function* paginate<T>(
+	items: Iterable<T>,
+	perPage: number,
+): IterableIterator<Page<T>> {
 	let collectedItems = Array.from(items);
 	const startLength = collectedItems.length;
 	let page = 1;

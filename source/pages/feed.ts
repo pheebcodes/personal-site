@@ -38,7 +38,10 @@ export async function* pages(content: Content) {
 	const feed = new Feed(feedData);
 
 	for (const post of posts) {
-		const url = new URL(`blog/posts/${post.slug}.html`, "https://www.phoebe.codes");
+		const url = new URL(
+			`blog/posts/${post.slug}.html`,
+			"https://www.phoebe.codes",
+		);
 		feed.addItem({
 			id: post.slug,
 			title: post.title,

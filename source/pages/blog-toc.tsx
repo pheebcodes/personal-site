@@ -52,7 +52,14 @@ export async function* pages(content: Content) {
 	for (const { items, page, first, last } of posts.pages()) {
 		yield {
 			path: `blog/toc/${page}.html`,
-			element: <BlogToc posts={items} cur={page} prev={first ? null : page - 1} next={last ? null : page + 1} />,
+			element: (
+				<BlogToc
+					posts={items}
+					cur={page}
+					prev={first ? null : page - 1}
+					next={last ? null : page + 1}
+				/>
+			),
 		};
 	}
 }

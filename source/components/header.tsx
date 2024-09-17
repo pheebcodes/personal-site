@@ -8,7 +8,12 @@ interface LinkProps {
 	children: ComponentChildren;
 	href: string;
 }
-export function Link({ className, current = false, children, href }: LinkProps) {
+export function Link({
+	className,
+	current = false,
+	children,
+	href,
+}: LinkProps) {
 	return (
 		<Divided.Link className={cn(className, { current })} href={href}>
 			{children}

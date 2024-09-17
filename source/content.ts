@@ -92,7 +92,10 @@ export class Content {
 
 	async store<T>(storeBuilder: StoreBuilder<T>): Promise<T> {
 		if (!this.#stores.has(storeBuilder)) {
-			this.#stores.set(storeBuilder, await storeBuilder.buildContentStore(this));
+			this.#stores.set(
+				storeBuilder,
+				await storeBuilder.buildContentStore(this),
+			);
 		}
 		return this.#stores.get(storeBuilder) as T;
 	}

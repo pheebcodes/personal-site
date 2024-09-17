@@ -27,20 +27,45 @@ function FooterLinks() {
 				<Footer.LinkInner to="mailto:me@phoebe.codes" label="email phoebe" me>
 					email
 				</Footer.LinkInner>{" "}
-				<Footer.LinkInner to="/public.asc" label="phoebe's public key" download me>
+				<Footer.LinkInner
+					to="/public.asc"
+					label="phoebe's public key"
+					download
+					me
+				>
 					(pgp key)
 				</Footer.LinkInner>
 			</Footer.LinkWrapper>
-			<Footer.Link to="https://www.github.com/pheebcodes" label="phoebe's github profile" newTab me>
+			<Footer.Link
+				to="https://www.github.com/pheebcodes"
+				label="phoebe's github profile"
+				newTab
+				me
+			>
 				github
 			</Footer.Link>
-			<Footer.Link to="https://www.linkedin.com/in/phoebe-c-9a2b00234" label="phoebe's linkedin profile" newTab me>
+			<Footer.Link
+				to="https://www.linkedin.com/in/phoebe-c-9a2b00234"
+				label="phoebe's linkedin profile"
+				newTab
+				me
+			>
 				linkedin
 			</Footer.Link>
-			<Footer.Link to="https://xoxo.zone/@phoebe" label="phoebe's mastodon profile on xoxo.zone" newTab me>
+			<Footer.Link
+				to="https://xoxo.zone/@phoebe"
+				label="phoebe's mastodon profile on xoxo.zone"
+				newTab
+				me
+			>
 				mastodon
 			</Footer.Link>
-			<Footer.Link to="https://bsky.app/profile/phoebe.codes" label="phoebe's bluesky profile" newTab me>
+			<Footer.Link
+				to="https://bsky.app/profile/phoebe.codes"
+				label="phoebe's bluesky profile"
+				newTab
+				me
+			>
 				bluesky
 			</Footer.Link>
 		</>
@@ -54,7 +79,13 @@ interface BasePageProps {
 	main?: JSX.ElementType;
 	children?: ComponentChildren;
 }
-export function BasePage({ title, head, pageName, main: Main = "main", children }: BasePageProps) {
+export function BasePage({
+	title,
+	head,
+	pageName,
+	main: Main = "main",
+	children,
+}: BasePageProps) {
 	return (
 		<html lang="en">
 			<Head title={title ? `phoebe - ${title}` : "phoebe"}>{head}</Head>
@@ -63,7 +94,9 @@ export function BasePage({ title, head, pageName, main: Main = "main", children 
 					<HeaderLinks pageName={pageName} />
 				</Header.Container>
 
-				<Main className={cn(pageName, "col container margin-gap grow")}>{children}</Main>
+				<Main className={cn(pageName, "col container margin-gap grow")}>
+					{children}
+				</Main>
 
 				<Footer.Container>
 					<FooterLinks />

@@ -9,7 +9,14 @@ interface LinkInnerProps {
 	download?: boolean;
 	children: ComponentChildren;
 }
-export function LinkInner({ to, label, me = false, newTab = false, download = false, children }: LinkInnerProps) {
+export function LinkInner({
+	to,
+	label,
+	me = false,
+	newTab = false,
+	download = false,
+	children,
+}: LinkInnerProps) {
 	const relList = [];
 	if (me) {
 		relList.push("me");

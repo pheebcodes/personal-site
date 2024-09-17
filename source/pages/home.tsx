@@ -9,7 +9,11 @@ interface MainElementProps {
 }
 function MainElement({ className, body, ...attrs }: MainElementProps) {
 	return (
-		<main {...attrs} className={cn(className, "justify-center markdown")} dangerouslySetInnerHTML={{ __html: body }} />
+		<main
+			{...attrs}
+			className={cn(className, "justify-center markdown")}
+			dangerouslySetInnerHTML={{ __html: body }}
+		/>
 	);
 }
 
@@ -17,7 +21,12 @@ interface HomeProps {
 	body: string;
 }
 export function Home({ body }: HomeProps) {
-	return <BasePage pageName="home" main={(attrs) => <MainElement {...attrs} body={body} />} />;
+	return (
+		<BasePage
+			pageName="home"
+			main={(attrs) => <MainElement {...attrs} body={body} />}
+		/>
+	);
 }
 
 export async function* pages(content: Content) {

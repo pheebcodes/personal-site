@@ -5,7 +5,9 @@ interface NoLinkProps {
 	children: ComponentChildren;
 }
 function NoLink({ children }: NoLinkProps) {
-	return <Divided.LinkWrapper className="no-link">{children}</Divided.LinkWrapper>;
+	return (
+		<Divided.LinkWrapper className="no-link">{children}</Divided.LinkWrapper>
+	);
 }
 
 interface PaginationProps {
@@ -13,7 +15,11 @@ interface PaginationProps {
 	currentPage: string | number;
 	nextLink: string | null;
 }
-export function Pagination({ previousLink, currentPage, nextLink }: PaginationProps) {
+export function Pagination({
+	previousLink,
+	currentPage,
+	nextLink,
+}: PaginationProps) {
 	return (
 		<footer className="col">
 			<section className="row space-gap">
@@ -21,8 +27,16 @@ export function Pagination({ previousLink, currentPage, nextLink }: PaginationPr
 				<span>{currentPage}</span>
 			</section>
 			<Divided.Container>
-				{previousLink ? <Divided.Link href={previousLink}>prev</Divided.Link> : <NoLink>prev</NoLink>}
-				{nextLink ? <Divided.Link href={nextLink}>next</Divided.Link> : <NoLink>next</NoLink>}
+				{previousLink ? (
+					<Divided.Link href={previousLink}>prev</Divided.Link>
+				) : (
+					<NoLink>prev</NoLink>
+				)}
+				{nextLink ? (
+					<Divided.Link href={nextLink}>next</Divided.Link>
+				) : (
+					<NoLink>next</NoLink>
+				)}
 			</Divided.Container>
 		</footer>
 	);

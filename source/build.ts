@@ -12,10 +12,16 @@ class Builder {
 	async build(): Promise<void> {
 		await FS.rm(this.#outputRoot, { force: true, recursive: true });
 		await FS.cp("static", this.#outputRoot, { recursive: true });
-		await FS.copyFile("license.txt", Path.join(this.#outputRoot, "license.txt"));
+		await FS.copyFile(
+			"license.txt",
+			Path.join(this.#outputRoot, "license.txt"),
+		);
 
 		if (process.env.NODE_ENV === "production" && process.env.COMMIT_REF) {
-			await FS.writeFile(Path.join(this.#outputRoot, "commit.txt"), process.env.COMMIT_REF);
+			await FS.writeFile(
+				Path.join(this.#outputRoot, "commit.txt"),
+				process.env.COMMIT_REF,
+			);
 		}
 
 		const resolve = this.#resolveContent.bind(this);
@@ -30,8 +36,14 @@ class Builder {
 			},
 		});
 
-		for await (const pageFullPath of glob(["source/pages/*", "!source/pages/_*"])) {
-			const pageImportPath = Path.relative("source", pageFullPath.toString("utf8"));
+		for await (const pageFullPath of glob([
+			"source/pages/*",
+			"!source/pages/_*",
+		])) {
+			const pageImportPath = Path.relative(
+				"source",
+				pageFullPath.toString("utf8"),
+			);
 			const pageModule = await import(`./${pageImportPath}`);
 			for await (const page of pageModule.pages(content)) {
 				if (page.element) {

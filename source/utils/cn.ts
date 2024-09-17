@@ -1,4 +1,9 @@
-type ClassNameValue = string | string[] | Record<string, unknown> | undefined | null;
+type ClassNameValue =
+	| string
+	| string[]
+	| Record<string, unknown>
+	| undefined
+	| null;
 
 function* cnInner(values: ClassNameValue[]): Iterable<string> {
 	for (const value of values) {

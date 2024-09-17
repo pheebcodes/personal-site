@@ -14,7 +14,10 @@ function Meta({ title, date }: MetaProps) {
 		<>
 			<meta property="og:type" content="article" />
 			<meta property="og:title" content={`${title} - phoebe codes`} />
-			<meta property="og:article:published_time" content={formatISO(date, { representation: "date" })} />
+			<meta
+				property="og:article:published_time"
+				content={formatISO(date, { representation: "date" })}
+			/>
 		</>
 	);
 }
@@ -26,12 +29,19 @@ interface BlogPostProps {
 }
 export function BlogPost({ title, date, body }: BlogPostProps) {
 	return (
-		<BasePage title={title} pageName="blog-post" head={<Meta title={title} date={date} />}>
+		<BasePage
+			title={title}
+			pageName="blog-post"
+			head={<Meta title={title} date={date} />}
+		>
 			<header className="column">
 				<h1>{title}</h1>
 				<Time date={date} />
 			</header>
-			<section className="col margin-gap markdown" dangerouslySetInnerHTML={{ __html: body }} />
+			<section
+				className="col margin-gap markdown"
+				dangerouslySetInnerHTML={{ __html: body }}
+			/>
 		</BasePage>
 	);
 }
@@ -42,7 +52,9 @@ export async function* pages(content: Content) {
 	for (const post of posts) {
 		yield {
 			path: `blog/posts/${post.slug}.html`,
-			element: <BlogPost title={post.title} date={post.date} body={post.body} />,
+			element: (
+				<BlogPost title={post.title} date={post.date} body={post.body} />
+			),
 		};
 	}
 }
