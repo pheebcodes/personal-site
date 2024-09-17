@@ -337,6 +337,14 @@ nav:hover .current:not(:hover) {
 		color: var(--base07);
 	}
 
+	a {
+		color: var(--base0D);
+	}
+
+	span.no-link {
+		color: var(--base0D);
+	}
+
 	.divide > *:not(:last-child)::after {
 		color: var(--base07);
 	}
