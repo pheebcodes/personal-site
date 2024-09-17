@@ -36,11 +36,13 @@ export function BlogToc({ posts, prev, cur, next }: BlogTocProps) {
 				))}
 			</ol>
 
-			<Pagination
-				currentPage={cur}
-				previousLink={prev ? `/blog/toc/${prev}` : null}
-				nextLink={next ? `/blog/toc/${next}` : null}
-			/>
+			{next !== null || prev !== null ? (
+				<Pagination
+					currentPage={cur}
+					previousLink={prev ? `/blog/toc/${prev}` : null}
+					nextLink={next ? `/blog/toc/${next}` : null}
+				/>
+			) : null}
 		</BasePage>
 	);
 }
