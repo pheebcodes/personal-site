@@ -363,3 +363,13 @@ nav:hover .current:not(:hover) {
 		color: var(--base07);
 	}
 }
+
+@media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+	a {
+		color: var(--base0C);
+	}
+
+	span.no-link {
+		color: var(--base0C);
+	}
+}
