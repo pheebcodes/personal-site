@@ -9,5 +9,5 @@ as a day job, i'm a senior software engineer on the enterprise team at webflow.
 previously i worked at glitch building the code editor and other developer
 tools, and before that i was architecting a new website in react for autozone.
 
-trans rights are human rights, black lives matter, and fascism is a loser
+trans rights are human rights, black lives matter, abortion is healthcare, and fascism is a loser
 ideology.
