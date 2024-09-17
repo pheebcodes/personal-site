@@ -6,7 +6,7 @@ interface TimeProps {
 }
 export function Time({ date }: TimeProps) {
 	return (
-		<time dateTime={format(date, "Y-MM-dd")}>
+		<time dateTime={format(date, "y-MM-dd")}>
 			{format(date, "d")} {format(date, "MMMM")}, {format(date, "y")}
 		</time>
 	);
