@@ -70,7 +70,7 @@
 	box-sizing: border-box;
 	font-size: 16px;
 	font-weight: 400;
-	color: var(--base05);
+	color: var(--base07);
 	text-transform: lowercase;
 }
 
@@ -183,7 +183,7 @@ span.no-link {
 }
 
 .divide > *:not(:last-child)::after {
-	color: var(--base05);
+	color: var(--base07);
 	content: "/";
 	margin-left: var(--space-width);
 	margin-right: var(--space-width);
@@ -191,7 +191,7 @@ span.no-link {
 }
 
 .double-divide > *:not(:last-child)::after {
-	color: var(--base05);
+	color: var(--base07);
 	content: "//";
 	margin-left: var(--space-width);
 	margin-right: var(--space-width);
@@ -220,17 +220,17 @@ nav:hover .current:not(:hover) {
  */
 
 .hljs-comment {
-	color: var(--base03);
+	color: var(--base05);
 }
 
 .hljs-tag {
-	color: var(--base04);
+	color: var(--base06);
 }
 
 .hljs-subst,
 .hljs-punctuation,
 .hljs-operator {
-	color: var(--base05);
+	color: var(--base07);
 }
 
 .hljs-bullet,
