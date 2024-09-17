@@ -4,8 +4,8 @@
 	font-weight: 400;
 	font-display: block;
 	src:
-		url(/fonts/BerkeleyMono-Regular.woff2) format("woff2"),
-		url(/fonts/BerkeleyMono-Regular.woff) format("woff");
+		url(/media/fonts/BerkeleyMono-Regular.woff2) format("woff2"),
+		url(/media/fonts/BerkeleyMono-Regular.woff) format("woff");
 }
 
 @font-face {
@@ -14,8 +14,8 @@
 	font-weight: 400;
 	font-display: block;
 	src:
-		url(/fonts/BerkeleyMono-Italic.woff2) format("woff2"),
-		url(/fonts/BerkeleyMono-Italic.woff) format("woff");
+		url(/media/fonts/BerkeleyMono-Italic.woff2) format("woff2"),
+		url(/media/fonts/BerkeleyMono-Italic.woff) format("woff");
 }
 
 @font-face {
@@ -24,8 +24,8 @@
 	font-weight: 700;
 	font-display: block;
 	src:
-		url(/fonts/BerkeleyMono-Bold.woff2) format("woff2"),
-		url(/fonts/BerkeleyMono-Bold.woff) format("woff");
+		url(/media/fonts/BerkeleyMono-Bold.woff2) format("woff2"),
+		url(/media/fonts/BerkeleyMono-Bold.woff) format("woff");
 }
 
 @font-face {
@@ -34,8 +34,8 @@
 	font-weight: 700;
 	font-display: block;
 	src:
-		url(/fonts/BerkeleyMono-BoldItalic.woff2) format("woff2"),
-		url(/fonts/BerkeleyMono-BoldItalic.woff) format("woff");
+		url(/media/fonts/BerkeleyMono-BoldItalic.woff2) format("woff2"),
+		url(/media/fonts/BerkeleyMono-BoldItalic.woff) format("woff");
 }
 
 :root {
