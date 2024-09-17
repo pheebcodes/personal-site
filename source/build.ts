@@ -12,6 +12,7 @@ class Builder {
 	async build(): Promise<void> {
 		await FS.rm(this.#outputRoot, { force: true, recursive: true });
 		await FS.cp("static", this.#outputRoot, { recursive: true });
+		await FS.copyFile("license.txt", Path.join(this.#outputRoot, "license.txt"));
 
 		if (process.env.NODE_ENV === "production" && process.env.COMMIT_REF) {
 			await FS.writeFile(Path.join(this.#outputRoot, "commit.txt"), process.env.COMMIT_REF);
