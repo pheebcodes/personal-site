@@ -18,7 +18,6 @@ phoebe.codes build scripts, edge functions, stylesheets
 https://github.com/pheebcodes/personal-site
 
 - **/*
-- !static/fonts/**/*
 - !content/**/*
 ---------------------------------------------------------
 
