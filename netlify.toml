@@ -2,17 +2,20 @@
 publish = "out/"
 command = "npm run build"
 
+[[plugins]]
+package = "@netlify/plugin-lighthouse"
+
 [dev]
 command = "npm run watch"
 
 [context.dev.environment]
-NODE_VERSION = "20.6.1"
+NODE_VERSION = "22.8.0"
 
 [context.deploy-preview.environment]
-NODE_VERSION = "20.6.1"
+NODE_VERSION = "22.8.0"
 
 [context.production.environment]
-NODE_VERSION = "20.6.1"
+NODE_VERSION = "22.8.0"
 NODE_ENV = "production"
 
 [[edge_functions]]
