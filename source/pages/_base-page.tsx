@@ -27,8 +27,8 @@ function FooterLinks() {
 				<Footer.LinkInner to="mailto:me@phoebe.codes" label="email phoebe" me>
 					email
 				</Footer.LinkInner>{" "}
-				<Footer.LinkInner to="/public.pgp" label="phoebe's public key" download me>
-					(key)
+				<Footer.LinkInner to="/public.asc" label="phoebe's public key" download me>
+					(pgp key)
 				</Footer.LinkInner>
 			</Footer.LinkWrapper>
 			<Footer.Link to="https://www.github.com/pheebcodes" label="phoebe's github profile" newTab me>

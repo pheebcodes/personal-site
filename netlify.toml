@@ -20,7 +20,7 @@ path = "/.well-known/webfinger"
 function = "webfinger-redirect"
 
 [[headers]]
-for = "/public.pgp"
+for = "/public.asc"
 
 [headers.values]
 Content-Type = "application/pgp-keys"
