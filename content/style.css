@@ -349,6 +349,10 @@ nav:hover .current:not(:hover) {
 		color: var(--base07);
 	}
 
+	.double-divide > *:not(:last-child)::after {
+		color: var(--base07);
+	}
+
 	.hljs-comment {
 		color: var(--base05);
 	}
