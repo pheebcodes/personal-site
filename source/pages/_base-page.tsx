@@ -60,14 +60,6 @@ function FooterLinks() {
 			>
 				mastodon
 			</Footer.Link>
-			<Footer.Link
-				to="https://bsky.app/profile/phoebe.codes"
-				label="phoebe's bluesky profile"
-				newTab
-				me
-			>
-				bluesky
-			</Footer.Link>
 		</>
 	);
 }
