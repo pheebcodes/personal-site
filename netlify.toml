@@ -78,6 +78,18 @@ status = 302
 force = true
 
 [[redirects]]
+from = "https://www.anarchist.nyc/*"
+to = "https://www.phoebe.codes/:splat"
+status = 302
+force = true
+
+[[redirects]]
+from = "https://anarchist.nyc/*"
+to = "https://www.phoebe.codes/:splat"
+status = 302
+force = true
+
+[[redirects]]
 from = "/license"
 to = "/license.txt"
 
