@@ -23,6 +23,10 @@ NODE_ENV = "production"
 path = "/.well-known/webfinger"
 function = "webfinger-redirect"
 
+[[edge_functions]]
+path = "/media/*"
+function = "media-proxy"
+
 [[headers]]
 for = "/public.asc"
 
@@ -126,11 +130,6 @@ to = "/gallery/1"
 [[redirects]]
 from = "/blog/posts/2023-05-28-12-00-00-blocking-hacker-news"
 to = "/blog/posts/2023-05-28-blocking-hacker-news"
-
-[[redirects]]
-from = "/media/*"
-to = "https://f005.backblazeb2.com/file/phoebecodes-personal-site-assets/:splat"
-status = 200
 
 [[redirects]]
 from = "/feed"
