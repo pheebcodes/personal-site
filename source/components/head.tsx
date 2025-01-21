@@ -13,28 +13,28 @@ export function Head({ title, children }: HeadProps) {
 			<meta name="description" content="personal site for phoebe" />
 			<link
 				rel="preload"
-				href="/fonts/BerkeleyMono-Regular.woff2"
+				href="/media/fonts/BerkeleyMono-Regular.woff2"
 				as="font"
 				type="font/woff2"
 				crossOrigin=""
 			/>
 			<link
 				rel="preload"
-				href="/fonts/BerkeleyMono-Italic.woff2"
+				href="/media/fonts/BerkeleyMono-Italic.woff2"
 				as="font"
 				type="font/woff2"
 				crossOrigin=""
 			/>
 			<link
 				rel="preload"
-				href="/fonts/BerkeleyMono-Bold.woff2"
+				href="/media/fonts/BerkeleyMono-Bold.woff2"
 				as="font"
 				type="font/woff2"
 				crossOrigin=""
 			/>
 			<link
 				rel="preload"
-				href="/fonts/BerkeleyMono-BoldItalic.woff2"
+				href="/media/fonts/BerkeleyMono-BoldItalic.woff2"
 				as="font"
 				type="font/woff2"
 				crossOrigin=""
