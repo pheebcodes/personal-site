@@ -90,6 +90,12 @@ status = 302
 force = true
 
 [[redirects]]
+from = "https://phoebeclarke.com/*"
+to = "https://www.phoebeclarke.com/:splat"
+status = 302
+force = true
+
+[[redirects]]
 from = "/license"
 to = "/license.txt"
 
