@@ -61,6 +61,14 @@ function FooterLinks() {
 				mastodon
 			</Footer.Link>
 			<Footer.Link
+				to="https://bsky.app/profile/phoebe.codes"
+				label="phoebe's bluesky profile"
+				newTab
+				me
+			>
+				bluesky
+			</Footer.Link>
+			<Footer.Link
 				to="https://letterboxd.com/phoebecodes"
 				label="phoebe's letterboxd profile"
 				newTab
