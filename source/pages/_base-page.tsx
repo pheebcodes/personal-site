@@ -60,6 +60,14 @@ function FooterLinks() {
 			>
 				mastodon
 			</Footer.Link>
+			<Footer.Link
+				to="https://letterboxd.com/phoebecodes"
+				label="phoebe's letterboxd profile"
+				newTab
+				me
+			>
+				letterboxd
+			</Footer.Link>
 		</>
 	);
 }
