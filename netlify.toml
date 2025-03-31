@@ -28,11 +28,6 @@ path = "/media/*"
 function = "media-proxy"
 cache = "manual"
 
-[[edge_functions]]
-path = "/test-media/*"
-function = "test-media-proxy"
-cache = "manual"
-
 [[headers]]
 for = "/public.asc"
 
@@ -83,7 +78,7 @@ force = true
 
 [[redirects]]
 from = "/redirect-media/*"
-to = "https://f005.backblazeb2.com/file/phoebecodes-personal-site-assets/:splat"
+to = "https://phoebecodes-personal-site-assets.s3.us-east-005.backblazeb2.com/:splat"
 status = 200
 
 [[redirects]]
