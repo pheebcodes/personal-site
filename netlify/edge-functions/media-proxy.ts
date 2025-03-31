@@ -20,7 +20,7 @@ export default async function handler(
 		? new Response(res.body, {
 				headers: {
 					etag,
-					"cache-control": "max-age=2419200",
+					"cache-control": "public, s-maxage=2419200",
 					"last-modified": lastModified.toUTCString(),
 				},
 			})

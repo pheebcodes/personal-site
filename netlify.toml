@@ -26,6 +26,7 @@ function = "webfinger-redirect"
 [[edge_functions]]
 path = "/media/*"
 function = "media-proxy"
+cache = "manual"
 
 [[headers]]
 for = "/public.asc"
