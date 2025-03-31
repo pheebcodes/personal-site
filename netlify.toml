@@ -71,15 +71,15 @@ for = "/feed.json"
 Content-Type = "application/json"
 
 [[redirects]]
+from = "/media/*"
+to = "https://phoebecodes-personal-site-assets.s3.us-east-005.backblazeb2.com/:splat"
+status = 200
+
+[[redirects]]
 from = "https://www.bitch.lgbt/*"
 to = "https://www.phoebe.codes/:splat"
 status = 302
 force = true
-
-[[redirects]]
-from = "/media/*"
-to = "https://phoebecodes-personal-site-assets.s3.us-east-005.backblazeb2.com/:splat"
-status = 200
 
 [[redirects]]
 from = "https://bitch.lgbt/*"
