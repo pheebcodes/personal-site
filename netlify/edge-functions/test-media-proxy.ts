@@ -9,11 +9,11 @@ export default async function handler(
 	);
 	assetUrl.pathname += `/${context.params[0]}`;
 	const res = await fetch(assetUrl);
-	const etag = res.headers.get("x-bz-content-sha1")!;
+	// const etag = res.headers.get("x-bz-content-sha1")!;
 	return new Response(res.body, {
 		headers: {
-			"cache-control": "public,max-age=2419200",
-			etag,
+			"cache-control": "public,s-maxage=2419200",
+			// etag,
 		},
 	});
 }
