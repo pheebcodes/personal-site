@@ -82,6 +82,11 @@ status = 302
 force = true
 
 [[redirects]]
+from = "/redirect-media/*"
+to = "https://f005.backblazeb2.com/file/phoebecodes-personal-site-assets/:splat"
+status = 200
+
+[[redirects]]
 from = "https://bitch.lgbt/*"
 to = "https://www.phoebe.codes/:splat"
 status = 302
