@@ -28,6 +28,11 @@ path = "/media/*"
 function = "media-proxy"
 cache = "manual"
 
+[[edge_functions]]
+path = "/test-media/*"
+function = "test-media-proxy"
+cache = "manual"
+
 [[headers]]
 for = "/public.asc"
 
