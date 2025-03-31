@@ -12,7 +12,7 @@ export default async function handler(
 	const etag = res.headers.get("x-bz-content-sha1")!;
 	return new Response(res.body, {
 		headers: {
-			"cache-control": "public,s-maxage=2419200",
+			"cache-control": "public,max-age=2419200",
 			etag,
 		},
 	});
