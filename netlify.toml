@@ -77,7 +77,7 @@ status = 302
 force = true
 
 [[redirects]]
-from = "/redirect-media/*"
+from = "/media/*"
 to = "https://phoebecodes-personal-site-assets.s3.us-east-005.backblazeb2.com/:splat"
 status = 200
 
