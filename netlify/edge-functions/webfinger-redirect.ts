@@ -19,7 +19,7 @@ export default async function handler(
 		const redirectUrl = new URL("https://xoxo.zone/.well-known/webfinger");
 		redirectUrl.searchParams.set("resource", "acct:phoebe@xoxo.zone");
 		const response = await fetch(redirectUrl);
-		const json = response.json();
+		const json = await response.json();
 		return Response.json(json, { status: response.status });
 	} catch (_e) {
 		return new Response("500 Server Error", {
