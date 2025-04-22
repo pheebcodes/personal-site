@@ -3,6 +3,7 @@ const accounts = new Set([
 	"acct:me@phoebeclarke.com",
 	"acct:phoebe@bitch.lgbt",
 	"acct:phoebe@anarchist.nyc",
+	"acct:phoebe@deploy-preview-28--phoebecodes.netlify.app",
 ]);
 
 export default async function handler(
