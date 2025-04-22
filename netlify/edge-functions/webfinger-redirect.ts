@@ -5,7 +5,9 @@ const accounts = new Set([
 	"acct:phoebe@anarchist.nyc",
 ]);
 
-export default function handler(request: Request): Response | undefined {
+export default async function handler(
+	request: Request,
+): Promise<Response | undefined> {
 	try {
 		const url = new URL(request.url);
 		const resource = url.searchParams.get("resource");
@@ -16,7 +18,9 @@ export default function handler(request: Request): Response | undefined {
 		}
 		const redirectUrl = new URL("https://xoxo.zone/.well-known/webfinger");
 		redirectUrl.searchParams.set("resource", "acct:phoebe@xoxo.zone");
-		return Response.redirect(redirectUrl.toString(), 302);
+		const response = await fetch(redirectUrl);
+		const json = response.json();
+		return Response.json(json, { status: response.status });
 	} catch (_e) {
 		return new Response("500 Server Error", {
 			status: 500,
