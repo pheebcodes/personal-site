@@ -1,11 +1,5 @@
 {
-	"extends": "@tsconfig/node20",
-	"compilerOptions": {
-		"allowImportingTsExtensions": true,
-		"jsx": "react",
-		"jsxFactory": "h",
-		"jsxFragmentFactory": "Fragment",
-		"noEmit": true,
-		"strict": true
-	},
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"]
 }

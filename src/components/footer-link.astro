@@ -1,0 +1,23 @@
+---
+import DividedLink from "./divided-link.astro";
+
+const { to, label, newTab, me, download, class: className } = Astro.props;
+
+const relList = [];
+if (me) {
+	relList.push("me");
+}
+if (newTab) {
+	relList.push("noopener", "noreferrer");
+}
+---
+
+<DividedLink
+	class:list={[className]}
+	href={to}
+	aria-label={label}
+	tabIndex={0}
+	target={newTab ? "_blank" : undefined}
+	rel={relList.join(" ") || undefined}
+	download={download === true ? "" : download}><slot /></DividedLink
+>

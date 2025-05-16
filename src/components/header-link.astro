@@ -1,0 +1,9 @@
+---
+import DividedLink from "./divided-link.astro";
+
+const { href, class: className, current } = Astro.props;
+---
+
+<DividedLink class:list={[className, { current }]} href={href}
+	><slot /></DividedLink
+>

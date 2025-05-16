@@ -1,0 +1,17 @@
+---
+const {
+	element: Element = "nav",
+	divider = "single",
+	class: className,
+} = Astro.props;
+---
+
+<Element
+	class:list={[
+		className,
+		"row",
+		{ divide: divider === "single", "double-divide": divider === "double" },
+	]}
+>
+	<slot />
+</Element>

@@ -1,0 +1,82 @@
+---
+interface Props {
+	title?: string;
+	section: "home" | "blog";
+}
+
+import Header from "../components/header.astro";
+import HeaderLink from "../components/header-link.astro";
+import Footer from "../components/footer.astro";
+import FooterLink from "../components/footer-link.astro";
+import "../style.css";
+
+const { title, section } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>{title ? `phoebe - ${title}` : title}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="personal site for phoebe" />
+	</head>
+	<body>
+		<Header>
+			<HeaderLink href="/" current={section === "home"}>home</HeaderLink>
+			<HeaderLink href="/blog" current={section === "blog"}>blog</HeaderLink>
+		</Header>
+
+		<slot />
+
+		<Footer>
+			<span>
+				<FooterLink to="mailto:me@phoebe.codes" label="email phoebe" me
+					>email</FooterLink
+				>{" "}
+				<FooterLink to="/public.asc" label="phoebe's public key" download me
+					>(pgp key)</FooterLink
+				></span
+			>
+			<FooterLink
+				to="https://www.github.com/pheebcodes"
+				label="phoebe's github profile"
+				newTab
+				me
+			>
+				github</FooterLink
+			>
+			<FooterLink
+				to="https://www.linkedin.com/in/phoebe-c-9a2b00234"
+				label="phoebe's linkedin profile"
+				newTab
+				me
+			>
+				linkedin</FooterLink
+			>
+			<FooterLink
+				to="https://xoxo.zone/@phoebe"
+				label="phoebe's mastodon profile on xoxo.zone"
+				newTab
+				me
+			>
+				mastodon</FooterLink
+			>
+			<FooterLink
+				to="https://bsky.app/profile/phoebe.codes"
+				label="phoebe's bluesky profile"
+				newTab
+				me
+			>
+				bluesky</FooterLink
+			>
+			<FooterLink
+				to="https://letterboxd.com/phoebecodes"
+				label="phoebe's letterboxd profile"
+				newTab
+				me
+			>
+				letterboxd</FooterLink
+			>
+		</Footer>
+	</body>
+</html>

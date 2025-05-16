@@ -1,0 +1,20 @@
+---
+import BlogLayout from "../../layouts/blog.astro";
+
+const glob = import.meta.glob("./posts/*.md");
+
+export function getStaticPaths() {
+	return [{ params: { pageNumber: 1 } }];
+}
+
+const postImports = await Promise.all(Object.values(glob).map((fn) => fn()));
+const posts = postImports
+	.map((postImport) => ({
+		title: postImport.frontmatter.title,
+		date: postImport.frontmatter.date,
+		url: postImport.url,
+	}))
+	.toReversed();
+---
+
+<BlogLayout posts={posts} />
