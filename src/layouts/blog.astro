@@ -9,33 +9,29 @@ interface Props {
 	posts: Post[];
 }
 
-import DividedContainer from "../components/divided-container.astro";
-import DividedLink from "../components/divided-link.astro";
 import Time from "../components/time.astro";
 import BaseLayout from "./base.astro";
 
 const { posts } = Astro.props;
 ---
 
-<BaseLayout title="blog" section="blog">
-	<main class="col container margin-gap grow">
-		<header class="row space-gap">
-			<h2>feed:</h2>
+<BaseLayout title="blog" section="blog" class="col container margin-gap grow">
+	<header class="row space-gap">
+		<h2>feed:</h2>
 
-			<a href="/feed.rss">rss</a>
-		</header>
+		<a href="/feed.rss">rss</a>
+	</header>
 
-		<ol class="toc">
-			{
-				posts.map((post) => (
-					<li class="col">
-						<span>
-							<a href={post.url}>{post.title}</a>
-						</span>
-						<Time date={post.date} />
-					</li>
-				))
-			}
-		</ol>
-	</main>
+	<ol class="toc">
+		{
+			posts.map((post) => (
+				<li class="col">
+					<span>
+						<a href={post.url}>{post.title}</a>
+					</span>
+					<Time date={post.date} />
+				</li>
+			))
+		}
+	</ol>
 </BaseLayout>

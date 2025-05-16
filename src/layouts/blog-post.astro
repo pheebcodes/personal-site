@@ -12,14 +12,16 @@ import Base from "./base.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<Base title={frontmatter.title} section="blog">
-	<main class="blog-post col container margin-gap grow">
-		<header class="column">
-			<h1>{frontmatter.title}</h1>
-			<Time date={frontmatter.date} />
-		</header>
-		<section class="col margin-gap markdown">
-			<slot />
-		</section>
-	</main>
+<Base
+	title={frontmatter.title}
+	section="blog"
+	class="blog-post col container margin-gap grow"
+>
+	<header class="column">
+		<h1>{frontmatter.title}</h1>
+		<Time date={frontmatter.date} />
+	</header>
+	<section class="col margin-gap markdown">
+		<slot />
+	</section>
 </Base>

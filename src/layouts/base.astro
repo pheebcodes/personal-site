@@ -1,7 +1,8 @@
 ---
 interface Props {
-	title?: string;
 	section: "home" | "blog";
+	title?: string;
+	class?: string;
 }
 
 import Header from "../components/header.astro";
@@ -10,13 +11,13 @@ import Footer from "../components/footer.astro";
 import FooterLink from "../components/footer-link.astro";
 import "../style.css";
 
-const { title, section } = Astro.props;
+const { title, section, class: className } = Astro.props;
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<title>{title ? `phoebe - ${title}` : title}</title>
+		<title>{title ? `phoebe.codes - ${title}` : "phoebe.codes"}</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="personal site for phoebe" />
 	</head>
@@ -26,7 +27,7 @@ const { title, section } = Astro.props;
 			<HeaderLink href="/blog" current={section === "blog"}>blog</HeaderLink>
 		</Header>
 
-		<slot />
+		<main class={className}><slot /></main>
 
 		<Footer>
 			<span>

@@ -4,9 +4,11 @@ import DividedLink from "./divided-link.astro";
 const { to, label, newTab, me, download, class: className } = Astro.props;
 
 const relList = [];
+
 if (me) {
 	relList.push("me");
 }
+
 if (newTab) {
 	relList.push("noopener", "noreferrer");
 }
