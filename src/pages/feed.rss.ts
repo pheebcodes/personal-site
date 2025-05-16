@@ -17,15 +17,9 @@ const items = await Promise.all(
 
 export function GET(context: APIContext) {
 	return rss({
-		// `<title>` field in output xml
 		title: "phoebe.codes blog",
-		// `<description>` field in output xml
 		description: "phoebe's blog",
-		// Pull in your project "site" from the endpoint context
-		// https://docs.astro.build/en/reference/api-reference/#site
 		site: context.site!,
-		// Array of `<item>`s in output xml
-		// See "Generating items" section for examples using content collections and glob imports
 		items,
 	});
 }
