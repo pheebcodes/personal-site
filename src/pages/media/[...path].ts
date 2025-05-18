@@ -7,5 +7,5 @@ export async function GET({ params }: APIContext) {
 		params.path!,
 		"https://personal-site.s3.fr-par.scw.cloud"
 	);
-	return await fetch(url);
+	return Response.redirect(url);
 }

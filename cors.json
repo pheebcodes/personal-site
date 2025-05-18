@@ -1,0 +1,14 @@
+{
+	"CORSRules": [
+		{
+			"AllowedOrigins": [
+				"https://www.phoebe.codes",
+				"https://phoebecodesuoaswux1-personal-site.functions.fnc.fr-par.scw.cloud"
+			],
+			"AllowedHeaders": ["*"],
+			"AllowedMethods": ["GET"],
+			"MaxAgeSeconds": 604800,
+			"ExposeHeaders": ["Etag"]
+		}
+	]
+}
