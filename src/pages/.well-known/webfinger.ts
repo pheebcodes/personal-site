@@ -1,4 +1,4 @@
-import { APIContext } from "astro";
+import { type APIContext } from "astro";
 
 const accounts = new Set([
 	"acct:me@phoebe.codes",
