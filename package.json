@@ -1,23 +1,24 @@
 {
-  "name": "personal-site",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/node": "^9.2.1",
-    "@astrojs/rss": "^4.0.11",
-    "@date-fns/utc": "^2.1.0",
-    "astro": "^5.7.13",
-    "autoprefixer": "^10.4.21",
-    "cssnano": "^7.0.7",
-    "date-fns": "^4.1.0",
-    "express": "^5.1.0",
-    "modern-normalize": "^3.0.1",
-    "postcss-import": "^16.1.0"
-  }
+	"name": "personal-site",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"apply-cors": "aws s3api put-bucket-cors --bucket personal-site --cors-configuration file://cors.json"
+	},
+	"dependencies": {
+		"@astrojs/node": "^9.2.1",
+		"@astrojs/rss": "^4.0.11",
+		"@date-fns/utc": "^2.1.0",
+		"astro": "^5.7.13",
+		"autoprefixer": "^10.4.21",
+		"cssnano": "^7.0.7",
+		"date-fns": "^4.1.0",
+		"express": "^5.1.0",
+		"modern-normalize": "^3.0.1",
+		"postcss-import": "^16.1.0"
+	}
 }
