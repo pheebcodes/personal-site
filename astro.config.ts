@@ -4,7 +4,7 @@ import node from "@astrojs/node";
 export default defineConfig({
 	site: "https://phoebe.codes",
 	adapter: node({
-		mode: "standalone",
+		mode: "middleware",
 	}),
 	redirects: {
 		"/blog": "/blog/toc",
