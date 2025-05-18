@@ -11,19 +11,24 @@ if (newTab) {
 	relList.push("noopener", "noreferrer");
 }
 
-// This was the only way I could figure out how to render a sublink in a slot.
-const text = await Astro.slots.render("default");
-const sublink = await Astro.slots.render("sublink");
-const aInner = sublink ? `${text.trim()} ${sublink.trim()}` : text.trim();
+// This was the only way I could figure out how to render a sublink in a slot without
+// additional spaces around the text or the sublink slot rendering a space when empty.
+const text = (await Astro.slots.render("default"))?.trim();
+const sublinkHtml = (await Astro.slots.render("sublink"))?.trim();
+const sublink = sublinkHtml ? " " + sublinkHtml : sublinkHtml;
 ---
 
-<a
-	class={className}
-	href={href}
-	aria-label={label}
-	tabindex="0"
-	target={newTab ? "_blank" : undefined}
-	rel={relList.join(" ") || undefined}
-	download={download}
-	set:html={aInner}
-/>
+<Fragment>
+	<a
+		class={className}
+		href={href}
+		aria-label={label}
+		tabindex="0"
+		target={newTab ? "_blank" : undefined}
+		rel={relList.join(" ") || undefined}
+		download={download}
+	>
+		{text}
+	</a>
+	<Fragment set:html={sublink} />
+</Fragment>
