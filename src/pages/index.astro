@@ -1,10 +1,11 @@
 ---
-import Base from "./base.astro";
+import { Content } from "../content/index.md";
+import Base from "../layouts/base.astro";
 ---
 
 <Base
 	section="home"
 	class="home col container margin-gap grow justify-center markdown"
 >
-	<slot />
+	<Content />
 </Base>

@@ -1,5 +1,15 @@
 ---
-const { class: className, href } = Astro.props;
+import DividedSublink from "./divided-sublink.astro";
 ---
 
-<span><a class={className} href={href}><slot /></a></span>
+<span
+	><DividedSublink {...Astro.props}
+		><slot /><slot name="sublink" slot="sublink" /></DividedSublink
+	></span
+>
+<style>
+	span,
+	a {
+		display: inline-block;
+	}
+</style>

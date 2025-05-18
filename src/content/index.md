@@ -1,7 +1,3 @@
----
-layout: ../layouts/home.astro
----
-
 hi! i'm phoebe (she/her), a game designer and electronics maker in dublin. in
 the past i've designed tabletop rpgs, and currently i'm working on a game for
 the [playdate](https://play.date/) (more info on the blog soon). i sometimes

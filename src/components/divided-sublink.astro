@@ -1,0 +1,29 @@
+---
+const { class: className, href, label, download, me, newTab } = Astro.props;
+
+const relList = [];
+
+if (me) {
+	relList.push("me");
+}
+
+if (newTab) {
+	relList.push("noopener", "noreferrer");
+}
+
+// This was the only way I could figure out how to render a sublink in a slot.
+const text = await Astro.slots.render("default");
+const sublink = await Astro.slots.render("sublink");
+const aInner = sublink ? `${text.trim()} ${sublink.trim()}` : text.trim();
+---
+
+<a
+	class={className}
+	href={href}
+	aria-label={label}
+	tabindex="0"
+	target={newTab ? "_blank" : undefined}
+	rel={relList.join(" ") || undefined}
+	download={download}
+	set:html={aInner}
+/>

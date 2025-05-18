@@ -1,0 +1,50 @@
+[
+	{
+		"href": "mailto:me@phoebe.codes",
+		"id": "email",
+		"label": "email phoebe",
+		"me": true,
+		"sublink": {
+			"download": true,
+			"href": "/public.asc",
+			"id": "pgp",
+			"label": "phoebe's public key",
+			"me": true
+		}
+	},
+	{
+		"href": "https://www.github.com/pheebcodes",
+		"id": "github",
+		"label": "phoebe's github profile",
+		"me": true,
+		"newTab": true
+	},
+	{
+		"href": "https://www.linkedin.com/in/phoebe-c-9a2b00234",
+		"id": "linkedin",
+		"label": "phoebe's linkedin profile",
+		"me": true,
+		"newTab": true
+	},
+	{
+		"href": "https://xoxo.zone/@phoebe",
+		"id": "mastodon",
+		"label": "phoebe's mastodon profile on xoxo.zone",
+		"me": true,
+		"newTab": true
+	},
+	{
+		"href": "https://bsky.app/profile/phoebe.codes",
+		"id": "bluesky",
+		"label": "phoebe's bluesky profile",
+		"me": true,
+		"newTab": true
+	},
+	{
+		"href": "https://letterboxd.com/phoebecodes",
+		"id": "letterboxd",
+		"label": "phoebe's letterboxd profile",
+		"me": true,
+		"newTab": true
+	}
+]

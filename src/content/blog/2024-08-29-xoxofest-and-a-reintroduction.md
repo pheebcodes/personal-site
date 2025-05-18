@@ -1,7 +1,6 @@
 ---
 title: xoxofest, and a reintroduction
 date: 2024-08-29
-layout: ../../../layouts/blog-post.astro
 ---
 
 i had the opportunity to go to my first (and last [only?]) xoxofest this year.

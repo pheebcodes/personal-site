@@ -1,18 +1,20 @@
-import path from "path";
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
+import { getCollection } from "astro:content";
+import { compareDesc } from "date-fns";
 
-const glob = import.meta.glob("./blog/posts/*.md");
-const posts = await Promise.all(Object.values(glob).map((fn) => fn()));
+const posts = await getCollection("blog");
 const items = await Promise.all(
-	posts.map(async (post) => ({
-		title: post.frontmatter.title,
-		link: post.url,
-		pubDate: post.frontmatter.date,
-		guid: path.basename(post.url),
-		content: await post.compiledContent(),
-		author: "me@phoebe.codes (Phoebe Clarke)",
-	}))
+	posts
+		.toSorted((a, b) => compareDesc(a.data.date, b.data.date))
+		.map(async (post) => ({
+			title: post.data.title,
+			link: `/blog/posts/${post.id}`,
+			pubDate: post.data.date,
+			guid: post.id,
+			content: post.rendered!.html,
+			author: "me@phoebe.codes (Phoebe Clarke)",
+		}))
 );
 
 export function GET(context: APIContext) {

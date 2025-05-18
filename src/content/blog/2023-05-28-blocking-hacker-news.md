@@ -1,7 +1,6 @@
 ---
 title: blocking hacker news with netlify edge functions
 date: 2023-05-28
-layout: ../../../layouts/blog-post.astro
 ---
 
 > in the days? weeks? since i published this, the orange site has started adding
