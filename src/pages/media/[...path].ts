@@ -7,5 +7,5 @@ export async function GET({ params }: APIContext) {
 		params.path!,
 		"https://phoebecodes-personal-site-assets.s3.us-east-005.backblazeb2.com/"
 	);
-	return await fetch(url);
+	return Response.redirect(url);
 }
