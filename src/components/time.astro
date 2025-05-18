@@ -1,0 +1,16 @@
+---
+interface Props {
+	date: Date;
+}
+
+import { format } from "date-fns";
+import { UTCDate } from "@date-fns/utc";
+
+const { date: tzDate } = Astro.props;
+const date = new UTCDate(tzDate);
+---
+
+<time datetime={format(date, "y-MM-dd")}>
+	{format(date, "d")}
+	{format(date, "MMMM")}, {format(date, "y")}
+</time>

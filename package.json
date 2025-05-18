@@ -1,44 +1,23 @@
 {
-	"type": "module",
-	"scripts": {
-		"build": "tsx source/build.ts",
-		"dev": "netlify dev",
-		"watch": "nodemon --exec \"npm run build\" --watch content --watch source --watch static --ignore out"
-	},
-	"devDependencies": {
-		"@types/node": "^22.5.5",
-		"netlify-cli": "^17.36.0",
-		"nodemon": "^3.1.5",
-		"prettier": "^3.3.3",
-		"typescript": "^5.6.2"
-	},
-	"dependencies": {
-		"@tsconfig/node20": "^20.1.2",
-		"cssnano": "^7.0.6",
-		"date-fns": "^4.1.0",
-		"feed": "^4.2.2",
-		"globby": "^14.0.2",
-		"gray-matter": "^4.0.3",
-		"highlight.js": "^11.10.0",
-		"marked": "^14.1.2",
-		"marked-highlight": "^2.1.4",
-		"modern-normalize": "^3.0.1",
-		"postcss": "^8.4.47",
-		"postcss-import": "^16.1.0",
-		"preact": "^10.24.0",
-		"preact-render-to-string": "^6.5.11",
-		"tsx": "^4.19.1",
-		"zod": "^3.23.8"
-	},
-	"engines": {
-		"node": "^22.8.0",
-		"npm": "^10.8.3"
-	},
-	"volta": {
-		"node": "22.8.0",
-		"npm": "10.8.3"
-	},
-	"prettier": {
-		"useTabs": true
-	}
+  "name": "personal-site",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.2.1",
+    "@astrojs/rss": "^4.0.11",
+    "@date-fns/utc": "^2.1.0",
+    "astro": "^5.7.13",
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.0.7",
+    "date-fns": "^4.1.0",
+    "express": "^5.1.0",
+    "modern-normalize": "^3.0.1",
+    "postcss-import": "^16.1.0"
+  }
 }

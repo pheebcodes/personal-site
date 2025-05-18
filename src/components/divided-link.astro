@@ -1,0 +1,15 @@
+---
+import DividedSublink from "./divided-sublink.astro";
+---
+
+<span
+	><DividedSublink {...Astro.props}
+		><slot /><slot name="sublink" slot="sublink" /></DividedSublink
+	></span
+>
+<style>
+	span,
+	a {
+		display: inline-block;
+	}
+</style>

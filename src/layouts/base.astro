@@ -1,0 +1,72 @@
+---
+interface Props {
+	section: "home" | "blog";
+	title?: string;
+	class?: string;
+}
+
+import "../style.css";
+import { getCollection } from "astro:content";
+import DividedContainer from "../components/divided-container.astro";
+import DividedLink from "../components/divided-link.astro";
+import DividedSublink from "../components/divided-sublink.astro";
+
+const { title, section, class: className } = Astro.props;
+
+const links = await getCollection("links");
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>{title ? `phoebe.codes - ${title}` : "phoebe.codes"}</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="personal site for phoebe" />
+	</head>
+	<body>
+		<DividedContainer element="header" divider="double">
+			<h1>phoebe</h1>
+			<DividedContainer>
+				<DividedLink class:list={[{ current: section === "home" }]} href="/">
+					home
+				</DividedLink>
+				<DividedLink
+					class:list={[{ current: section === "blog" }]}
+					href="/blog"
+				>
+					blog
+				</DividedLink>
+			</DividedContainer>
+		</DividedContainer>
+
+		<main class={className}><slot /></main>
+
+		<DividedContainer element="footer">
+			{
+				links.map((link) => (
+					<DividedLink
+						href={link.data.href}
+						label={link.data.label}
+						download={link.data.download}
+						me={link.data.me}
+						newTab={link.data.newTab}
+					>
+						{link.id}
+						{link.data.sublink ? (
+							<DividedSublink
+								slot="sublink"
+								href={link.data.sublink.href}
+								label={link.data.sublink.label}
+								download={link.data.sublink.download}
+								me={link.data.sublink.me}
+								newTab={link.data.sublink.newTab}
+							>
+								({link.data.sublink.id})
+							</DividedSublink>
+						) : null}
+					</DividedLink>
+				))
+			}
+		</DividedContainer>
+	</body>
+</html>

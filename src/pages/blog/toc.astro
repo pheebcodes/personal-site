@@ -1,0 +1,38 @@
+---
+import { getCollection } from "astro:content";
+import { compareDesc, parse } from "date-fns";
+import Base from "../../layouts/base.astro";
+import Time from "../../components/time.astro";
+
+const blogPosts = await getCollection("blog");
+
+const dateFmt = "yyyy-MM-dd";
+const posts = blogPosts
+	.map((blogPost) => ({
+		title: blogPost.data.title,
+		date: parse(blogPost.id.slice(0, dateFmt.length), dateFmt, new Date()),
+		url: `/blog/posts/${blogPost.id}`,
+	}))
+	.toSorted((a, b) => compareDesc(a.date, b.date));
+---
+
+<Base title="blog" section="blog" class="col container margin-gap grow">
+	<header class="row space-gap">
+		<h2>feed:</h2>
+
+		<a href="/feed.rss">rss</a>
+	</header>
+
+	<ol class="toc">
+		{
+			posts.map((post) => (
+				<li class="col">
+					<span>
+						<a href={post.url}>{post.title}</a>
+					</span>
+					<Time date={post.date} />
+				</li>
+			))
+		}
+	</ol>
+</Base>
