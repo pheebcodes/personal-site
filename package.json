@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/node": "^9.2.1",
     "@astrojs/rss": "^4.0.11",
     "@date-fns/utc": "^2.1.0",
     "astro": "^5.7.13",
