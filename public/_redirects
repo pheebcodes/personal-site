@@ -3,4 +3,4 @@
 /blog/posts/2023-05-28-12-00-00-blocking-hacker-news /blog/posts/2023-05-28-blocking-hacker-news 301
 /feed /feed.rss 301
 /feed.xml /feed.rss 301
-/media/* https://personal-site.s3.fr-par.scw.cloud 200
+/media/* https://personal-site.s3.fr-par.scw.cloud/:splat 200
