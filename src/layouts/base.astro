@@ -42,7 +42,7 @@ const links = await getCollection("links");
 
 		<main class={className}><slot /></main>
 
-		<DividedContainer element="footer">
+		<DividedContainer element="footer" class:list={["wrap"]}>
 			{
 				links.map((link) => (
 					<DividedLink
