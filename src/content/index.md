@@ -5,10 +5,9 @@ build keyboards (the computer kind), guitar pedals, lights, standing desk
 controllers, and anything else i can put on a
 [perma-proto](https://www.adafruit.com/product/571).
 
-as a day job, i was most recently a senior software engineer on the enterprise
-team at webflow. previously i worked at glitch building the code editor and
-other developer tools, and before that i was architecting a new website in
-react for autozone. i'll be starting at my next job in june.
+as a day job, i'm a technical lead at hubspot. i was most recently a senior
+software engineer on the enterprise team at webflow. before that i worked at
+glitch building the code editor and other developer tools.
 
 trans rights are human rights, black lives matter, abortion is healthcare, and
 fascism is a loser ideology.
