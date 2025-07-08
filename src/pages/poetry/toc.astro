@@ -17,6 +17,12 @@ const poems = poemsCollection
 ---
 
 <Base title="poems" section="poetry" class="col container margin-gap grow">
+	<header class="row space-gap">
+		<h2>feed:</h2>
+
+		<a href="/poetry.rss">rss</a>
+	</header>
+
 	<ol class="toc">
 		{
 			poems.map((poem) => (
