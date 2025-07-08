@@ -10,6 +10,8 @@ import { getCollection } from "astro:content";
 import DividedContainer from "../components/divided-container.astro";
 import DividedLink from "../components/divided-link.astro";
 import DividedSublink from "../components/divided-sublink.astro";
+import { isAfter } from "date-fns";
+import { UTCDate } from "@date-fns/utc";
 
 const { title, section, class: className } = Astro.props;
 
@@ -37,12 +39,17 @@ const links = await getCollection("links");
 				>
 					blog
 				</DividedLink>
-				<DividedLink
-					class:list={[{ current: section === "poetry" }]}
-					href="/poetry"
-				>
-					poetry
-				</DividedLink>
+				{
+					import.meta.env.DEV ||
+					isAfter(new UTCDate(), new UTCDate("2025-07-12")) ? (
+						<DividedLink
+							class:list={[{ current: section === "poetry" }]}
+							href="/poetry"
+						>
+							poetry
+						</DividedLink>
+					) : null
+				}
 			</DividedContainer>
 		</DividedContainer>
 
