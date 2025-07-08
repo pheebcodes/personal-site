@@ -39,17 +39,12 @@ const links = await getCollection("links");
 				>
 					blog
 				</DividedLink>
-				{
-					import.meta.env.DEV ||
-					isAfter(new UTCDate(), new UTCDate("2025-07-12")) ? (
-						<DividedLink
-							class:list={[{ current: section === "poetry" }]}
-							href="/poetry"
-						>
-							poetry
-						</DividedLink>
-					) : null
-				}
+				<DividedLink
+					class:list={[{ current: section === "poetry" }]}
+					href="/poetry"
+				>
+					poetry
+				</DividedLink>
 			</DividedContainer>
 		</DividedContainer>
 
