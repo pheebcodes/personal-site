@@ -95,7 +95,7 @@
 	text-transform: lowercase;
 }
 
-pre {
+pre.astro-code {
 	margin: -1rem 0;
 	padding: 1rem 2rem;
 	overflow-x: auto;
@@ -227,7 +227,7 @@ nav:hover .current:not(:hover) {
 	text-decoration: none;
 }
 
-.markdown blockquote {
+blockquote {
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;

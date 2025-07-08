@@ -1,0 +1,27 @@
+---
+import { render } from "astro:content";
+import { parse } from "date-fns";
+import Time from "../components/time.astro";
+import Base from "../layouts/base.astro";
+
+const { post, section } = Astro.props;
+const { Content } = await render(post);
+
+const dateFmt = "yyyy-MM-dd";
+const date = parse(post.id.slice(0, dateFmt.length), dateFmt, new Date());
+---
+
+<Base
+	title={post.data.title}
+	section={section}
+	class="col container margin-gap grow"
+>
+	<header class="col">
+		<h1>{post.data.title}</h1>
+		<Time date={date} />
+	</header>
+
+	<section class="col margin-gap">
+		<Content />
+	</section>
+</Base>

@@ -1,0 +1,32 @@
+---
+import { getCollection } from "astro:content";
+import { compareDesc, parse } from "date-fns";
+import Base from "../../layouts/base.astro";
+import Time from "../../components/time.astro";
+
+const poemsCollection = await getCollection("poems");
+
+const dateFmt = "yyyy-MM-dd";
+const poems = poemsCollection
+	.map((poem) => ({
+		title: poem.data.title,
+		date: parse(poem.id.slice(0, dateFmt.length), dateFmt, new Date()),
+		url: `/poetry/poems/${poem.id}`,
+	}))
+	.toSorted((a, b) => compareDesc(a.date, b.date));
+---
+
+<Base title="poems" section="poetry" class="col container margin-gap grow">
+	<ol class="toc">
+		{
+			poems.map((poem) => (
+				<li class="col">
+					<span>
+						<a href={poem.url}>{poem.title}</a>
+					</span>
+					<Time date={poem.date} />
+				</li>
+			))
+		}
+	</ol>
+</Base>

@@ -13,6 +13,8 @@ export default defineConfig({
 			"/blog/posts/2023-05-28-blocking-hacker-news",
 		"/feed": "/feed.rss",
 		"/feed.xml": "/feed.rss",
+		"/poetry": "/poetry/toc",
+		"/poetry/toc/1": "/poetry/toc",
 	},
 	markdown: {
 		smartypants: false,

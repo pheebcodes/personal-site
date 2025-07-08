@@ -1,6 +1,6 @@
 ---
 interface Props {
-	section: "home" | "blog";
+	section: "home" | "blog" | "poetry";
 	title?: string;
 	class?: string;
 }
@@ -36,6 +36,12 @@ const links = await getCollection("links");
 					href="/blog"
 				>
 					blog
+				</DividedLink>
+				<DividedLink
+					class:list={[{ current: section === "poetry" }]}
+					href="/poetry"
+				>
+					poetry
 				</DividedLink>
 			</DividedContainer>
 		</DividedContainer>
