@@ -6,7 +6,7 @@ import { compareDesc, isAfter } from "date-fns";
 
 const collection = await getCollection(
 	"poems",
-	(poem) => import.meta.env.DEV || isAfter(poem.data.date, new UTCDate())
+	(poem) => import.meta.env.DEV || isAfter(new UTCDate(), poem.data.date)
 );
 const poems = await Promise.all(
 	collection

@@ -7,7 +7,7 @@ import { UTCDate } from "@date-fns/utc";
 
 const collection = await getCollection(
 	"poems",
-	(poem) => import.meta.env.DEV || isAfter(poem.data.date, new UTCDate())
+	(poem) => import.meta.env.DEV || isAfter(new UTCDate(), poem.data.date)
 );
 
 const dateFmt = "yyyy-MM-dd";
