@@ -1,14 +1,9 @@
 ---
 import { getCollection } from "astro:content";
 import Post from "../../../layouts/post.astro";
-import { UTCDate } from "@date-fns/utc";
-import { isAfter } from "date-fns";
 
 export async function getStaticPaths() {
-	const collection = await getCollection(
-		"poems",
-		(poem) => import.meta.env.DEV || isAfter(poem.data.date, new UTCDate())
-	);
+	const collection = await getCollection("poems");
 	return collection.map((poem) => ({
 		params: { slug: poem.id },
 		props: { poem },
