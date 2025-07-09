@@ -1,13 +1,17 @@
 ---
 import { getCollection } from "astro:content";
-import { compareDesc, parse } from "date-fns";
+import { compareDesc, isAfter, parse } from "date-fns";
 import Base from "../../layouts/base.astro";
 import Time from "../../components/time.astro";
+import { UTCDate } from "@date-fns/utc";
 
-const poemsCollection = await getCollection("poems");
+const collection = await getCollection(
+	"poems",
+	(poem) => import.meta.env.DEV || isAfter(poem.data.date, new UTCDate())
+);
 
 const dateFmt = "yyyy-MM-dd";
-const poems = poemsCollection
+const poems = collection
 	.map((poem) => ({
 		title: poem.data.title,
 		date: parse(poem.id.slice(0, dateFmt.length), dateFmt, new Date()),
