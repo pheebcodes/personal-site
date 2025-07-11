@@ -11,7 +11,7 @@ const blog = defineCollection({
 });
 
 const poems = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./src/content/poems" }),
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/poems" }),
 	schema: z.object({
 		title: z.string(),
 		date: z.date().transform((d) => new UTCDate(d)),

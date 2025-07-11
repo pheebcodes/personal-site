@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
+import mdx from "@astrojs/mdx";
 
 export default defineConfig({
 	site: "https://phoebe.codes",
@@ -19,4 +20,5 @@ export default defineConfig({
 	markdown: {
 		smartypants: false,
 	},
+	integrations: [mdx()],
 });

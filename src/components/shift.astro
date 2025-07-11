@@ -1,0 +1,28 @@
+---
+interface Props {
+	options: string[];
+	frequency?: number;
+}
+
+const { options, frequency = 1000 } = Astro.props;
+---
+
+<span data-shift={`${frequency}|${options.join("|")}`}>{options[0]}</span>
+<script>
+	const elements = document.querySelectorAll("[data-shift]");
+
+	for (const el of elements) {
+		if (!(el instanceof HTMLElement)) {
+			continue;
+		}
+		const [frequencyText, ...items] = el.dataset.shift!.split("|");
+		const frequencyNumber = Number(frequencyText);
+		const frequency = Number.isNaN(frequencyNumber) ? 1000 : frequencyNumber;
+		let i = 0;
+
+		setInterval(() => {
+			i = (i + 1) % items.length;
+			el.innerText = items[i];
+		}, frequency);
+	}
+</script>

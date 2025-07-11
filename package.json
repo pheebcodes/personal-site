@@ -10,6 +10,7 @@
 		"apply-cors": "aws s3api put-bucket-cors --bucket personal-site --cors-configuration file://cors.json"
 	},
 	"dependencies": {
+		"@astrojs/mdx": "^4.3.0",
 		"@astrojs/node": "^9.2.1",
 		"@astrojs/rss": "^4.0.11",
 		"@date-fns/utc": "^2.1.0",
