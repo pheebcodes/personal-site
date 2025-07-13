@@ -3,10 +3,11 @@ import { file, glob } from "astro/loaders";
 import { UTCDate } from "@date-fns/utc";
 
 const blog = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+	loader: glob({ pattern: "**/*.{md,mdx}", base: "./src/content/blog" }),
 	schema: z.object({
 		title: z.string(),
 		date: z.date().transform((d) => new UTCDate(d)),
+		draft: z.literal(true).optional(),
 	}),
 });
 
@@ -15,6 +16,7 @@ const poems = defineCollection({
 	schema: z.object({
 		title: z.string(),
 		date: z.date().transform((d) => new UTCDate(d)),
+		draft: z.literal(true).optional(),
 	}),
 });
 

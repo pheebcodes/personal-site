@@ -1,9 +1,15 @@
 import rss from "@astrojs/rss";
+import { UTCDate } from "@date-fns/utc";
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
-import { compareDesc } from "date-fns";
+import { compareDesc, isAfter } from "date-fns";
 
-const posts = await getCollection("blog");
+const posts = await getCollection(
+	"blog",
+	(post) =>
+		import.meta.env.DEV ||
+		(!post.data.draft && isAfter(new UTCDate(), post.data.date))
+);
 const items = await Promise.all(
 	posts
 		.toSorted((a, b) => compareDesc(a.data.date, b.data.date))

@@ -7,34 +7,26 @@ import { UTCDate } from "@date-fns/utc";
 
 const collection = await getCollection(
 	"poems",
-	(poem) => import.meta.env.DEV || isAfter(new UTCDate(), poem.data.date)
+	(poem) =>
+		import.meta.env.DEV ||
+		(!poem.data.draft && isAfter(new UTCDate(), poem.data.date))
 );
 
-const dateFmt = "yyyy-MM-dd";
-const poems = collection
-	.map((poem) => ({
-		title: poem.data.title,
-		date: parse(poem.id.slice(0, dateFmt.length), dateFmt, new Date()),
-		url: `/poetry/poems/${poem.id}`,
-	}))
-	.toSorted((a, b) => compareDesc(a.date, b.date));
+const poems = collection.toSorted((a, b) =>
+	compareDesc(a.data.date, b.data.date)
+);
 ---
 
 <Base title="poems" section="poetry" class="col container margin-gap grow">
-	<header class="row space-gap">
-		<h2>feed:</h2>
-
-		<a href="/poetry.rss">rss</a>
-	</header>
-
 	<ol class="toc">
 		{
 			poems.map((poem) => (
 				<li class="col">
 					<span>
-						<a href={poem.url}>{poem.title}</a>
+						<a href={`/poetry/poems/${poem.id}`}>{poem.data.title}</a>
 					</span>
-					<Time date={poem.date} />
+					<Time date={poem.data.date} />
+					{poem.data.draft ? <i>(draft)</i> : null}
 				</li>
 			))
 		}
