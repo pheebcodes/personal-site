@@ -1,24 +1,18 @@
 ---
-import { render } from "astro:content";
 import Time from "../components/time.astro";
 import Base from "../layouts/base.astro";
 
-const { post, section } = Astro.props;
-const { Content } = await render(post);
+const { section, title, date, draft = false } = Astro.props;
 ---
 
-<Base
-	title={post.data.title}
-	section={section}
-	class="col container margin-gap grow"
->
+<Base title={title} section={section} class="col container margin-gap grow">
 	<header class="col">
-		<h1>{post.data.title}</h1>
-		<Time date={post.data.date} />
-		{post.data.draft ? <i>(draft)</i> : null}
+		<h1>{title}</h1>
+		<Time date={date} />
+		{draft ? <i>(draft)</i> : null}
 	</header>
 
 	<section class="col margin-gap">
-		<Content />
+		<slot />
 	</section>
 </Base>

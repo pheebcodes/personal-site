@@ -1,25 +1,29 @@
 ---
-title: dream
-date: 2025-07-05
+import { UTCDate } from "@date-fns/utc";
+import Post from "../../../layouts/post.astro";
+
+export const title = "dream";
+export const date = new UTCDate("2025-07-05");
 ---
 
-> not super mobile friendly atm... fixing _eventually_.
+<Post title={title} date={date} section="poetry">
+	<blockquote>not super mobile friendly atm... fixing _eventually_.</blockquote>
 
-<pre>i led you onto a train
+	<pre>i led you onto a train
 southbound connolly station
 to a village by a sea
 quieter than places we're used to
 along roads just fitting
 narrow buses single file</pre>
 
-<pre>we bought each other claddagh
+	<pre>we bought each other claddagh
 rings with pause to see the other
 wear theirs first preventing mistake
 the rings remained unboxed
 silver for me gold for you
 a decision deferred and looming</pre>
 
-<pre>checked into a hotel cheap and small
+	<pre>checked into a hotel cheap and small
 fulfilling a promise you made
 teaching an art unafforded to me
 in my youth <i>shit it's easier
@@ -27,14 +31,14 @@ to do on yourself in the mirror</i>
 but you attempt it anyways
 and i love the look</pre>
 
-<pre>the streets were too dim to find
+	<pre>the streets were too dim to find
 the pub we were pulled into
 with little contest we watched
 finding time between songs to hear
 your <i>exhale</i> as if you held breath
 waiting for the song to end again</pre>
 
-<pre>we made our way to the beach
+	<pre>we made our way to the beach
 dark down narrow stairs
 into the ocean's alcove with sand
 filling our shoes removed
@@ -43,7 +47,7 @@ surprising us both i missed
 the begging of the irish sea
 (name contested) to pull me deep</pre>
 
-<pre>telling me your last night's dream
+	<pre>telling me your last night's dream
 for hearing nothing i focused intense
 on the gentle movement of your lips
 the <i>soft pressure of your breath</i>
@@ -51,7 +55,7 @@ passing folds forming symphonies
 i inevitably failed to hear
 but cherished the sound of</pre>
 
-<pre>lying back in the sand staring
+	<pre>lying back in the sand staring
 at nothing you point declaring it
 <i>romulan space</i> but i didn't believe
 you would know better than i
@@ -59,3 +63,4 @@ about a show i'm still watching
 for the first time i notice
 the lack of space between our ships
 colliding endless and beautiful</pre>
+</Post>

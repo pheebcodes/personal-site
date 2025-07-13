@@ -1,20 +1,25 @@
 ---
-import { getCollection } from "astro:content";
-import { compareDesc, isAfter, parse } from "date-fns";
+import { z } from "astro:content";
+import { compareDesc, isAfter } from "date-fns";
 import Base from "../../layouts/base.astro";
 import Time from "../../components/time.astro";
 import { UTCDate } from "@date-fns/utc";
 
-const collection = await getCollection(
-	"poems",
-	(poem) =>
-		import.meta.env.DEV ||
-		(!poem.data.draft && isAfter(new UTCDate(), poem.data.date))
-);
-
-const poems = collection.toSorted((a, b) =>
-	compareDesc(a.data.date, b.data.date)
-);
+const poemSchema = z.object({
+	title: z.string(),
+	date: z.instanceof(UTCDate),
+	draft: z.boolean().optional(),
+	url: z.string(),
+});
+const poems = Object.values(
+	import.meta.glob("./poems/*.astro", { eager: true })
+)
+	.map((mod) => poemSchema.parse(mod))
+	.filter(
+		(mod) =>
+			import.meta.env.DEV || (!mod.draft && isAfter(new UTCDate(), mod.date))
+	)
+	.toSorted((a, b) => compareDesc(a.date, b.date));
 ---
 
 <Base title="poems" section="poetry" class="col container margin-gap grow">
@@ -23,10 +28,10 @@ const poems = collection.toSorted((a, b) =>
 			poems.map((poem) => (
 				<li class="col">
 					<span>
-						<a href={`/poetry/poems/${poem.id}`}>{poem.data.title}</a>
+						<a href={poem.url}>{poem.title}</a>
 					</span>
-					<Time date={poem.data.date} />
-					{poem.data.draft ? <i>(draft)</i> : null}
+					<Time date={poem.date} />
+					{poem.draft ? <i>(draft)</i> : null}
 				</li>
 			))
 		}
