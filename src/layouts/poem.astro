@@ -13,16 +13,22 @@ const { title, date, draft } = Astro.props;
 
 <Post title={title} date={date} draft={draft} section="poetry">
 	<blockquote class:list={["mobile-warning"]}>
-		my poems might not be mobile/tablet friendly. it's best to view them on a
-		computer. if you are on a computer, full-screen your browser.
+		my poems might not be mobile/tablet friendly, you might have to scroll
+		right.
 	</blockquote>
 
-	<slot />
+	<section class="col margin-gap poem">
+		<slot />
+	</section>
 </Post>
 
 <style>
 	blockquote.mobile-warning {
 		display: none;
+	}
+
+	section.poem {
+		overflow-x: auto;
 	}
 
 	@media only screen and (max-width: 768px) {
