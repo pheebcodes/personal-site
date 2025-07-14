@@ -1,12 +1,12 @@
 ---
 import { UTCDate } from "@date-fns/utc";
-import Post from "../../../layouts/post.astro";
+import Poem from "../../../layouts/poem.astro";
 
 export const title = "silence";
 export const date = new UTCDate("2025-07-09");
 ---
 
-<Post title={title} date={date} section="poetry">
+<Poem title={title} date={date}>
 	<pre>finding silence in swaying
 space between        trees
 or being taken under water
@@ -16,4 +16,4 @@ until sound     disappears</pre>
   by gentle hands      loved
                        rather than     dreaming
                                        just to grasp    shores</pre>
-</Post>
+</Poem>

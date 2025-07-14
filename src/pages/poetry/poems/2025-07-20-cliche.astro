@@ -1,14 +1,14 @@
 ---
 import { UTCDate } from "@date-fns/utc";
 import Shift from "../../../components/shift.astro";
-import Post from "../../../layouts/post.astro";
+import Poem from "../../../layouts/poem.astro";
 
 export const title = "cliché";
 export const date = new UTCDate("2025-07-20");
 export const draft = true;
 ---
 
-<Post title={title} date={date} draft={draft} section="poetry">
+<Poem title={title} date={date} draft={draft}>
 	<pre>i think most writers have received a similar comment
 <i>you should try using ai to write your poems</i>
 no not that one though that one also fucking sucks
@@ -50,4 +50,4 @@ musty narrow booths with some <b><Shift options={['man', 'pedophile', 'fucker', 
 flip side obligated to forgive me</pre>
 
 	<pre>but for now these words are all i have</pre>
-</Post>
+</Poem>

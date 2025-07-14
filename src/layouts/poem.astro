@@ -1,0 +1,33 @@
+---
+import type { UTCDate } from "@date-fns/utc";
+import Post from "./post.astro";
+
+interface Props {
+	title: string;
+	date: UTCDate;
+	draft?: boolean;
+}
+
+const { title, date, draft } = Astro.props;
+---
+
+<Post title={title} date={date} draft={draft} section="poetry">
+	<blockquote class:list={["mobile-warning"]}>
+		my poems might not be mobile/tablet friendly. it's best to view them on a
+		computer. if you are on a computer, full-screen your browser.
+	</blockquote>
+
+	<slot />
+</Post>
+
+<style>
+	blockquote.mobile-warning {
+		display: none;
+	}
+
+	@media only screen and (max-width: 1024px) {
+		blockquote.mobile-warning {
+			display: block;
+		}
+	}
+</style>

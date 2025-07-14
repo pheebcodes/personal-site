@@ -1,14 +1,12 @@
 ---
 import { UTCDate } from "@date-fns/utc";
-import Post from "../../../layouts/post.astro";
+import Poem from "../../../layouts/poem.astro";
 
 export const title = "dream";
 export const date = new UTCDate("2025-07-05");
 ---
 
-<Post title={title} date={date} section="poetry">
-	<blockquote>not super mobile friendly atm... fixing _eventually_.</blockquote>
-
+<Poem title={title} date={date}>
 	<pre>i led you onto a train
 southbound connolly station
 to a village by a sea
@@ -63,4 +61,4 @@ about a show i'm still watching
 for the first time i notice
 the lack of space between our ships
 colliding endless and beautiful</pre>
-</Post>
+</Poem>
