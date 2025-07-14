@@ -11,6 +11,5 @@ const date = new UTCDate(tzDate);
 ---
 
 <time datetime={format(date, "y-MM-dd")}>
-	{format(date, "d")}
-	{format(date, "MMMM")}, {format(date, "y")}
+	{format(date, "d MMMM, y").toLowerCase()}
 </time>
